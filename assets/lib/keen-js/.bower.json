@@ -1,0 +1,50 @@
+{
+  "name": "keen-js",
+  "version": "3.0.7",
+  "homepage": "https://github.com/keenlabs/keen-js",
+  "authors": [
+    "Dustin Larimer <dustin@keen.io>"
+  ],
+  "description": "JS Library for the Keen IO API",
+  "keywords": [
+    "analytics",
+    "metrics",
+    "tracking",
+    "logging",
+    "stats",
+    "pageviews",
+    "keen",
+    "keen.io",
+    "keen-io"
+  ],
+  "license": "MIT",
+  "main": "./dist/keen.min.js",
+  "ignore": [
+    "**/.*",
+    "config",
+    "bower_components",
+    "node_modules",
+    "src",
+    "test",
+    "Gruntfile.js",
+    "*.json",
+    "*.md"
+  ],
+  "devDependencies": {
+    "mocha": "~1.18.2",
+    "chai": "~1.9.1",
+    "sinon": "http://sinonjs.org/releases/sinon-1.9.0.js",
+    "sinon-ie": "http://sinonjs.org/releases/sinon-ie-1.9.0.js",
+    "requirejs-bower": "2.1.14"
+  },
+  "_release": "3.0.7",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.0.7",
+    "commit": "90f6da30c83e421936916ce43e43c3143282c423"
+  },
+  "_source": "git://github.com/keenlabs/keen-js.git",
+  "_target": "~3.0.7",
+  "_originalSource": "keen-js",
+  "_direct": true
+}
