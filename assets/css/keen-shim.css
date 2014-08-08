@@ -1,0 +1,15 @@
+h1, h2, h3 {
+  font-family: "Gotham Rounded A","Gotham Rounded B","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+h1 {
+  font-weight: normal;
+  line-height: 36px;
+  margin: 12px 0;
+}
+h3 {
+  color: rgb(84, 102, 120);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: -0.28px;
+  line-height: 29.39px;
+}
