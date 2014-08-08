@@ -50,6 +50,7 @@ Keen.ready(function(){
       end: "2014-05-05T00:00:00.000Z"
     }
   });
+  
   client.draw(impressions_timeline_by_country, document.getElementById("chart-02"), {
     chartType: "columnchart",
     title: false,
