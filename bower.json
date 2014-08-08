@@ -1,13 +1,17 @@
 {
-  "name": "dashboards",
+  "name": "keen-dashboards",
   "version": "0.0.0",
   "homepage": "https://keenlabs.github.io/dashboards/",
   "authors": [
-    "Sean Dokko <dokko1230@gmail.com>"
+    "Sean Dokko <dokko1230@gmail.com>",
+    "Ritchie Benevedes <ritchieleeann@gmail.com>",
+    "Dustin Larimer <dustin@keen.io>"
   ],
   "keywords": [
-    "keen",
-    "dashboards"
+    "keen io",
+    "dashboards",
+    "dataviz",
+    "visualization"
   ],
   "license": "MIT",
   "ignore": [
