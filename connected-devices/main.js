@@ -38,6 +38,17 @@ Keen.ready(function(){
     }
   });
 
+  // ----------------------------------------
+  // Clicks
+  // ----------------------------------------
+
+  var clicks = new Keen.Query("count", {
+    eventCollection: "click"
+  });
+  client.draw(clicks, document.getElementById("chart-02"), {
+    // Custom configuration here
+  });
+
 
 
 });
