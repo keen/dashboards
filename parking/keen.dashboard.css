@@ -13,9 +13,13 @@ body {
   color: #fbfbfb;
 }
 
-div [class^="col-"] {
+div[class^="col-"] {
   padding-left: 5px;
   padding-right: 5px;
+}
+div[class^="col-"] div[class^="col-"] {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .chart-wrapper {
@@ -33,8 +37,9 @@ div [class^="col-"] {
 }
 
 .chart-wrapper .chart-stage {
-  min-height: 240px;
+  /*min-height: 190px;*/
   padding: 5px 10px;
+  position: relative;
 }
 
 .chart-wrapper .chart-notes {
