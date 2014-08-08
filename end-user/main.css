@@ -1,11 +1,11 @@
 * {
   box-sizing: border-box; }
 
-a {
-  color: #fff; }
-
 img {
   max-width: 100%; }
+
+.wrapper a {
+  color: #fff; }
 
 .banner {
   background: url(http://placekitten.com/1500/350) no-repeat;
