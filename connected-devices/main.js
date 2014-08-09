@@ -44,7 +44,9 @@ Keen.ready(function(){
     eventCollection: "Users"
   });
   client.draw(users, document.getElementById("chart-02"), {
+    title: "Users",
     width: "auto",
+    colors: ["blue"]
   });
 
 
@@ -56,7 +58,8 @@ Keen.ready(function(){
     timefame: "this_hour"
   });
   client.draw(awake, document.getElementById("chart-03"), {
-    width: "auto",
+    title: "Awake",
+    width: "auto"
   });
 
   // ----------------------------------------
@@ -68,7 +71,8 @@ Keen.ready(function(){
     timefame: "this_hour"
   });
   client.draw(asleep, document.getElementById("chart-04"), {
-    width: "auto",
+    title: "Asleep",
+    width: "auto"
   });
 
 });
