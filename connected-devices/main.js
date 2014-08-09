@@ -7,17 +7,15 @@ Keen.ready(function(){
 
 
 
+
   // ----------------------------------------
   // Impressions timeline (device)
   // ----------------------------------------
   var impressions_timeline_by_device = new Keen.Query("count", {
     eventCollection: "impressions",
     groupBy: "user.device_info.device.family",
-    interval: "hourly",
-    timeframe: {
-      start: "2014-05-04T00:00:00.000Z",
-      end: "2014-05-05T00:00:00.000Z"
-    }
+    interval: "daily",
+    timeframe: "this_month"
   });
   client.draw(impressions_timeline_by_device, document.getElementById("chart-01"), {
     chartType: "columnchart",
@@ -39,16 +37,38 @@ Keen.ready(function(){
   });
 
   // ----------------------------------------
-  // Clicks
+  // Users
   // ----------------------------------------
 
-  var clicks = new Keen.Query("count", {
-    eventCollection: "click"
+  var users = new Keen.Query("count", {
+    eventCollection: "Users"
   });
-  client.draw(clicks, document.getElementById("chart-02"), {
-    // Custom configuration here
+  client.draw(users, document.getElementById("chart-02"), {
+    width: "auto",
   });
 
 
+  // ----------------------------------------
+  // Awake
+  // ----------------------------------------
+  var awake = new Keen.Query("count", {
+    eventCollection: "Awake Now",
+    timefame: "this_hour"
+  });
+  client.draw(awake, document.getElementById("chart-03"), {
+    width: "auto",
+  });
+
+  // ----------------------------------------
+  // Asleep
+  // ----------------------------------------
+
+  var asleep = new Keen.Query("count", {
+    eventCollection: "Asleep Now",
+    timefame: "this_hour"
+  });
+  client.draw(asleep, document.getElementById("chart-04"), {
+    width: "auto",
+  });
 
 });
