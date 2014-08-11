@@ -64,6 +64,11 @@ body.application div[class^="col-"] div[class^="col-"] {
   padding-right: 15px;
 }
 
+body.application hr {
+  border-color: #d7d7d7;
+  margin: 10px 0;
+}
+
 
 
 .navbar-inverse {
