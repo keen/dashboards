@@ -4,11 +4,19 @@ a, a:focus, a:hover, a:active {
 
 h1, h2, h3 {
   font-family: "Gotham Rounded A","Gotham Rounded B","Helvetica Neue",Helvetica,Arial,sans-serif;
+  margin: 12px 0;
 }
 h1 {
+  font-size: 36px;
   font-weight: normal;
+  letter-spacing: -0.03em;
   line-height: 36px;
   margin: 12px 0;
+}
+h2 {
+  color: #2a333c;
+  font-weight: 400;
+  font-size: 30px;
 }
 h3 {
   color: rgb(84, 102, 120);
@@ -24,6 +32,7 @@ h3 {
 .masthead {
   background-color: #00afd7;
   color: #fff;
+  margin: 0 0 24px;
   padding: 40px 0 20px;
 }
 
