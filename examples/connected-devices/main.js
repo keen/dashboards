@@ -41,7 +41,7 @@ Keen.ready(function(){
   // ----------------------------------------
 
   var users = new Keen.Query("count", {
-    eventCollection: "Users"
+    eventCollection: "users"
   });
   client.draw(users, document.getElementById("chart-02"), {
     title: "Users",
@@ -54,7 +54,7 @@ Keen.ready(function(){
   // Awake
   // ----------------------------------------
   var awake = new Keen.Query("count", {
-    eventCollection: "Awake Now",
+    eventCollection: "awake",
     timefame: "this_hour"
   });
   client.draw(awake, document.getElementById("chart-03"), {
@@ -67,11 +67,31 @@ Keen.ready(function(){
   // ----------------------------------------
 
   var asleep = new Keen.Query("count", {
-    eventCollection: "Asleep Now",
+    eventCollection: "asleep",
     timefame: "this_hour"
   });
   client.draw(asleep, document.getElementById("chart-04"), {
     title: "Asleep",
+    width: "auto"
+  });
+
+  // ----------------------------------------
+  // Funnel
+  // ----------------------------------------
+
+  var funnel = new Keen.Query("steps"[
+      {
+         event_collection:"device_ordered",
+         actor_property:"user.id"
+      },
+      {
+         event_collection:"sign_up",
+         actor_property:"user.id"
+      }
+  ]);
+  client.draw(funnel, document.getElementById("chart-05"), {
+    chartType: "bar",    
+    title: "Set-up",
     width: "auto"
   });
 
