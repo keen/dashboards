@@ -1,0 +1,12 @@
+{
+  "asi": true,
+  "boss": true,
+  "eqnull": true,
+  "expr": true,
+  "funcscope": true,
+  "loopfunc": true,
+  "shadow": true,
+  "smarttabs": true,
+
+  "node": true
+}
