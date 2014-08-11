@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard Starter UI, by Keen IO</title>
+  <link rel="stylesheet" href="../assets/lib/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/keen-dashboards.css">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body class="application">
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="navbar-brand" href="./">Dashboard Starter UI</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <li><a href="https://keen.io">Home</a></li>
+          <li><a href="https://keen.io/team">Team</a></li>
+          <li><a href="https://github.com/keenlabs/dashboard-starter-kit">Github</a></li>
+          <li><a href="https://users.keen.io">Chat Support</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Average data latency gauge(past 24 hours)
+          </div>
+          <div class="chart-stage">
+            <div id="chart-01"></div>
+          </div>
+          <div class="chart-notes">
+            This is a sample text region to describe this chart.
+          </div>
+        </div>
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            API uptime by hour (past 24 hours)
+          </div>
+          <div class="chart-stage">
+            <div id="chart-02"></div>
+          </div>
+          <div class="chart-notes">
+            This is a sample text region to describe this chart.
+          </div>
+        </div>
+
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Total packets per minute gauge (past 24 hours)
+          </div>
+          <div class="chart-stage">
+            <div id="chart-03"></div>
+          </div>
+          <div class="chart-notes">
+            This is a sample text region to describe this chart.
+          </div>
+        </div>
+
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Total packets by customer per day
+          </div>
+          <div class="chart-stage">
+            <div id="chart-04"></div>
+          </div>
+          <div class="chart-notes">
+            This is a sample text region to describe this chart.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat repellendus deleniti voluptates nam voluptatum rerum molestiae veritatis optio, quaerat unde eaque dolor et, eos cupiditate ut illum minus tempore! Commodi deleniti fugit blanditiis praesentium ducimus qui doloremque sapiente quaerat ab, tempore iure est quos nulla culpa, suscipit ex odio doloribus.</p>
+      </div>
+    </div>
+
+    <p class="small text-muted">Built with &#9829; by <a href="https://keen.io">Keen IO</a></p>
+
+  </div>
+
+  <script src="../assets/lib/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://d26b395fwzu5fz.cloudfront.net/latest/keen.min.js"></script>
+  <script src="keen.dashboard.js"></script>
+  <script>
+  var meta = new Keen({
+    projectId: "5368fa5436bf5a5623000000",
+    writeKey: "725f3a571824d9c29f6e4d1c39af349a114d9034f8e493f95d39802529e2ccbb174033077bdcf10b541dbb50c20105922c59bbe1fe7741cb4b632dd0bc84fe98c0b591e17da3d429ef867cc674be0ad20ad768a5210662d2d18ff5492f37a1f91ce697a5489064bb3fa95c827b6cb394",
+    requestType: "beacon"
+  });
+  meta.addEvent("visits", {
+    page: {
+      title: document.title,
+      host: document.location.host,
+      href: document.location.href,
+      path: document.location.pathname,
+      protocol: document.location.protocol.replace(/:/g, ""),
+      query: document.location.search
+    },
+    visitor: {
+      referrer: document.referrer,
+      ip_address: "${keen.ip}",
+      // tech: {} //^ created by ip_to_geo add-on
+      user_agent: "${keen.user_agent}"
+      // visitor: {} //^ created by ua_parser add-on
+    },
+    keen: {
+      timestamp: new Date().toISOString(),
+      addons: [
+        { name:"keen:ip_to_geo", input: { ip:"visitor.ip_address" }, output:"visitor.geo" },
+        { name:"keen:ua_parser", input: { ua_string:"visitor.user_agent" }, output:"visitor.tech" }
+      ]
+    }
+  });
+  // More data modeling examples here:
+  // https://github.com/keenlabs/data-modeling-guide/
+  </script>
+</body>
+</html>
