@@ -17,7 +17,7 @@ window.requestAnimationFrame(function () {
     var scores = window.client.run(query, function(res) {
       new Keen.Visualization(res, el, {
         title: "Best Scores",
-        width: 500,
+        width: 400,
         chartType: "piechart",
         chartOptions: {
           pieHole: .5

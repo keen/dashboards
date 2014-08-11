@@ -1,4 +1,8 @@
 @import url(fonts/clear-sans.css);
+.navbar-inverse {
+  background-color: #3d4a57;
+  border-color: #333; }
+
 html, body {
   margin: 0;
   padding: 0;
@@ -6,9 +10,6 @@ html, body {
   color: #776e65;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px; }
-
-body {
-  margin: 80px 0; }
 
 .header {
   background-color: #00afd7;
@@ -61,7 +62,7 @@ h1.title {
   background: #bbada0;
   padding: 15px 25px;
   font-size: 25px;
-  height: 25px;
+  height: 60px;
   line-height: 47px;
   font-weight: bold;
   border-radius: 3px;
@@ -120,11 +121,11 @@ hr {
   margin-top: 20px;
   margin-bottom: 30px; }
 
-.container {
+.container-2048 {
   width: 960px;
   background-color: white;
   padding: 0 50px 50px 50px;
-  margin: 0 auto; }
+  margin: 50px auto; }
 
 .main-container {
   margin-top: 40px; }
@@ -486,10 +487,12 @@ hr {
   -moz-animation-fill-mode: backwards;
   animation-fill-mode: backwards; }
 
-.above-game:after {
-  content: "";
-  display: block;
-  clear: both; }
+.above-game {
+  margin-top: 5px; }
+  .above-game:after {
+    content: "";
+    display: block;
+    clear: both; }
 
 .game-intro {
   float: left;

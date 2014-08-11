@@ -21,6 +21,12 @@ $game-container-background: #bbada0;
 
 $transition-speed: 100ms;
 
+// BOOTSTRAP OVERRIDES
+.navbar-inverse {
+  background-color: #3d4a57;
+  border-color: #333;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -29,10 +35,6 @@ html, body {
   color: $text-color;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px;
-}
-
-body {
-  margin: 80px 0;
 }
 
 .header {
@@ -78,7 +80,7 @@ h1.title {
   background: $game-container-background;
   padding: 15px 25px;
   font-size: $height;
-  height: $height;
+  height: 60px;
   line-height: $height + 22px;
   font-weight: bold;
   border-radius: 3px;
@@ -146,11 +148,11 @@ hr {
   margin-bottom: 30px;
 }
 
-.container {
+.container-2048 {
   width: 960px;
   background-color: white;
   padding: 0 50px 50px 50px;
-  margin: 0 auto;
+  margin: 50px auto;
 }
 
 .main-container {
@@ -474,6 +476,7 @@ hr {
 
 .above-game {
   @include clearfix;
+  margin-top: 5px;
 }
 
 .game-intro {
@@ -569,3 +572,5 @@ hr {
     }
   }
 }
+
+
