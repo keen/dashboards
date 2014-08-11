@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Connected Devices Dashboard</title>
+  <link rel="stylesheet" href="../assets/lib/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/keen-dashboards.css">
+</head>
+<body class="appication">
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="./">Connected Devices</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <li><a href="https://keen.io">Home</a></li>
+          <li><a href="https://keen.io/team">Team</a></li>
+          <li><a href="https://github.com/keenlabs/dashboard-starter-kit">Github</a></li>
+          <li><a href="https://users.keen.io">Chat Support</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            New Users by Day
+          </div>
+          <div class="chart-stage">
+            <div id="chart-01"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ 
+    <div class="row">
+
+      <div class="col-sm-4">
+          <div class="chart-stage">
+            <div id="chart-02"></div>
+          </div>
+      </div>
+
+      <div class="col-sm-4">
+          <div class="chart-stage">
+            <div id="chart-03"></div>
+          </div>
+      </div>
+
+      <div class="col-sm-4">
+         <div class="chart-stage">
+            <div id="chart-04"></div>
+          </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-sm-6">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Funnel
+          </div>
+          <div class="chart-stage">
+            <div id="chart-06"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Map
+          </div>
+          <div class="chart-stage">
+            <div id="chart-07"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <script src="../assets/lib/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://d26b395fwzu5fz.cloudfront.net/latest/keen.min.js"></script>
+  <script src="main.js"></script>
+
+  </script>
+</body>
+</html>
