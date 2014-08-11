@@ -37,7 +37,7 @@ h3 {
 }
 
 .masthead h1 {
-  margin: 0;
+  margin: 5px 0;
 }
 .masthead small,
 .masthead a,
@@ -47,7 +47,10 @@ h3 {
   color: #fff;
 }
 
-.masthead p {}
+.masthead p {
+  color: #b3e7f3;
+  font-weight: 200;
+}
 
 
 
