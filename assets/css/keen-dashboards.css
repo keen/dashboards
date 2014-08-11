@@ -90,6 +90,7 @@ body.application hr {
 .navbar-inverse .navbar-nav > li > a,
 .navbar a.navbar-brand {
   color: #fbfbfb;
+  text-decoration: none;
 }
 
 .chart-wrapper {

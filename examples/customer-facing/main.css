@@ -22,32 +22,14 @@ img {
   top: -42px;
   position: relative; }
 
-.nav-tabs li a {
-  background-color: #fff;
-  color: black; }
-.nav-tabs li.active a {
-  background-color: #eee; }
-
 .sidebar-container {
   border-radius: 30px; }
   .sidebar-container .sidebar-navs {
-    margin-top: 20px;
-    background-color: #eee;
-    border-radius: 5px; }
-    .sidebar-container .sidebar-navs .sidebar-nav-item {
-      height: 30px;
-      text-align: center; }
-      .sidebar-container .sidebar-navs .sidebar-nav-item:hover {
-        background-color: #ddd; }
-      .sidebar-container .sidebar-navs .sidebar-nav-item a {
-        color: gray;
-        vertical-align: -webkit-baseline-middle; }
-        .sidebar-container .sidebar-navs .sidebar-nav-item a:hover {
-          text-decoration: none; }
+    margin-top: 20px; }
 
 .main-container .content-wrapper {
-  background-color: #eee;
-  padding: 1px 20px 0 20px;
+  padding: 1px 20px 18px 20px;
+  border-bottom: 1px solid #d7d7d7;
   margin-top: 25px; }
   .main-container .content-wrapper .main-content {
     margin-top: 10px; }
@@ -83,3 +65,48 @@ img {
   color: #808080;
   font-size: 12px;
   padding: 8px 10px 5px; }
+
+.tabs-below > .nav-tabs,
+.tabs-right > .nav-tabs,
+.tabs-left > .nav-tabs {
+  width: 100%;
+  border-bottom: 0; }
+
+.tab-content > .tab-pane,
+.pill-content > .pill-pane {
+  display: none; }
+
+.tab-content > .active,
+.pill-content > .active {
+  display: block; }
+
+.tabs-left > .nav-tabs > li,
+.tabs-right > .nav-tabs > li {
+  float: none; }
+
+.tabs-left > .nav-tabs > li > a,
+.tabs-right > .nav-tabs > li > a {
+  min-width: 74px;
+  margin-right: 0;
+  margin-bottom: 3px; }
+
+.tabs-left > .nav-tabs {
+  float: left;
+  margin-right: 19px;
+  border-right: 1px solid #ddd; }
+
+.tabs-left > .nav-tabs > li > a {
+  margin-right: -1px;
+  -webkit-border-radius: 4px 0 0 4px;
+  -moz-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px; }
+
+.tabs-left > .nav-tabs > li > a:hover,
+.tabs-left > .nav-tabs > li > a:focus {
+  border-color: #eeeeee #dddddd #eeeeee #eeeeee; }
+
+.tabs-left > .nav-tabs .active > a,
+.tabs-left > .nav-tabs .active > a:hover,
+.tabs-left > .nav-tabs .active > a:focus {
+  border-color: #ddd transparent #ddd #ddd;
+  *border-right-color: #ffffff; }
