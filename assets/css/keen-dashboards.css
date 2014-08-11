@@ -24,11 +24,18 @@ h3 {
 .masthead {
   background-color: #00afd7;
   color: #fff;
-  padding: 40px 0 0px;
+  padding: 40px 0 20px;
 }
 
 .masthead h1 {
   margin: 0;
+}
+.masthead small,
+.masthead a,
+.masthead a:focus,
+.masthead a:hover,
+.masthead a:active {
+  color: #fff;
 }
 
 .masthead p {}
@@ -57,6 +64,11 @@ body.application div[class^="col-"] div[class^="col-"] {
   padding-right: 15px;
 }
 
+body.application hr {
+  border-color: #d7d7d7;
+  margin: 10px 0;
+}
+
 
 
 .navbar-inverse {
@@ -76,14 +88,14 @@ body.application div[class^="col-"] div[class^="col-"] {
 }
 .chart-wrapper .chart-title {
   border-bottom: 1px solid #d7d7d7;
-  color: #555;
-  font-size: 15px;
-  font-weight: 500;
-  padding: 8px 10px 5px;
+  color: #666;
+  font-size: 14px;
+  font-weight: 200;
+  padding: 7px 10px 4px;
 }
 
 .chart-wrapper .chart-stage {
-  min-height: 240px;
+  /*min-height: 240px;*/
   overflow: hidden;
   padding: 5px 10px;
   position: relative;
