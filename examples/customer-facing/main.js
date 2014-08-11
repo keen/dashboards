@@ -18,16 +18,17 @@ Keen.ready(function(){
     }
   });
   client.draw(impressions_timeline, document.getElementById("chart-01"), {
-    chartType: "columnchart",
+    chartType: "areachart",
     title: false,
-    height: 250,
+    height: 133,
     width: "auto",
     chartOptions: {
       chartArea: {
+        left: "0%",
+        top: "0%",
         height: "75%",
-        left: "10%",
-        top: "5%",
-        width: "60%"
+        bottom: "0%",
+        width: "100%"
       },
       backgroundColor: 'transparent',
       bar: {
@@ -54,14 +55,15 @@ Keen.ready(function(){
   client.draw(impressions_timeline_by_country, document.getElementById("chart-02"), {
     chartType: "columnchart",
     title: false,
-    height: 250,
+    height: 133,
     width: "auto",
     chartOptions: {
       chartArea: {
+        left: "0%",
+        top: "0%",
         height: "75%",
-        left: "10%",
-        top: "5%",
-        width: "60%"
+        bottom: "0%",
+        width: "100%"
       },
       backgroundColor: 'transparent',
       bar: {
@@ -87,14 +89,15 @@ Keen.ready(function(){
   client.draw(impressions_timeline_by_device, document.getElementById("chart-03"), {
     chartType: "columnchart",
     title: false,
-    height: 250,
+    height: 133,
     width: "auto",
     chartOptions: {
       chartArea: {
+        left: "0%",
+        top: "0%",
         height: "75%",
-        left: "10%",
-        top: "5%",
-        width: "60%"
+        bottom: "0%",
+        width: "100%"
       },
       backgroundColor: 'transparent',
       bar: {

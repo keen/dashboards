@@ -3,6 +3,7 @@
 <head>
   <title>Dashboard Starter UI, by Keen IO</title>
   <link rel="stylesheet" href="../../assets/lib/bootstrap/dist/css/bootstrap.min.css">
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
@@ -39,11 +40,10 @@
       <div class="col-xs-2">
         <div class="sidebar-container" style="margin: -90px 0 0;">
           <img src="http://placekitten.com/300/300" alt="" class="img-thumbnail">
-          <div class="sidebar-profile">
-            <p><strong>Name:</strong> Mr. Fluffles</p>
-            <p><strong>Age:</strong> 15</p>
-            <p><strong>Address:</strong>1209 lorem st. San Francisco, CA</p>
-            <p><strong>Birthdate:</strong> March 31, 1999</p>
+          <div class="sidebar-navs">
+            <div class="sidebar-nav-item"><a href="#">About this cat</a></div>
+            <div class="sidebar-nav-item"><a href="#">Cat Friends: <strong>201</strong></a></div>
+            <div class="sidebar-nav-item"><a target="_blank" href="http://www.google.com/search?q=cats&es_sm=119&source=lnms&tbm=isch&sa=X&ei=Pw3pU97GMIihogTQsIDQBg&ved=0CAgQ_AUoAQ&biw=1440&bih=779">Cat Photos</a></div>
           </div>
         </div>
       </div>
@@ -52,26 +52,33 @@
         <div class="main-container">
           <div class="row">
             <div class="col-xs-12">
-              <ul class="nav nav-tabs" role="tablist">
+              <div class="banner-profile">
+                <ul class="list-unstyled">
+                  <li><i class="fa fa-paw"></i> <strong>Mr. Fluffles</strong></li>
+                  <li><i class="fa fa-graduation-cap"></i> <strong>Studied</strong> at <a href="#">Catbright Academy</a></li>
+                  <li><i class="fa fa-home"></i> <strong>Lives</strong> in a tiny box</li>
+                </ul>
+              </div>
+              <!-- <ul class="nav nav-tabs" role="tablist">
                 <li class="active"><a href="#">Heartbeat</a></li>
                 <li><a href="#">Profile</a></li>
                 <li><a href="#">Messages</a></li>
-              </ul>
+              </ul> -->
               <div class="content-wrapper">
                 <div class="content-header">
-                  <h2>Kitty stress over time</h2>
+                  <h3>Kitty stress over time</h3>
                 </div>
                 <div class="main-content" id="chart-01"></div>
               </div>
               <div class="content-wrapper">
                 <div class="content-header">
-                  <h2>Kitty activity over time</h2>
+                  <h3>Kitty activity over time</h3>
                 </div>
                 <div class="main-content" id="chart-02"></div>
               </div>
               <div class="content-wrapper">
                 <div class="content-header">
-                  <h2>Kitty calorie intake over time</h2>
+                  <h3>Kitty calorie intake over time</h3>
                 </div>
                 <div class="main-content" id="chart-03"></div>
               </div>

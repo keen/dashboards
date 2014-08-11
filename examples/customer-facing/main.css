@@ -4,15 +4,19 @@
 img {
   max-width: 100%; }
 
-.wrapper a {
-  color: #fff; }
-
 .banner {
   background: url(http://placekitten.com/1500/350) no-repeat;
   height: 350px; }
   .banner .header {
     position: relative;
     top: 70px; }
+
+.banner-profile {
+  background: #eee;
+  padding: 10px;
+  width: 250px;
+  margin-top: -65px;
+  opacity: .9; }
 
 .wrapper {
   top: -42px;
@@ -26,20 +30,27 @@ img {
 
 .sidebar-container {
   border-radius: 30px; }
-  .sidebar-container .sidebar-profile {
+  .sidebar-container .sidebar-navs {
     margin-top: 20px;
     background-color: #eee;
-    padding: 20px;
     border-radius: 5px; }
+    .sidebar-container .sidebar-navs .sidebar-nav-item {
+      height: 30px;
+      text-align: center; }
+      .sidebar-container .sidebar-navs .sidebar-nav-item:hover {
+        background-color: #ddd; }
+      .sidebar-container .sidebar-navs .sidebar-nav-item a {
+        color: gray;
+        vertical-align: -webkit-baseline-middle; }
+        .sidebar-container .sidebar-navs .sidebar-nav-item a:hover {
+          text-decoration: none; }
 
-.main-container .col-md-12:nth-child(1) {
-  margin-bottom: 50px; }
 .main-container .content-wrapper {
   background-color: #eee;
   padding: 1px 20px 0 20px;
-  margin-top: 20px; }
+  margin-top: 25px; }
   .main-container .content-wrapper .main-content {
-    margin-top: 50px; }
+    margin-top: 10px; }
 
 .navbar-inverse {
   background-color: #3d4a57;
