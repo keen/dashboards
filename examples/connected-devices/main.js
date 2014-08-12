@@ -45,7 +45,7 @@ Keen.ready(function(){
   });
   client.draw(users, document.getElementById("chart-02"), {
     title: "Users",
-    width: "auto",
+    width: "auto"
   });
 
 
@@ -101,8 +101,11 @@ Keen.ready(function(){
 
   client.draw(funnel, document.getElementById("chart-05"), {
     chartType: "barchart",    
-    title: "Set-up",
+    title: false,
     width: "auto",
+    chartOptions: {
+      legend: { position: "none" }
+    },
     labelMapping: {
       "account_setup": "Account Set-up",
       "device_activated": "Device Activated",
@@ -112,7 +115,7 @@ Keen.ready(function(){
   });
 
   // ----------------------------------------
-  // Mapbox
+  // Mapbox - Active Users
   // ----------------------------------------
   L.mapbox.accessToken = 'pk.eyJ1Ijoicml0Y2hpZWxlZWFubiIsImEiOiJsd3VLdFl3In0.lwvdUU2VGB9VGDw7ulA4jA';
   var map = L.mapbox.map('map', 'ritchieleeann.j7bc1dpl', {
@@ -124,8 +127,8 @@ Keen.ready(function(){
   // .addAttribution('<a href="https://foursquare.com/">Places data from Foursquare</a>');
   var keenMapData = L.layerGroup().addTo(map);
 
-  var pageviews_geo = new Keen.Query("count", {
-    eventCollection: "pageviews",
+  var users_active = new Keen.Query("count", {
+    eventCollection: "users_active",
     interval: "hourly",
     groupBy: "user.device_info.browser.family",
     timeframe: {
@@ -133,7 +136,7 @@ Keen.ready(function(){
       end: "2014-05-05T00:00:00.000Z"
     }
   });
-  client.run(pageviews_geo, function(res){
+  client.run(users_active, function(res){
     console.log(res);
 
      // Transform each venue result into a marker on the map.
