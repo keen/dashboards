@@ -9,25 +9,25 @@ Keen.ready(function(){
 
 
   // ----------------------------------------
-  // Impressions timeline (device)
+  // New Users Timeline
   // ----------------------------------------
-  var impressions_timeline_by_device = new Keen.Query("count", {
-    eventCollection: "impressions",
-    groupBy: "user.device_info.device.family",
-    interval: "daily",
-    timeframe: "this_month"
+  var new_users = new Keen.Query("count", {
+    eventCollection: "new_users",
+    interval: "monthly",
+    timeframe: "this_year"
   });
-  client.draw(impressions_timeline_by_device, document.getElementById("chart-01"), {
+  client.draw(new_users, document.getElementById("chart-01"), {
     chartType: "columnchart",
     title: false,
     height: 250,
     width: "auto",
     chartOptions: {
+      legend: { position: "none" },
       chartArea: {
         height: "75%",
-        left: "10%",
+        left: "5%",
         top: "5%",
-        width: "60%"
+        width: "90%"
       },
       bar: {
         groupWidth: "85%"
@@ -46,7 +46,6 @@ Keen.ready(function(){
   client.draw(users, document.getElementById("chart-02"), {
     title: "Users",
     width: "auto",
-    colors: ["blue"]
   });
 
 
@@ -72,27 +71,82 @@ Keen.ready(function(){
   });
   client.draw(asleep, document.getElementById("chart-04"), {
     title: "Asleep",
-    width: "auto"
+    width: "auto",
   });
 
   // ----------------------------------------
   // Funnel
   // ----------------------------------------
 
-  var funnel = new Keen.Query("steps"[
+  var funnel = new Keen.Query('funnel', {
+    steps: [
       {
-         event_collection:"device_ordered",
-         actor_property:"user.id"
+         event_collection: "account_setup",
+         actor_property: "user.id"
       },
       {
-         event_collection:"sign_up",
-         actor_property:"user.id"
+        event_collection: "device_activated",
+        actor_property: "user.id"
+      },
+      {
+        event_collection: "first_data_sent_to_cloud",
+        actor_property: "user.id"
+      },
+      {
+        event_collection: "first_mobile_app_view",
+        actor_property: "user.id"
       }
-  ]);
-  client.draw(funnel, document.getElementById("chart-05"), {
-    chartType: "bar",    
-    title: "Set-up",
-    width: "auto"
+    ]
   });
+
+  client.draw(funnel, document.getElementById("chart-05"), {
+    chartType: "barchart",    
+    title: "Set-up",
+    width: "auto",
+    labelMapping: {
+      "account_setup": "Account Set-up",
+      "device_activated": "Device Activated",
+      "first_data_sent_to_cloud": "First Data to Cloud",
+      "first_mobile_app_view": "First App View"
+    }
+  });
+
+  // ----------------------------------------
+  // Mapbox
+  // ----------------------------------------
+  L.mapbox.accessToken = 'pk.eyJ1Ijoicml0Y2hpZWxlZWFubiIsImEiOiJsd3VLdFl3In0.lwvdUU2VGB9VGDw7ulA4jA';
+  var map = L.mapbox.map('map', 'ritchieleeann.j7bc1dpl', {
+    attributionControl: true
+  });
+  map.setView([37.61, -122.357], 9);
+  map.attributionControl
+  .addAttribution('<a href="https://keen.io/">Custom Analytics by Keen IO</a>');
+  // .addAttribution('<a href="https://foursquare.com/">Places data from Foursquare</a>');
+  var keenMapData = L.layerGroup().addTo(map);
+
+  var pageviews_geo = new Keen.Query("count", {
+    eventCollection: "pageviews",
+    interval: "hourly",
+    groupBy: "user.device_info.browser.family",
+    timeframe: {
+      start: "2014-05-04T00:00:00.000Z",
+      end: "2014-05-05T00:00:00.000Z"
+    }
+  });
+  client.run(pageviews_geo, function(res){
+    console.log(res);
+
+     // Transform each venue result into a marker on the map.
+    // for (var i = 0; i < result.response.venues.length; i++) {
+    //   var venue = result.response.venues[i];
+    //   var latlng = L.latLng(venue.location.lat, venue.location.lng);
+    //   var marker = L.marker(latlng)
+    //     .bindPopup('<h2><a href="https://foursquare.com/v/' + venue.id + '">' +
+    //         venue.name + '</a></h2>')
+    //     .addTo(foursquarePlaces);
+    // }
+
+  });
+
 
 });
