@@ -5,21 +5,25 @@ img {
   max-width: 100%; }
 
 .banner {
-  background: url(http://placekitten.com/1500/350) no-repeat;
-  height: 350px; }
-  .banner .header {
+  background: #2a99d1; }
+  .banner .header .profile-name {
     position: relative;
-    top: 70px; }
-
-.banner-profile {
-  background: #eee;
-  padding: 10px;
-  width: 250px;
-  margin-top: -65px;
-  opacity: .9; }
+    top: 80px; 
+    left: 220px;
+    font-size: 36px;
+    color: #fbfbfb; }
+  .banner .header .profile-last {
+    position: relative;
+    top: 45px;
+    left: 220px;
+    font-size: 16px;
+    color: #fbfbfb; }
+  .banner .header > hr {
+    position: relative;
+    top: 60px; }
 
 .wrapper {
-  top: -42px;
+  top: -22px;
   position: relative; }
 
 .sidebar-container {
@@ -34,11 +38,10 @@ img {
   .main-container .content-wrapper .main-content {
     margin-top: 10px; }
 
-.navbar-inverse {
-  background-color: #3d4a57;
-  border-color: #333; }
+.navbar-collapse {
+  background: #2a99d1; }
 
-.navbar-inverse .navbar-nav > li > a,
+.navbar-nav > li > a,
 .navbar a.navbar-brand {
   color: #fbfbfb; }
 

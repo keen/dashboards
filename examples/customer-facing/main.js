@@ -55,22 +55,47 @@ Keen.ready(function(){
       {
         "property_name" : "user.id",
         "operator" : "eq",
-        "property_value" : "01064B34-4626-58C7-B5D3-58F1B4F28575"
+        "property_value" : "02846154-1520-5F67-A892-6C0F21408069"
       }]
   });
 
   geoProject.run(heart_rate, function(res){
-    $(".heart").val(res.result).trigger('change');
-  });
-  $(function() {
+    $(".heart").val(res.result).trigger('change');  
+    var myColor = "#f35757";
+    var heart = $(".heart");
+    if (heart.val() < 120) {
+      myColor = "#49c5b1";
+    }
+    if (heart.val() < 80) {
+      myColor = "#00afd7"
+    }
     $(".heart").knob({
       'angleArc':250,
       'angleOffset':-125,
-      'readOnly':true
+      'readOnly':true,
+      'min':40,
+      'max':180,
+      'fgColor': myColor,
+      'width':250,
+      'draw': function (){
+        $(this.i).val(this.cv + 'bpm').css('font-size', '40px')
+      }
     });
   });
 
+//red = #f35757
+//light red? = #f9845b
 
+//orange = #f0ad4e
+
+//green = #49c5b1
+//light green = #aacc85
+
+//blue = #2a99d1
+//light blue = #00afd7
+
+//purple = #8383c6
+//light purple = #ba7fab
 
 
   // ----------------------------------------
@@ -84,20 +109,37 @@ Keen.ready(function(){
       {
         "property_name" : "user.id",
         "operator" : "eq",
-        "property_value" : "01064B34-4626-58C7-B5D3-58F1B4F28575"
+        "property_value" : "02846154-1520-5F67-A892-6C0F21408069"
       }]
   });
 
   geoProject.run(temperature, function(res){
     $(".temp").val(res.result).trigger('change');
-  });
-  $(function() {
+    var myColor = "#f35757";
+    var temp = $(".temp");
+    if (temp.val() < 90) {
+      myColor = "#f9845b";
+    }
+    if (temp.val() < 75) {
+      myColor = "#f0ad4e"
+    }
+    if (temp.val() < 60) {
+      myColor = "#49c5b1"
+    }
+    if (temp.val() < 45) {
+      myColor = "#00afd7"
+    }
+       
     $(".temp").knob({
       'angleArc':250,
       'angleOffset':-125,
       'readOnly':true,
+      'min':0,
+      'max':120,
+      'fgColor': myColor,
+      'width':250,
       'draw': function (){
-        $(this.i).val(this.cv + '\u00B0')
+        $(this.i).val(this.cv + '\u00B0').css('font-size', '40px')
       }
     });
   });
@@ -114,20 +156,29 @@ Keen.ready(function(){
       {
         "property_name" : "user.id",
         "operator" : "eq",
-        "property_value" : "01064B34-4626-58C7-B5D3-58F1B4F28575"
+        "property_value" : "02846154-1520-5F67-A892-6C0F21408069"
       }]
   });
 
   geoProject.run(battery, function(res){
     $(".battery").val((res.result)*100).trigger('change');
-  });
-  $(function() {
+    var myColor = "#49c5b1";
+    var battery = $(".battery");
+    if (battery.val() < 66) {
+      myColor = "#f0ad4e";
+    }
+    if (battery.val() < 33) {
+      myColor = "#f35757"
+    }
+    console.log(battery.val());
     $(".battery").knob({
       'angleArc':250,
       'angleOffset':-125,
       'readOnly':true,
+      'fgColor': myColor,
+      'width':250,
       'draw': function (){
-        $(this.i).val(this.cv + '%')
+        $(this.i).val(this.cv + '%').css('font-size', '40px')
       }
     });
   });

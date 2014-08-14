@@ -7,30 +7,28 @@
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="./">Kitty Tracker</a>
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="https://keen.io">Home</a></li>
-          <li><a href="https://keen.io/team">Team</a></li>
-          <li><a href="https://github.com/keenlabs/dashboards">Github</a></li>
-          <li><a href="https://users.keen.io">Chat Support</a></li>
-        </ul>
-      </div>
-    </div>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-left">
+      <li><a href="../">
+            <span class="glyphicon glyphicon-chevron-left">
+            </span>
+        </a>
+      </li>
+      <li><a href="https://keen.io">Home</a></li>
+      <li><a href="./">Profile</a></li>
+      <li><a>Friends</a></li>
+      <li><a>Settings</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a>Logout</a></li>
+    </ul>
   </div>
-  <div class="banner" style="height: 250px">
+  <div class="banner" style="height: 190px">
     <div class="container">
       <div class="row header">
+        <div class="profile-name">Abraham Wald</div>
+        <hr width="90%" align="right"/>
+        <div class="profile-last"><i class="fa fa-clock-o"></i> Last Login August 14, 2014</div>
       </div>
     </div>
   </div>
@@ -38,7 +36,7 @@
 
     <div class="row">
       <div class="col-xs-2">
-        <div class="sidebar-container" style="margin: -90px 0 0;">
+        <div class="sidebar-container" style="margin: -160px 0 0;">
           <img src="http://placekitten.com/300/300" alt="" class="img-thumbnail">
           <div class="sidebar-navs">
             <div class="tabs-left">
@@ -56,13 +54,6 @@
         <div class="main-container">
           <div class="row">
             <div class="col-xs-12">
-              <div class="banner-profile">
-                <ul class="list-unstyled">
-                  <li><i class="fa fa-paw"></i> <strong>Mr. Fluffles</strong></li>
-                  <li><i class="fa fa-graduation-cap"></i> <strong>Studied</strong> at <a href="#">Catbright Academy</a></li>
-                  <li><i class="fa fa-home"></i> <strong>Lives</strong> in a tiny box</li>
-                </ul>
-              </div>
               <div class="content-wrapper">
                 <div class="content-header">
                   <h3>Kitty Stress Over Time</h3>
@@ -73,7 +64,7 @@
                 <div class="col-sm-4">
                   <div class="content-wrapper">
                     <div class="content-header">
-                      <h3>Kitty Heart Rate</h3>
+                      <h3 align="center">Kitty Heart Rate</h3>
                     </div>
                     <input class="heart"/>
 
@@ -82,7 +73,7 @@
                 <div class="col-sm-4">
                   <div class="content-wrapper">
                     <div class="content-header">
-                      <h3>Environment Temp</h3>
+                      <h3 align="center">Environment Temp</h3>
                     </div>
                     <input class="temp"/>
                   </div>
@@ -90,7 +81,7 @@
                 <div class="col-sm-4">
                   <div class="content-wrapper">
                     <div class="content-header">
-                      <h3>Battery Level</h3>
+                      <h3 align="center">Battery Level</h3>
                     </div>
                     <input class="battery"/>
                   </div>
