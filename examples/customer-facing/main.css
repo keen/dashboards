@@ -9,13 +9,13 @@ img {
   .banner .header .profile-name {
     position: relative;
     top: 80px; 
-    left: 220px;
+    left: 200px;
     font-size: 36px;
     color: #fbfbfb; }
   .banner .header .profile-last {
     position: relative;
     top: 45px;
-    left: 220px;
+    left: 200px;
     font-size: 16px;
     color: #fbfbfb; }
   .banner .header > hr {
@@ -30,6 +30,10 @@ img {
   border-radius: 30px; }
   .sidebar-container .sidebar-navs {
     margin-top: 20px; }
+.sidebar-container .img-thumbnail {
+  width: 100%;
+  height: 100%; 
+  margin-left: -10px; }
 
 .main-container .content-wrapper {
   padding: 1px 20px 18px 20px;
@@ -39,7 +43,9 @@ img {
     margin-top: 10px; }
 
 .navbar-collapse {
-  background: #2a99d1; }
+  background: #2a99d1; 
+  padding-left: 40px;
+  padding-right: 50px; }
 
 .navbar-nav > li > a,
 .navbar a.navbar-brand {
@@ -69,47 +75,17 @@ img {
   font-size: 12px;
   padding: 8px 10px 5px; }
 
-.tabs-below > .nav-tabs,
-.tabs-right > .nav-tabs,
-.tabs-left > .nav-tabs {
-  width: 100%;
-  border-bottom: 0; }
+.tabs-left .nav-pills {
+  padding-top: 20px; 
+  width: 90%; }
 
-.tab-content > .tab-pane,
-.pill-content > .pill-pane {
-  display: none; }
+.tabs-left > .nav-pills > li > a {
+  margin-bottom: 20px; 
+  font-size: 18px; 
+  text-align: center; }
 
-.tab-content > .active,
-.pill-content > .active {
-  display: block; }
-
-.tabs-left > .nav-tabs > li,
-.tabs-right > .nav-tabs > li {
-  float: none; }
-
-.tabs-left > .nav-tabs > li > a,
-.tabs-right > .nav-tabs > li > a {
-  min-width: 74px;
-  margin-right: 0;
-  margin-bottom: 3px; }
-
-.tabs-left > .nav-tabs {
-  float: left;
-  margin-right: 19px;
-  border-right: 1px solid #ddd; }
-
-.tabs-left > .nav-tabs > li > a {
-  margin-right: -1px;
-  -webkit-border-radius: 4px 0 0 4px;
-  -moz-border-radius: 4px 0 0 4px;
-  border-radius: 4px 0 0 4px; }
-
-.tabs-left > .nav-tabs > li > a:hover,
-.tabs-left > .nav-tabs > li > a:focus {
-  border-color: #eeeeee #dddddd #eeeeee #eeeeee; }
-
-.tabs-left > .nav-tabs .active > a,
-.tabs-left > .nav-tabs .active > a:hover,
-.tabs-left > .nav-tabs .active > a:focus {
-  border-color: #ddd transparent #ddd #ddd;
-  *border-right-color: #ffffff; }
+.tabs-left > .nav-pills .active > a,
+.tabs-left > .nav-pills .active > a:hover,
+.tabs-left > .nav-pills .active > a:focus {
+  background-color: #2a99d1; 
+  border-color: #2a99d1; }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dashboard Starter UI, by Keen IO</title>
+  <title>Dashboard User Facing, by Keen IO</title>
   <link rel="stylesheet" href="../../assets/lib/bootstrap/dist/css/bootstrap.min.css">
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="main.css">
@@ -16,8 +16,8 @@
       </li>
       <li><a href="https://keen.io">Home</a></li>
       <li><a href="./">Profile</a></li>
-      <li><a>Friends</a></li>
-      <li><a>Settings</a></li>
+      <li><a href="#">Friends</a></li>
+      <li><a href="#">Settings</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a>Logout</a></li>
@@ -40,10 +40,11 @@
           <img src="http://placekitten.com/300/300" alt="" class="img-thumbnail">
           <div class="sidebar-navs">
             <div class="tabs-left">
-              <ul class="nav nav-tabs" role="tablist">
-                <li class="active"><a href="#">Browser</a></li>
-                <li><a href="#">Referrer</a></li>
-                <li><a href="#">Country</a></li>
+              <ul class="nav nav-pills nav-stacked" role="tablist">
+                <li class="active"><a href="#">Overview</a></li>
+                <li><a href="#">Friend Rank</a></li>
+                <li><a href="#">Community</a></li>
+                <li><a href="#">Device Info</a></li>
               </ul>
             </div>
           </div>
@@ -56,7 +57,7 @@
             <div class="col-xs-12">
               <div class="content-wrapper">
                 <div class="content-header">
-                  <h3>Kitty Stress Over Time</h3>
+                  <h3>Heart Rate Throughout the Day</h3>
                 </div>
                 <div class="main-content" id="chart-01"></div>
               </div>
@@ -64,7 +65,7 @@
                 <div class="col-sm-4">
                   <div class="content-wrapper">
                     <div class="content-header">
-                      <h3 align="center">Kitty Heart Rate</h3>
+                      <h3 align="center">Heart Rate</h3>
                     </div>
                     <input class="heart"/>
 

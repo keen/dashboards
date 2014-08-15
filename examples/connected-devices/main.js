@@ -3,6 +3,11 @@ var client = new Keen({
   readKey: "3f324dcb5636316d6865ab0ebbbbc725224c7f8f3e8899c7733439965d6d4a2c7f13bf7765458790bd50ec76b4361687f51cf626314585dc246bb51aeb455c0a1dd6ce77a993d9c953c5fc554d1d3530ca5d17bdc6d1333ef3d8146a990c79435bb2c7d936f259a22647a75407921056"
 });
 
+var geoProject = new Keen({
+  projectId: "53eab6e12481962467000000",
+  readKey: "d1b97982ce67ad4b411af30e53dd75be6cf610213c35f3bd3dd2ef62eaeac14632164890413e2cc2df2e489da88e87430af43628b0c9e0b2870d0a70580d5f5fe8d9ba2a6d56f9448a3b6f62a5e6cdd1be435c227253fbe3fab27beb0d14f91b710d9a6e657ecf47775281abc17ec455"
+});
+
 Keen.ready(function(){
 
 
@@ -19,7 +24,7 @@ Keen.ready(function(){
   client.draw(new_users, document.getElementById("chart-01"), {
     chartType: "columnchart",
     title: false,
-    height: 250,
+    height: 295,
     width: "auto",
     chartOptions: {
       legend: { position: "none" },
@@ -40,38 +45,49 @@ Keen.ready(function(){
   // Users
   // ----------------------------------------
 
-  var users = new Keen.Query("count", {
-    eventCollection: "users"
+
+  var users = new Keen.Query("count_unique", {
+  eventCollection: "activations",
+  targetProperty: "user.id"
   });
-  client.draw(users, document.getElementById("chart-02"), {
-    title: "Users",
-    width: "auto"
+
+  geoProject.run(users, function(res){
+    $(".users").val(res.result).trigger('change');  
+    $(".users").knob({
+      'angleArc':250,
+      'angleOffset':-125,
+      'readOnly':true,
+      'min':40,
+      'max':500,
+      'fgColor': "#8383c6",
+      'width':290,
+      'height':290
+    });
   });
 
 
   // ----------------------------------------
-  // Awake
-  // ----------------------------------------
-  var awake = new Keen.Query("count", {
-    eventCollection: "awake",
-    timefame: "this_hour"
-  });
-  client.draw(awake, document.getElementById("chart-03"), {
-    title: "Awake",
-    width: "auto"
-  });
-
-  // ----------------------------------------
-  // Asleep
+  // Errors Detected
   // ----------------------------------------
 
-  var asleep = new Keen.Query("count", {
-    eventCollection: "asleep",
-    timefame: "this_hour"
+
+  var errors = new Keen.Query("count", {
+  eventCollection: "user_action",
+  filters: [{"property_name":"error_detected","operator":"eq","property_value":true}]
   });
-  client.draw(asleep, document.getElementById("chart-04"), {
-    title: "Asleep",
-    width: "auto",
+
+  geoProject.run(errors, function(res){
+    $(".errors").val(res.result).trigger('change');  
+    $(".errors").knob({
+      'angleArc':250,
+      'angleOffset':-125,
+      'readOnly':true,
+      'min':0,
+      'max':100,
+      'fgColor': "#f35757",
+      'width': 290,
+      'height': 290
+    });
   });
 
   // ----------------------------------------
