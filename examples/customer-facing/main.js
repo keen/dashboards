@@ -78,24 +78,10 @@ Keen.ready(function(){
       'fgColor': myColor,
       'width':250,
       'draw': function (){
-        $(this.i).val(this.cv + 'bpm').css('font-size', '40px')
+        $(this.i).val(this.cv + 'bpm').css('font-size', '32px')
       }
     });
   });
-
-//red = #f35757
-//light red? = #f9845b
-
-//orange = #f0ad4e
-
-//green = #49c5b1
-//light green = #aacc85
-
-//blue = #2a99d1
-//light blue = #00afd7
-
-//purple = #8383c6
-//light purple = #ba7fab
 
 
   // ----------------------------------------
@@ -139,7 +125,7 @@ Keen.ready(function(){
       'fgColor': myColor,
       'width':250,
       'draw': function (){
-        $(this.i).val(this.cv + '\u00B0').css('font-size', '40px')
+        $(this.i).val(this.cv + '\u00B0').css('font-size', '32px')
       }
     });
   });
@@ -178,7 +164,7 @@ Keen.ready(function(){
       'fgColor': myColor,
       'width':250,
       'draw': function (){
-        $(this.i).val(this.cv + '%').css('font-size', '40px')
+        $(this.i).val(this.cv + '%').css('font-size', '32px')
       }
     });
   });
