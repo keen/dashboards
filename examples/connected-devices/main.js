@@ -17,29 +17,26 @@ Keen.ready(function(){
   // New Users Timeline
   // ----------------------------------------
   var new_users = new Keen.Query("count", {
-    eventCollection: "new_users",
+    eventCollection: "activations",
     interval: "monthly",
     timeframe: "this_year"
   });
-  client.draw(new_users, document.getElementById("chart-01"), {
-    chartType: "columnchart",
+  geoProject.draw(new_users, document.getElementById("chart-01"), {
     title: false,
     height: 295,
     width: "auto",
     chartOptions: {
       legend: { position: "none" },
       chartArea: {
-        height: "75%",
+        height: "85%",
         left: "5%",
-        top: "5%",
+        top: "10%",
         width: "90%"
-      },
-      bar: {
-        groupWidth: "85%"
-      },
-      isStacked: true
+      }
     }
   });
+
+
 
   // ----------------------------------------
   // Users
@@ -60,8 +57,8 @@ Keen.ready(function(){
       'min':40,
       'max':500,
       'fgColor': "#8383c6",
-      'width':290,
-      'height':290
+      'width':310,
+      'height':255
     });
   });
 
@@ -85,8 +82,8 @@ Keen.ready(function(){
       'min':0,
       'max':100,
       'fgColor': "#f35757",
-      'width': 290,
-      'height': 290
+      'width': 310,
+      'height': 255
     });
   });
 
@@ -97,36 +94,43 @@ Keen.ready(function(){
   var funnel = new Keen.Query('funnel', {
     steps: [
       {
-         event_collection: "account_setup",
-         actor_property: "user.id"
+         event_collection: "purchases",
+         actor_property: "user.age"
       },
       {
-        event_collection: "device_activated",
-        actor_property: "user.id"
+        event_collection: "activations",
+        actor_property: "user.age"
       },
       {
-        event_collection: "first_data_sent_to_cloud",
-        actor_property: "user.id"
+        event_collection: "status_update",
+        actor_property: "user.age"
       },
       {
-        event_collection: "first_mobile_app_view",
-        actor_property: "user.id"
+        event_collection: "user_action",
+        actor_property: "user.age"
       }
     ]
   });
 
-  client.draw(funnel, document.getElementById("chart-05"), {
+
+  geoProject.draw(funnel, document.getElementById("chart-05"), {
     chartType: "barchart",    
-    title: false,
+    title: "First Steps",
     width: "auto",
     chartOptions: {
-      legend: { position: "none" }
+      legend: { position: "none" },
+      chartArea: {
+        height: "85%",
+        left: "20%",
+        top: "10%",
+        width: "100%"
+      }
     },
     labelMapping: {
-      "account_setup": "Account Set-up",
-      "device_activated": "Device Activated",
-      "first_data_sent_to_cloud": "First Data to Cloud",
-      "first_mobile_app_view": "First App View"
+      "purchases": "Device Purchased",
+      "activations": "Device Activated",
+      "status_update": "First Data to Cloud",
+      "user_action": "First App View"
     }
   });
 
@@ -135,12 +139,20 @@ Keen.ready(function(){
   // ----------------------------------------
   L.mapbox.accessToken = 'pk.eyJ1Ijoicml0Y2hpZWxlZWFubiIsImEiOiJsd3VLdFl3In0.lwvdUU2VGB9VGDw7ulA4jA';
   var map = L.mapbox.map('map', 'ritchieleeann.j7bc1dpl', {
-    attributionControl: true
+    attributionControl: true,
+    zoomControl: false
   });
   map.setView([37.61, -122.357], 9);
   map.attributionControl
   .addAttribution('<a href="https://keen.io/">Custom Analytics by Keen IO</a>');
-  // .addAttribution('<a href="https://foursquare.com/">Places data from Foursquare</a>');
+
+  map.dragging.disable();
+  map.touchZoom.disable();
+  map.doubleClickZoom.disable();
+  map.scrollWheelZoom.disable();
+
+  if (map.tap) map.tap.disable();
+
   var keenMapData = L.layerGroup().addTo(map);
 
   var users_active = new Keen.Query("count", {
