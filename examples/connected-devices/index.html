@@ -4,6 +4,7 @@
   <title>Connected Devices</title>
   <link rel="stylesheet" href="../../assets/lib/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../assets/css/keen-dashboards.css">
+  <link rel="stylesheet" href="main.css">
   <style>
     #mapwrap { left: 50%; position: absolute;}
     #mapwrap .chart-title { border: medium none; }
@@ -43,45 +44,54 @@
   <div class="container-fluid">
     <div class="row">
 
-      <div class="col-sm-12">
+      <div class="col-sm-6">
         <div class="chart-wrapper">
           <div class="chart-title">
-            New Users by Month
+            Traffic
           </div>
-          <div class="chart-stage">
-            <div id="chart-01"></div>
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="tabbable tabs-left">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#" data-toggle="tab">Monthly</a></li>
+                  <li><a href="#" data-toggle="tab">Quarterly</a></li>
+                  <li><a href="#" data-toggle="tab">Yearly</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-10">
+              <div class="chart-stage">
+                <div id="chart-01"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
- 
-    <div class="row">
 
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <div class="chart-wrapper">
+          <div class="chart-title">
+            Stats
+          </div>
           <div class="chart-stage">
-            <div id="chart-02"></div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="chart-title" id="user-title">
+                  Users
+                </div>
+                <input class="users"/>
+              </div>
+              <div class="col-sm-6">
+                <div class="chart-title" id="error-title">
+                  Errors
+                </div>
+                <input class="errors"/>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="col-sm-4">
-        <div class = "chart-wrapper">
-          <div class="chart-stage">
-            <div id="chart-03"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-4">
-        <div class="chart-wrapper">
-         <div class="chart-stage">
-            <div id="chart-04"></div>
-          </div>
-        </div>
-      </div>
-
     </div>
 
     <div class="row">
@@ -127,7 +137,7 @@
   <script src="https://d26b395fwzu5fz.cloudfront.net/latest/keen.min.js"></script>
   <script src="main.js"></script>
 
-
+  <script src="../../assets/lib/jquery-knob/dist/jquery.knob.min.js"></script>
 
 </body>
 </html>
