@@ -1,0 +1,54 @@
+body.application {
+  padding: 0;
+  margin: 0;
+}
+
+.row {
+  margin: 0;
+}
+
+#app-wrapper {
+  height: 100%;
+  position: aboslute;
+  width: 100%;
+}
+
+#app-toolbar {
+  background: #fff;
+  box-shadow: 0 1px 5px rgba(0,0,0,.1);
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+}
+
+#app-maparea {
+  position: fixed;
+  top: 75px;
+  width: 100%;
+  z-index: 0;
+}
+
+#app-sidebar {
+  padding: 0 10px 0 0;
+  position: absolute;
+  right: 0;
+  top: 85px;
+  width: 40%;
+}
+
+#app-sidebar .chart-wrapper {
+  border: medium none;
+  box-shadow: 0 1px 5px rgba(0,0,0,.1);
+}
+
+.tools {
+  min-height: 75px;
+  padding: 0 5px 0 0;
+}
+
+.tool input, .tool select {
+  float: left;
+  margin: 0 1%;
+  width: 48%;
+}
