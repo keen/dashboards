@@ -11,8 +11,6 @@ var geoProject = new Keen({
 Keen.ready(function(){
 
 
-
-
   // ----------------------------------------
   // New Users Timeline
   // ----------------------------------------
@@ -22,15 +20,15 @@ Keen.ready(function(){
     timeframe: "this_year"
   });
   geoProject.draw(new_users, document.getElementById("chart-01"), {
-    title: false,
-    height: 295,
+    chartType: "columnchart",
+    title: "Monthly Visits",
+    height: 280,
     width: "auto",
     chartOptions: {
       legend: { position: "none" },
       chartArea: {
         height: "85%",
         left: "5%",
-        top: "10%",
         width: "90%"
       }
     }
@@ -42,24 +40,23 @@ Keen.ready(function(){
   // Users
   // ----------------------------------------
 
-
   var users = new Keen.Query("count_unique", {
-  eventCollection: "activations",
-  targetProperty: "user.id"
+    eventCollection: "activations",
+    targetProperty: "user.id"
   });
 
+  $(".users").knob({
+    'angleArc':250,
+    'angleOffset':-125,
+    'readOnly':true,
+    'min':0,
+    'max':500,
+    'fgColor': Keen.Visualization.defaults.colors[0],
+    //'height': 250,
+    'width': '100%'
+  });
   geoProject.run(users, function(res){
-    $(".users").val(res.result).trigger('change');  
-    $(".users").knob({
-      'angleArc':250,
-      'angleOffset':-125,
-      'readOnly':true,
-      'min':40,
-      'max':500,
-      'fgColor': "#8383c6",
-      'width':310,
-      'height':255
-    });
+    $(".users").val(res.result).trigger('change');
   });
 
 
@@ -69,22 +66,22 @@ Keen.ready(function(){
 
 
   var errors = new Keen.Query("count", {
-  eventCollection: "user_action",
-  filters: [{"property_name":"error_detected","operator":"eq","property_value":true}]
+    eventCollection: "user_action",
+    filters: [{"property_name":"error_detected","operator":"eq","property_value":true}]
   });
 
+  $(".errors").knob({
+    'angleArc':250,
+    'angleOffset':-125,
+    'readOnly':true,
+    'min':0,
+    'max':100,
+    'fgColor': Keen.Visualization.defaults.colors[1],
+    //'height': 250,
+    'width': '100%'
+  });
   geoProject.run(errors, function(res){
-    $(".errors").val(res.result).trigger('change');  
-    $(".errors").knob({
-      'angleArc':250,
-      'angleOffset':-125,
-      'readOnly':true,
-      'min':0,
-      'max':100,
-      'fgColor': "#f35757",
-      'width': 310,
-      'height': 255
-    });
+    $(".errors").val(res.result).trigger('change');
   });
 
   // ----------------------------------------
@@ -114,7 +111,7 @@ Keen.ready(function(){
 
 
   geoProject.draw(funnel, document.getElementById("chart-05"), {
-    chartType: "barchart",    
+    chartType: "barchart",
     title: "First Steps",
     width: "auto",
     chartOptions: {

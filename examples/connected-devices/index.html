@@ -50,16 +50,14 @@
             Traffic
           </div>
           <div class="row">
-            <div class="col-sm-2">
-              <div class="tabbable tabs-left">
-                <ul class="nav nav-tabs">
-                  <li class="active"><a href="#" data-toggle="tab">Monthly</a></li>
-                  <li><a href="#" data-toggle="tab">Quarterly</a></li>
-                  <li><a href="#" data-toggle="tab">Yearly</a></li>
-                </ul>
-              </div>
+            <div class="col-sm-3">
+              <ul class="nav nav-tabs nav-tabs-left">
+                <li class="active"><a href="#" data-toggle="tab">Monthly</a></li>
+                <li><a href="#" data-toggle="tab">Quarterly</a></li>
+                <li><a href="#" data-toggle="tab">Yearly</a></li>
+              </ul>
             </div>
-            <div class="col-sm-10">
+            <div class="col-sm-9">
               <div class="chart-stage">
                 <div id="chart-01"></div>
               </div>
@@ -77,16 +75,20 @@
           <div class="chart-stage">
             <div class="row">
               <div class="col-sm-6">
-                <div class="chart-title" id="user-title">
-                  Users
+                <div class="chart-title knob-title">
+                  New Activations Today
                 </div>
-                <input class="users"/>
+                <div class="chart-stage">
+                  <input class="jquery-knob users" value="0"/>
+                </div>
               </div>
               <div class="col-sm-6">
-                <div class="chart-title" id="error-title">
-                  Errors
+                <div class="chart-title knob-title">
+                  Device Crashes Today
                 </div>
-                <input class="errors"/>
+                <div class="chart-stage">
+                  <input class="jquery-knob errors" value="0"/>
+                </div>
               </div>
             </div>
           </div>

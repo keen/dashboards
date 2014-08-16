@@ -1,11 +1,39 @@
-#user-title,
-#error-title {
-    font-size: 18px;
-    border-bottom: none;
-    text-align: center; }
+.chart-stage .knob-title {
+  border-bottom: medium none;
+  font-size: 18px;
+  text-align: center;
+}
+.jquery-knob {}
+
+.nav-tabs-left {
+  border-bottom: medium none;
+  border-right: 1px solid #ddd;
+  margin: 0;
+  min-height: 200px;
+}
+.nav-tabs-left li {
+  float: none;
+  margin: 0 -1px 4px 0;
+}
+.nav-tabs-left li > a {
+  margin-right: 0;
+}
+.nav-tabs-left li > a:focus,
+.nav-tabs-left li > a:hover {
+  background: #fbfbfb;
+  border-bottom-color: #fbfbfb;
+  border-right-color: #ddd;
+  border-radius: 4px 0 0 4px;
+}
+.nav-tabs-left li.active > a {
+  border-bottom-color: #ddd;
+  border-right-color: transparent;
+  border-radius: 4px 0 0 4px;
+}
+
 
 .nav-tabs {
-  padding-top: 20px; 
+  padding-top: 20px;
   padding-left: 10px; }
 
 
@@ -48,4 +76,3 @@
 .tabs-below > .nav-tabs > li > a:focus {
   border-top-color: #ddd;
   border-bottom-color: transparent;
-
