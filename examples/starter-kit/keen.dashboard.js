@@ -57,7 +57,8 @@ Keen.ready(function(){
         left: "5%",
         top: "5%",
         width: "100%"
-      }
+      },
+      pieHole: .4
     }
   });
 

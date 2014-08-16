@@ -15,8 +15,8 @@ h1 {
 }
 h2 {
   color: #2a333c;
-  font-weight: 400;
-  font-size: 30px;
+  font-weight: 200;
+  font-size: 21px;
 }
 h3 {
   color: rgb(84, 102, 120);
@@ -52,6 +52,10 @@ h3 {
   font-weight: 200;
 }
 
+
+.sample-item {
+  margin-bottom: 24px;
+}
 
 
 
