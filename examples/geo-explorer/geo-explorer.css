@@ -3,33 +3,8 @@ body.application {
   margin: 0;
 }
 
-img {
-  width: 100%;
-  height: 100%;
-}
-
-.container {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 .row {
   margin: 0;
-}
-
-.wrapper {
-  margin-top: 50px;
-}
-
-.tools {
-  min-height: 75px;
-  padding: 0 5px 0 0;
-}
-
-.tool input, .tool select {
-  float: left;
-  width: 50%;
 }
 
 #app-wrapper {
@@ -59,5 +34,21 @@ img {
   position: absolute;
   right: 0;
   top: 85px;
-  width: 25%;
+  width: 40%;
+}
+
+#app-sidebar .chart-wrapper {
+  border: medium none;
+  box-shadow: 0 1px 5px rgba(0,0,0,.1);
+}
+
+.tools {
+  min-height: 75px;
+  padding: 0 5px 0 0;
+}
+
+.tool input, .tool select {
+  float: left;
+  margin: 0 1%;
+  width: 48%;
 }
