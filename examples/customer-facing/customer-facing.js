@@ -59,35 +59,24 @@ Keen.ready(function(){
       }]
   });
 
+  $(".heart").knob({
+    'angleArc':250,
+    'angleOffset':-125,
+    'readOnly':true,
+    'min':50,
+    'max':80,
+    'fgColor': Keen.Visualization.defaults.colors[0],
+    'width': '100%'
+  });
+
   geoProject.run(heart_rate, function(res){
-    $(".heart").val(res.result).trigger('change');  
-    var myColor = "#f35757";
-    var heart = $(".heart");
-    if (heart.val() < 120) {
-      myColor = "#49c5b1";
-    }
-    if (heart.val() < 80) {
-      myColor = "#00afd7"
-    }
-    $(".heart").knob({
-      'angleArc':250,
-      'angleOffset':-125,
-      'readOnly':true,
-      'min':40,
-      'max':180,
-      'fgColor': myColor,
-      'width':250,
-      'draw': function (){
-        $(this.i).val(this.cv + 'bpm').css('font-size', '32px')
-      }
-    });
+    $(".heart").val(res.result).trigger('change');
   });
 
 
   // ----------------------------------------
   // Temperature
   // ----------------------------------------
-
   var temperature = new Keen.Query("median", {
     eventCollection: "user_action",
     targetProperty: "enviro_sensors.temp",
@@ -99,35 +88,18 @@ Keen.ready(function(){
       }]
   });
 
+  $(".temp").knob({
+    'angleArc':250,
+    'angleOffset':-125,
+    'readOnly':true,
+    'min':90,
+    'max':105,
+    'fgColor': Keen.Visualization.defaults.colors[2],
+    'width': '100%'
+  });
+  /* Demo sample */
   geoProject.run(temperature, function(res){
-    $(".temp").val(res.result).trigger('change');
-    var myColor = "#f35757";
-    var temp = $(".temp");
-    if (temp.val() < 90) {
-      myColor = "#f9845b";
-    }
-    if (temp.val() < 75) {
-      myColor = "#f0ad4e"
-    }
-    if (temp.val() < 60) {
-      myColor = "#49c5b1"
-    }
-    if (temp.val() < 45) {
-      myColor = "#00afd7"
-    }
-       
-    $(".temp").knob({
-      'angleArc':250,
-      'angleOffset':-125,
-      'readOnly':true,
-      'min':0,
-      'max':120,
-      'fgColor': myColor,
-      'width':250,
-      'draw': function (){
-        $(this.i).val(this.cv + '\u00B0').css('font-size', '32px')
-      }
-    });
+    $(".temp").val(98).trigger('change');
   });
 
 
@@ -146,27 +118,16 @@ Keen.ready(function(){
       }]
   });
 
+  $(".battery").knob({
+    'angleArc':250,
+    'angleOffset':-125,
+    'readOnly':true,
+    'fgColor': Keen.Visualization.defaults.colors[1],
+    'width': '100%'
+  });
+
   geoProject.run(battery, function(res){
     $(".battery").val((res.result)*100).trigger('change');
-    var myColor = "#49c5b1";
-    var battery = $(".battery");
-    if (battery.val() < 66) {
-      myColor = "#f0ad4e";
-    }
-    if (battery.val() < 33) {
-      myColor = "#f35757"
-    }
-    console.log(battery.val());
-    $(".battery").knob({
-      'angleArc':250,
-      'angleOffset':-125,
-      'readOnly':true,
-      'fgColor': myColor,
-      'width':250,
-      'draw': function (){
-        $(this.i).val(this.cv + '%').css('font-size', '32px')
-      }
-    });
   });
 
 

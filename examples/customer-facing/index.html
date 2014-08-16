@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset='utf-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
   <title>Dashboard User Facing, by Keen IO</title>
   <link rel="stylesheet" href="../../assets/lib/bootstrap/dist/css/bootstrap.min.css">
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="main.css">
+
+  <link rel="stylesheet" href="../../assets/css/keen-gotham.css">
+  <link rel="stylesheet" href="../../assets/css/keen-dashboards.css">
+  <link rel="stylesheet" href="customer-facing.css">
 </head>
 <body>
   <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-left">
-      <li><a href="../">
-            <span class="glyphicon glyphicon-chevron-left">
-            </span>
-        </a>
-      </li>
+      <li><a href="../"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
       <li><a href="https://keen.io">Home</a></li>
       <li><a href="./">Profile</a></li>
       <li><a href="#">Friends</a></li>
@@ -23,82 +24,76 @@
       <li><a>Logout</a></li>
     </ul>
   </div>
-  <div class="banner" style="height: 190px">
+
+  <div class="banner">
     <div class="container">
-      <div class="row header">
-        <div class="profile-name">Abraham Wald</div>
-        <hr width="90%" align="right"/>
-        <div class="profile-last"><i class="fa fa-clock-o"></i> Last Login August 14, 2014</div>
+      <div class="row">
+
+        <div class="col-sm-3 col-md-2">
+          <img src="demo-user.jpg" alt="" class="img-thumbnail"/>
+        </div>
+        <div class="col-sm-9 col-md-10">
+          <h1>Abraham Wald</h1>
+          <p class="lead">
+            <span class="glyphicon glyphicon-time"></span> Last Login August 14, 2014
+          </p>
+        </div>
+
       </div>
     </div>
   </div>
-  <div class="container wrapper">
 
-    <div class="row">
-      <div class="col-xs-2">
-        <div class="sidebar-container" style="margin: -160px 0 0;">
-          <img src="http://placekitten.com/300/300" alt="" class="img-thumbnail">
-          <div class="sidebar-navs">
-            <div class="tabs-left">
-              <ul class="nav nav-pills nav-stacked" role="tablist">
-                <li class="active"><a href="#">Overview</a></li>
-                <li><a href="#">Friend Rank</a></li>
-                <li><a href="#">Community</a></li>
-                <li><a href="#">Device Info</a></li>
-              </ul>
-            </div>
-          </div>
+  <div class="content">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-sm-3 col-md-2">
+
+          <ul class="nav nav-pills nav-stacked" role="tablist">
+            <li class="active"><a href="#">My Activity</a></li>
+            <li><a href="#">Friend's Rank</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Device Info</a></li>
+          </ul>
+
         </div>
-      </div>
+        <div class="col-sm-9 col-md-10">
 
-      <div class="col-xs-10">
-        <div class="main-container">
+          <h3>Heart Rate Throughout the Day</h3>
+          <div id="chart-01"></div>
+          <hr/>
+
           <div class="row">
-            <div class="col-xs-12">
-              <div class="content-wrapper">
-                <div class="content-header">
-                  <h3>Heart Rate Throughout the Day</h3>
-                </div>
-                <div class="main-content" id="chart-01"></div>
-              </div>
-              <div class="row">
-                <div class="col-sm-4">
-                  <div class="content-wrapper">
-                    <div class="content-header">
-                      <h3 align="center">Heart Rate</h3>
-                    </div>
-                    <input class="heart"/>
+            <div class="col-sm-4">
 
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="content-wrapper">
-                    <div class="content-header">
-                      <h3 align="center">Environment Temp</h3>
-                    </div>
-                    <input class="temp"/>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="content-wrapper">
-                    <div class="content-header">
-                      <h3 align="center">Battery Level</h3>
-                    </div>
-                    <input class="battery"/>
-                  </div>
-                </div>
-              </div>
+              <h3 class="knob-title">Resting Heart Rate</h3>
+              <input class="heart" value="0" />
+
+            </div>
+            <div class="col-sm-4">
+
+              <h3 class="knob-title">Body Temp</h3>
+              <input class="temp" value="97.3" />
+
+            </div>
+            <div class="col-sm-4">
+
+              <h3 class="knob-title">Battery Level</h3>
+              <input class="battery" value="0" />
+
             </div>
           </div>
+
         </div>
       </div>
+
     </div>
- </div>
-  <div class="container footer">
-    <div class="row">
-      <div class="col-md-12">
-        <p class="small text-muted">Built with &#9829; by <a href="https://keen.io">Keen IO</a></p>
-      </div>
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <hr>
+      <p class="small text-muted">Built with &#9829; by <a href="https://keen.io">Keen IO</a></p>
     </div>
   </div>
 
@@ -106,39 +101,6 @@
   <script src="../../assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="../../assets/lib/jquery-knob/dist/jquery.knob.min.js"></script>
   <script src="https://d26b395fwzu5fz.cloudfront.net/latest/keen.min.js"></script>
-  <script src="main.js"></script>
-  <script>
-  // var meta = new Keen({
-  //   projectId: "5368fa5436bf5a5623000000",
-  //   writeKey: "725f3a571824d9c29f6e4d1c39af349a114d9034f8e493f95d39802529e2ccbb174033077bdcf10b541dbb50c20105922c59bbe1fe7741cb4b632dd0bc84fe98c0b591e17da3d429ef867cc674be0ad20ad768a5210662d2d18ff5492f37a1f91ce697a5489064bb3fa95c827b6cb394",
-  //   requestType: "beacon"
-  // });
-  // meta.addEvent("visits", {
-  //   page: {
-  //     title: document.title,
-  //     host: document.location.host,
-  //     href: document.location.href,
-  //     path: document.location.pathname,
-  //     protocol: document.location.protocol.replace(/:/g, ""),
-  //     query: document.location.search
-  //   },
-  //   visitor: {
-  //     referrer: document.referrer,
-  //     ip_address: "${keen.ip}",
-  //     // tech: {} //^ created by ip_to_geo add-on
-  //     user_agent: "${keen.user_agent}"
-  //     // visitor: {} //^ created by ua_parser add-on
-  //   },
-  //   keen: {
-  //     timestamp: new Date().toISOString(),
-  //     addons: [
-  //       { name:"keen:ip_to_geo", input: { ip:"visitor.ip_address" }, output:"visitor.geo" },
-  //       { name:"keen:ua_parser", input: { ua_string:"visitor.user_agent" }, output:"visitor.tech" }
-  //     ]
-  //   }
-  // });
-  // More data modeling examples here:
-  // https://github.com/keenlabs/data-modeling-guide/
-  </script>
+  <script src="customer-facing.js"></script>
 </body>
 </html>
