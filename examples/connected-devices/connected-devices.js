@@ -20,9 +20,9 @@ Keen.ready(function(){
     timeframe: "this_year"
   });
   geoProject.draw(new_users, document.getElementById("chart-01"), {
-    chartType: "columnchart",
+    chartType: "areachart",
     title: "Monthly Visits",
-    height: 280,
+    height: 300,
     width: "auto",
     chartOptions: {
       legend: { position: "none" },
@@ -30,7 +30,8 @@ Keen.ready(function(){
         height: "85%",
         left: "5%",
         width: "90%"
-      }
+      },
+      hAxis: { format: 'MMM', maxTextLines: 1 }
     }
   });
 
@@ -52,8 +53,8 @@ Keen.ready(function(){
     'min':0,
     'max':500,
     'fgColor': Keen.Visualization.defaults.colors[0],
-    //'height': 250,
-    'width': '100%'
+    //height: 230,
+    width: '100%'
   });
   geoProject.run(users, function(res){
     $(".users").val(res.result).trigger('change');
@@ -77,59 +78,60 @@ Keen.ready(function(){
     'min':0,
     'max':100,
     'fgColor': Keen.Visualization.defaults.colors[1],
-    //'height': 250,
-    'width': '100%'
+    //height: 230,
+    width: '100%'
   });
   geoProject.run(errors, function(res){
     $(".errors").val(res.result).trigger('change');
   });
 
+
   // ----------------------------------------
   // Funnel
   // ----------------------------------------
-
-  var funnel = new Keen.Query('funnel', {
+  var funnel = new Keen.Query("funnel", {
     steps: [
       {
          event_collection: "purchases",
-         actor_property: "user.age"
+         actor_property: "user.id"
       },
       {
         event_collection: "activations",
-        actor_property: "user.age"
+        actor_property: "user.id"
       },
       {
         event_collection: "status_update",
-        actor_property: "user.age"
+        actor_property: "user.id"
       },
       {
         event_collection: "user_action",
-        actor_property: "user.age"
+        actor_property: "user.id",
+        filters: [] // where property "total_sessions" == 2
+      },
+      {
+        event_collection: "user_action",
+        actor_property: "user.id",
+        filters: [] // where property "action" equals "invited friend"
       }
     ]
   });
 
-
-  geoProject.draw(funnel, document.getElementById("chart-05"), {
+  /*  This funnel is built from mock data */
+  var sampleFunnel = { result: [ 3250, 3000, 2432, 1504, 321 ], steps: funnel.params.steps };
+  new Keen.Visualization(sampleFunnel, document.getElementById("chart-05"), {
+    library: "google",
     chartType: "barchart",
-    title: "First Steps",
-    width: "auto",
+    height: 340,
+    title: null,
+    colors: [Keen.Visualization.defaults.colors[5]],
+    // Hidden feature: Pass in a list of new labels :)
+    labelMapping: [ "Purchased Device", "Activated Device", "First Session", "Second Session", "Invited Friend" ],
     chartOptions: {
-      legend: { position: "none" },
-      chartArea: {
-        height: "85%",
-        left: "20%",
-        top: "10%",
-        width: "100%"
-      }
-    },
-    labelMapping: {
-      "purchases": "Device Purchased",
-      "activations": "Device Activated",
-      "status_update": "First Data to Cloud",
-      "user_action": "First App View"
+      chartArea: { height: "85%", left: "20%", top: "5%" },
+      legend: { position: "none" }
     }
   });
+
 
   // ----------------------------------------
   // Mapbox - Active Users
@@ -140,14 +142,12 @@ Keen.ready(function(){
     zoomControl: false
   });
   map.setView([37.61, -122.357], 9);
-  map.attributionControl
-  .addAttribution('<a href="https://keen.io/">Custom Analytics by Keen IO</a>');
+  map.attributionControl.addAttribution('<a href="https://keen.io/">Custom Analytics by Keen IO</a>');
 
   map.dragging.disable();
   map.touchZoom.disable();
   map.doubleClickZoom.disable();
   map.scrollWheelZoom.disable();
-
   if (map.tap) map.tap.disable();
 
   var keenMapData = L.layerGroup().addTo(map);
@@ -162,18 +162,7 @@ Keen.ready(function(){
     }
   });
   client.run(users_active, function(res){
-    console.log(res);
-
-     // Transform each venue result into a marker on the map.
-    // for (var i = 0; i < result.response.venues.length; i++) {
-    //   var venue = result.response.venues[i];
-    //   var latlng = L.latLng(venue.location.lat, venue.location.lng);
-    //   var marker = L.marker(latlng)
-    //     .bindPopup('<h2><a href="https://foursquare.com/v/' + venue.id + '">' +
-    //         venue.name + '</a></h2>')
-    //     .addTo(foursquarePlaces);
-    // }
-
+    //console.log(res);
   });
 
 

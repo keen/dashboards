@@ -1,3 +1,16 @@
+#mapwrap { left: 50%; position: absolute;}
+#mapwrap .chart-title { border: medium none; }
+#mapwrap .chart-stage { height: 350px; }
+#map {
+  bottom: 5px;
+  left: 5px;
+  position: absolute;
+  top: 0px;
+  right: 5px;
+}
+
+.chart-wrapper { min-height: 360px; }
+
 .chart-stage .knob-title {
   border-bottom: medium none;
   font-size: 18px;
@@ -6,10 +19,11 @@
 .jquery-knob {}
 
 .nav-tabs-left {
+  background: #fbfbfb;
   border-bottom: medium none;
   border-right: 1px solid #ddd;
   margin: 0;
-  min-height: 200px;
+  min-height: 320px;
 }
 .nav-tabs-left li {
   float: none;
@@ -25,7 +39,9 @@
   border-right-color: #ddd;
   border-radius: 4px 0 0 4px;
 }
-.nav-tabs-left li.active > a {
+.nav-tabs-left li.active > a,
+.nav-tabs-left li.active > a:focus,
+.nav-tabs-left li.active > a:hover {
   border-bottom-color: #ddd;
   border-right-color: transparent;
   border-radius: 4px 0 0 4px;
@@ -33,12 +49,8 @@
 
 
 .nav-tabs {
-  padding-top: 20px;
+  padding-top: 10px;
   padding-left: 10px; }
-
-
-.nav-tabs > li > a {
-  text-align: center; }
 
 
 .tabs-below > .nav-tabs,

@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset='utf-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
   <title>Connected Devices</title>
+
   <link rel="stylesheet" href="../../assets/lib/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../assets/css/keen-dashboards.css">
-  <link rel="stylesheet" href="main.css">
-  <style>
-    #mapwrap { left: 50%; position: absolute;}
-    #mapwrap .chart-title { border: medium none; }
-    #mapwrap .chart-stage { height: 410px; }
-    #map { position:absolute; top:0; bottom:5%; width:97%; }
-  </style>
+  <link rel="stylesheet" href="connected-devices.css">
 </head>
 <body class="application">
 
@@ -45,16 +42,17 @@
     <div class="row">
 
       <div class="col-sm-6">
+
         <div class="chart-wrapper">
           <div class="chart-title">
-            Traffic
+            Traffic Stats
           </div>
           <div class="row">
             <div class="col-sm-3">
               <ul class="nav nav-tabs nav-tabs-left">
-                <li class="active"><a href="#" data-toggle="tab">Monthly</a></li>
-                <li><a href="#" data-toggle="tab">Quarterly</a></li>
-                <li><a href="#" data-toggle="tab">Yearly</a></li>
+                <li class="active"><a href="#" data-toggle="tab">Visitors</a></li>
+                <li><a href="#" data-toggle="tab">Browser</a></li>
+                <li><a href="#" data-toggle="tab">Geography</a></li>
               </ul>
             </div>
             <div class="col-sm-9">
@@ -64,6 +62,7 @@
             </div>
           </div>
         </div>
+        
       </div>
 
 
@@ -101,7 +100,7 @@
       <div class="col-sm-6">
         <div class="chart-wrapper">
           <div class="chart-title">
-            User Set-Up
+            Customer Engagement
           </div>
           <div class="chart-stage">
             <div id="chart-05"></div>
@@ -112,7 +111,7 @@
       <div class="col-sm-6" id="mapwrap">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Active Users
+            Active Users (last 24 hours)
           </div>
           <div class="chart-stage">
             <div id="map"></div>
@@ -121,25 +120,18 @@
       </div>
     </div>
 
-
-
-
-
-  <meta charset='utf-8' />
-  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+  <!-- Mapbox.js Assets -->
   <script src='https://api.tiles.mapbox.com/mapbox.js/v2.0.0/mapbox.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox.js/v2.0.0/mapbox.css' rel='stylesheet' />
 
-
-
-
-
- <script src="../../assets/lib/jquery/dist/jquery.min.js"></script>
+  <script src="../../assets/lib/jquery/dist/jquery.min.js"></script>
   <script src="../../assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="https://d26b395fwzu5fz.cloudfront.net/latest/keen.min.js"></script>
-  <script src="main.js"></script>
-
   <script src="../../assets/lib/jquery-knob/dist/jquery.knob.min.js"></script>
+  <script src="https://d26b395fwzu5fz.cloudfront.net/latest/keen.min.js?v=4546"></script>
+
+  <script src="connected-devices.js"></script>
+
+
 
 </body>
 </html>
