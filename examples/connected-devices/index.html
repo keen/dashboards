@@ -49,20 +49,23 @@
           </div>
           <div class="row">
             <div class="col-sm-3">
-              <ul class="nav nav-tabs nav-tabs-left">
-                <li class="active"><a href="#" data-toggle="tab">Visitors</a></li>
-                <li><a href="#" data-toggle="tab">Browser</a></li>
-                <li><a href="#" data-toggle="tab">Geography</a></li>
-              </ul>
-            </div>
-            <div class="col-sm-9">
-              <div class="chart-stage">
-                <div id="chart-01"></div>
+              <div class="tabbable tabs-left">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#visitors" data-toggle="tab">Visitors</a></li>
+                  <li><a href="#browser" data-toggle="tab">Browser</a></li>
+                  <li><a href="#geography" data-toggle="tab">Geography</a></li>
+                </ul>
               </div>
             </div>
-          </div>
+            <div class="col-sm-9">
+              <div class="tab-content">
+               <div class="tab-pane active" id="visitors"></div>
+               <div class="tab-pane" id="browser"></div>
+               <div class="tab-pane" id="geography"></div>
+              </div>
+            </div>
+          </div>  
         </div>
-        
       </div>
 
 
@@ -105,6 +108,8 @@
           <div class="chart-stage">
             <div id="chart-05"></div>
           </div>
+          <div class="chart-notes">
+          </div>
         </div>
       </div>
 
@@ -115,6 +120,8 @@
           </div>
           <div class="chart-stage">
             <div id="map"></div>
+          </div>
+          <div class="chart-notes">
           </div>
         </div>
       </div>
