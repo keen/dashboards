@@ -16,9 +16,11 @@
   font-size: 18px;
   text-align: center;
 }
-.jquery-knob {}
+
 
 /* custom inclusion of right, left and below tabs */
+
+
 .nav-tabs {
   padding-top: 10px; 
   padding-left: 10px; }
@@ -129,4 +131,5 @@
   border-color: #ddd #ddd #ddd transparent;
   *border-left-color: #ffffff;
 }
+
 

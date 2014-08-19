@@ -111,7 +111,7 @@ Keen.ready(function(){
     'max':500,
     'fgColor': Keen.Visualization.defaults.colors[0],
     height: 290,
-    width: '100%'
+    width: '95%'
   });
   geoProject.run(users, function(res){
     $(".users").val(res.result).trigger('change');
@@ -136,7 +136,7 @@ Keen.ready(function(){
     'max':100,
     'fgColor': Keen.Visualization.defaults.colors[1],
     height: 290,
-    width: '100%'
+    width: '95%'
   });
   geoProject.run(errors, function(res){
     $(".errors").val(res.result).trigger('change');
@@ -193,6 +193,8 @@ Keen.ready(function(){
   // ----------------------------------------
   // Mapbox - Active Users
   // ----------------------------------------
+
+
   var DEFAULTS = {
     coordinates: {
       lat: 37.77350,
@@ -203,7 +205,7 @@ Keen.ready(function(){
 
   var initialize,
       map,
-      markerStart = DEFAULTS.coordinates
+      markerStart = DEFAULTS.coordinates;
 
   var activeMapData;
 
@@ -215,6 +217,7 @@ Keen.ready(function(){
       zoom: DEFAULTS.zoom
     });
 
+    heat = L.heatLayer([], { maxZoom: 13 }).addTo(map);
 
 
     activeMapData = L.layerGroup().addTo(map);
@@ -232,11 +235,18 @@ Keen.ready(function(){
       }
     });
 
-
+    // var tframe;
+    // if (document.getElementById('48').onclick) {
+    //   tframe = "previous_48_hours"
+    // } else if (document.getElementById('72').onclick) {
+    //   tframe = "previous_72_hours"
+    // } else {
+    //   tframe = "previous_24_hours"
+    // };
     var scoped_events = new Keen.Query("select_unique", {
       eventCollection: "user_action",
       targetProperty: "keen.location.coordinates",
-      timeframe: "this_day",
+      timeframe: "previous_72_hours",
       filters: geoFilter
     });
     geoProject.run(scoped_events, function(res){
@@ -250,7 +260,13 @@ Keen.ready(function(){
           })
         }).addTo(activeMapData);
       });
+      activeMapData.eachLayer(function(l) {
+          heat.addLatLng(l.getLatLng());
+      });
+      activeMapData.clearLayers();
     });
+
+
 
     map.on('zoomend', function(e) {
       resize();
@@ -264,6 +280,7 @@ Keen.ready(function(){
 
 
   var resize = function(){
+
     var center = map.getCenter();
     var zoom = map.getZoom();
 
@@ -275,6 +292,7 @@ Keen.ready(function(){
     else {
       radius = 8192/Math.pow(2,z);
     }
+    console.log(center, radius);
 
     var newgeoFilter = [];
     newgeoFilter.push({
@@ -286,23 +304,34 @@ Keen.ready(function(){
       }
     });
 
+    // var tframe;
+    // if (document.getElementById('48').onclick) {
+    //   tframe = "previous_48_hours"
+    // } else if (document.getElementById('72').onclick) {
+    //   tframe = "previous_72_hours"
+    // } else {
+    //   tframe = "previous_24_hours"
+    // };
+
     var new_scoped_events = new Keen.Query("select_unique", {
       eventCollection: "user_action",
       targetProperty: "keen.location.coordinates",
-      timeframe: "this_day",
+      timeframe: "previous_72_hours",
       filters: newgeoFilter
     });
     geoProject.run(new_scoped_events, function(res){
       console.log("events", res);
-      activeMapData.clearLayers();
+
 
       Keen.utils.each(res.result, function(coord, index){
         var em = L.marker(new L.LatLng(coord[1], coord[0]), {
-          icon: L.mapbox.marker.icon({
-            "marker-color": Keen.Visualization.defaults.colors[0]
-          })
-        }).addTo(activeMapData);;
+          icon: L.mapbox.marker.icon()
+        }).addTo(activeMapData);
       });
+      activeMapData.eachLayer(function(l) {
+          heat.addLatLng(l.getLatLng());
+      });
+      activeMapData.clearLayers();
     });
   };
 

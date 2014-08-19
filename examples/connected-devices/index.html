@@ -81,7 +81,7 @@
                   New Activations Today
                 </div>
                 <div class="chart-stage">
-                  <input class="jquery-knob users" value="0"/>
+                  <input type="text" class="users" value="0"/>
                 </div>
               </div>
               <div class="col-sm-6">
@@ -89,7 +89,7 @@
                   Device Crashes Today
                 </div>
                 <div class="chart-stage">
-                  <input class="jquery-knob errors" value="0"/>
+                  <input type="text" class="errors" value="0"/>
                 </div>
               </div>
             </div>
@@ -116,7 +116,11 @@
       <div class="col-sm-6" id="mapwrap">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Active Users (last 24 hours)
+            <div class="btn-group-xs">Active Users
+              <button type="button" id="24" class="btn btn-default">24 Hours</button>
+              <button type="button" id="48" class="btn btn-default">48 Hours</button>
+              <button type="button" id="72" class="btn btn-default">72 Hours</button>
+            </div>
           </div>
           <div class="chart-stage">
             <div id="map"></div>
