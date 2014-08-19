@@ -215,10 +215,11 @@ Keen.ready(function(){
       zoom: DEFAULTS.zoom
     });
 
+
+
     activeMapData = L.layerGroup().addTo(map);
 
     map.attributionControl.addAttribution('<a href="https://keen.io/">Custom Analytics by Keen IO</a>');
-
 
 
     var geoFilter = [];
@@ -247,10 +248,62 @@ Keen.ready(function(){
           icon: L.mapbox.marker.icon({
             "marker-color": Keen.Visualization.defaults.colors[0]
           })
-        }).addTo(activeMapData);;
+        }).addTo(activeMapData);
       });
     });
 
+    map.on('zoomend', function(e) {
+      resize();
+    });
+    map.on('dragend', function(e) {
+      resize();
+    });
+
+  };
+
+
+
+  var resize = function(){
+    var center = map.getCenter();
+    var zoom = map.getZoom();
+
+    z = zoom-1;
+
+    if (zoom = 0){
+      radius = false;
+    }
+    else {
+      radius = 8192/Math.pow(2,z);
+    }
+
+    var newgeoFilter = [];
+    newgeoFilter.push({
+      property_name : "keen.location.coordinates",
+      operator : "within",
+      property_value: {
+        coordinates: [ center.lng, center.lat ],
+        max_distance_miles: radius
+      }
+    });
+
+    var new_scoped_events = new Keen.Query("select_unique", {
+      eventCollection: "user_action",
+      targetProperty: "keen.location.coordinates",
+      timeframe: "this_day",
+      filters: newgeoFilter
+    });
+    geoProject.run(new_scoped_events, function(res){
+      console.log("events", res);
+      activeMapData.clearLayers();
+
+      Keen.utils.each(res.result, function(coord, index){
+        var em = L.marker(new L.LatLng(coord[1], coord[0]), {
+          icon: L.mapbox.marker.icon({
+            "marker-color": Keen.Visualization.defaults.colors[0]
+          })
+        }).addTo(activeMapData);;
+      });
+    });
   };
 
 initialize();
