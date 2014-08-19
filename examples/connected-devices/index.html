@@ -49,20 +49,23 @@
           </div>
           <div class="row">
             <div class="col-sm-3">
-              <ul class="nav nav-tabs nav-tabs-left">
-                <li class="active"><a href="#" data-toggle="tab">Visitors</a></li>
-                <li><a href="#" data-toggle="tab">Browser</a></li>
-                <li><a href="#" data-toggle="tab">Geography</a></li>
-              </ul>
-            </div>
-            <div class="col-sm-9">
-              <div class="chart-stage">
-                <div id="chart-01"></div>
+              <div class="tabbable tabs-left">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#visitors" data-toggle="tab">Visitors</a></li>
+                  <li><a href="#browser" data-toggle="tab">Browser</a></li>
+                  <li><a href="#geography" data-toggle="tab">Geography</a></li>
+                </ul>
               </div>
             </div>
-          </div>
+            <div class="col-sm-9">
+              <div class="tab-content">
+               <div class="tab-pane active" id="visitors"></div>
+               <div class="tab-pane" id="browser"></div>
+               <div class="tab-pane" id="geography"></div>
+              </div>
+            </div>
+          </div>  
         </div>
-        
       </div>
 
 
@@ -78,7 +81,7 @@
                   New Activations Today
                 </div>
                 <div class="chart-stage">
-                  <input class="jquery-knob users" value="0"/>
+                  <input type="text" class="users" value="0"/>
                 </div>
               </div>
               <div class="col-sm-6">
@@ -86,7 +89,7 @@
                   Device Crashes Today
                 </div>
                 <div class="chart-stage">
-                  <input class="jquery-knob errors" value="0"/>
+                  <input type="text" class="errors" value="0"/>
                 </div>
               </div>
             </div>
@@ -105,16 +108,24 @@
           <div class="chart-stage">
             <div id="chart-05"></div>
           </div>
+          <div class="chart-notes">
+          </div>
         </div>
       </div>
 
       <div class="col-sm-6" id="mapwrap">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Active Users (last 24 hours)
+            <div class="btn-group-xs">Active Users
+              <button type="button" id="24" class="btn btn-default">24 Hours</button>
+              <button type="button" id="48" class="btn btn-default">48 Hours</button>
+              <button type="button" id="72" class="btn btn-default">72 Hours</button>
+            </div>
           </div>
           <div class="chart-stage">
             <div id="map"></div>
+          </div>
+          <div class="chart-notes">
           </div>
         </div>
       </div>
@@ -123,6 +134,7 @@
   <!-- Mapbox.js Assets -->
   <script src='https://api.tiles.mapbox.com/mapbox.js/v2.0.0/mapbox.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox.js/v2.0.0/mapbox.css' rel='stylesheet' />
+  <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-heat/v0.1.0/leaflet-heat.js'></script>
 
   <script src="../../assets/lib/jquery/dist/jquery.min.js"></script>
   <script src="../../assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>

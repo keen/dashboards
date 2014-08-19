@@ -1,6 +1,6 @@
 var client = new Keen({
-  projectId: "5368fa5436bf5a5623000000",
-  readKey: "3f324dcb5636316d6865ab0ebbbbc725224c7f8f3e8899c7733439965d6d4a2c7f13bf7765458790bd50ec76b4361687f51cf626314585dc246bb51aeb455c0a1dd6ce77a993d9c953c5fc554d1d3530ca5d17bdc6d1333ef3d8146a990c79435bb2c7d936f259a22647a75407921056"
+  projectId: "5337e28273f4bb4499000000",
+  readKey: "8827959317a6a01257bbadf16c12eff4bc61a170863ca1dadf9b3718f56bece1ced94552c6f6fcda073de70bf860c622ed5937fcca82d57cff93b432803faed4108d2bca310ca9922d5ef6ea9381267a5bd6fd35895caec69a7e414349257ef43a29ebb764677040d4a80853e11b8a3f"
 });
 
 var geoProject = new Keen({
@@ -11,15 +11,16 @@ var geoProject = new Keen({
 Keen.ready(function(){
 
 
+
   // ----------------------------------------
-  // New Users Timeline
+  // Visitors Timeline
   // ----------------------------------------
   var new_users = new Keen.Query("count", {
     eventCollection: "activations",
     interval: "monthly",
     timeframe: "this_year"
   });
-  geoProject.draw(new_users, document.getElementById("chart-01"), {
+  geoProject.draw(new_users, document.getElementById("visitors"), {
     chartType: "areachart",
     title: "Monthly Visits",
     height: 300,
@@ -27,14 +28,70 @@ Keen.ready(function(){
     chartOptions: {
       legend: { position: "none" },
       chartArea: {
-        height: "85%",
-        left: "5%",
-        width: "90%"
+        height: "78%",
+        top: "15%",
+        left: "8%",
+        width: "85%"
       },
       hAxis: { format: 'MMM', maxTextLines: 1 }
     }
   });
 
+  // ----------------------------------------
+  // Visitors by Browser Timeline
+  // ----------------------------------------
+  var browser = new Keen.Query("count", {
+    eventCollection: "activations",
+    timeframe: "this_year",
+    interval: "monthly",
+    groupBy: "device_model_name"
+  });
+  geoProject.draw(browser, document.getElementById("browser"), {
+    title: "Visits by Browser",
+    height: 300,
+    width: 475,
+    chartOptions: {
+      legend: { position: "none" },
+      chartArea: {
+        height: "78%",
+        top: "15%",
+        left: "10%",
+        width: "100%"
+      }
+    }
+  });
+
+  // ----------------------------------------
+  // Visitors by State 
+  // ----------------------------------------
+  var state = new Keen.Query("count", {
+    eventCollection: "visit",
+    groupBy: "visitor.geo.province"
+  });
+  client.draw(state, document.getElementById("geography"), {
+    chartType: "columnchart",
+    title: "Visits by State",
+    height: 300,
+    width: 475,
+    chartOptions: {
+      legend: { position: "none" },
+      chartArea: {
+        height: "78%",
+        top: "15%",
+        left: "12%",
+        width: "100%"
+      }
+    },
+    labelMapping: {
+      "New Jersey" : "NJ",
+      "Virginia" : "VA",
+      "California": "CA",
+      "Washington": "WA",
+      "Utah": "UT",
+      "Oregon": "OR",
+      "null": "Other"
+    }
+  });
 
 
   // ----------------------------------------
@@ -53,8 +110,8 @@ Keen.ready(function(){
     'min':0,
     'max':500,
     'fgColor': Keen.Visualization.defaults.colors[0],
-    //height: 230,
-    width: '100%'
+    height: 290,
+    width: '95%'
   });
   geoProject.run(users, function(res){
     $(".users").val(res.result).trigger('change');
@@ -78,8 +135,8 @@ Keen.ready(function(){
     'min':0,
     'max':100,
     'fgColor': Keen.Visualization.defaults.colors[1],
-    //height: 230,
-    width: '100%'
+    height: 290,
+    width: '95%'
   });
   geoProject.run(errors, function(res){
     $(".errors").val(res.result).trigger('change');
@@ -136,34 +193,151 @@ Keen.ready(function(){
   // ----------------------------------------
   // Mapbox - Active Users
   // ----------------------------------------
-  L.mapbox.accessToken = 'pk.eyJ1Ijoicml0Y2hpZWxlZWFubiIsImEiOiJsd3VLdFl3In0.lwvdUU2VGB9VGDw7ulA4jA';
-  var map = L.mapbox.map('map', 'ritchieleeann.j7bc1dpl', {
-    attributionControl: true,
-    zoomControl: false
-  });
-  map.setView([37.61, -122.357], 9);
-  map.attributionControl.addAttribution('<a href="https://keen.io/">Custom Analytics by Keen IO</a>');
 
-  map.dragging.disable();
-  map.touchZoom.disable();
-  map.doubleClickZoom.disable();
-  map.scrollWheelZoom.disable();
-  if (map.tap) map.tap.disable();
 
-  var keenMapData = L.layerGroup().addTo(map);
+  var DEFAULTS = {
+    coordinates: {
+      lat: 37.77350,
+      lng: -122.41104
+    },
+    zoom: 11
+  };
 
-  var users_active = new Keen.Query("count", {
-    eventCollection: "users_active",
-    interval: "hourly",
-    groupBy: "user.device_info.browser.family",
-    timeframe: {
-      start: "2014-05-04T00:00:00.000Z",
-      end: "2014-05-05T00:00:00.000Z"
+  var initialize,
+      map,
+      markerStart = DEFAULTS.coordinates;
+
+  var activeMapData;
+
+  var initialize = function() {
+    L.mapbox.accessToken = "pk.eyJ1Ijoicml0Y2hpZWxlZWFubiIsImEiOiJsd3VLdFl3In0.lwvdUU2VGB9VGDw7ulA4jA";
+    map = L.mapbox.map('map', 'ritchieleeann.j7bc1dpl', {
+      attributionControl: true,
+      center: [markerStart.lat, markerStart.lng],
+      zoom: DEFAULTS.zoom
+    });
+
+    heat = L.heatLayer([], { maxZoom: 13 }).addTo(map);
+
+
+    activeMapData = L.layerGroup().addTo(map);
+
+    map.attributionControl.addAttribution('<a href="https://keen.io/">Custom Analytics by Keen IO</a>');
+
+
+    var geoFilter = [];
+    geoFilter.push({
+      property_name : "keen.location.coordinates",
+      operator : "within",
+      property_value: {
+        coordinates: [ -122.41104, 37.77350 ],
+        max_distance_miles: 10
+      }
+    });
+
+    // var tframe;
+    // if (document.getElementById('48').onclick) {
+    //   tframe = "previous_48_hours"
+    // } else if (document.getElementById('72').onclick) {
+    //   tframe = "previous_72_hours"
+    // } else {
+    //   tframe = "previous_24_hours"
+    // };
+    var scoped_events = new Keen.Query("select_unique", {
+      eventCollection: "user_action",
+      targetProperty: "keen.location.coordinates",
+      timeframe: "previous_72_hours",
+      filters: geoFilter
+    });
+    geoProject.run(scoped_events, function(res){
+      console.log("events", res);
+      activeMapData.clearLayers();
+
+      Keen.utils.each(res.result, function(coord, index){
+        var em = L.marker(new L.LatLng(coord[1], coord[0]), {
+          icon: L.mapbox.marker.icon({
+            "marker-color": Keen.Visualization.defaults.colors[0]
+          })
+        }).addTo(activeMapData);
+      });
+      activeMapData.eachLayer(function(l) {
+          heat.addLatLng(l.getLatLng());
+      });
+      activeMapData.clearLayers();
+    });
+
+
+
+    map.on('zoomend', function(e) {
+      resize();
+    });
+    map.on('dragend', function(e) {
+      resize();
+    });
+
+  };
+
+
+
+  var resize = function(){
+
+    var center = map.getCenter();
+    var zoom = map.getZoom();
+
+    z = zoom-1;
+
+    if (zoom = 0){
+      radius = false;
     }
-  });
-  client.run(users_active, function(res){
-    //console.log(res);
-  });
+    else {
+      radius = 8192/Math.pow(2,z);
+    }
+    console.log(center, radius);
+
+    var newgeoFilter = [];
+    newgeoFilter.push({
+      property_name : "keen.location.coordinates",
+      operator : "within",
+      property_value: {
+        coordinates: [ center.lng, center.lat ],
+        max_distance_miles: radius
+      }
+    });
+
+    // var tframe;
+    // if (document.getElementById('48').onclick) {
+    //   tframe = "previous_48_hours"
+    // } else if (document.getElementById('72').onclick) {
+    //   tframe = "previous_72_hours"
+    // } else {
+    //   tframe = "previous_24_hours"
+    // };
+
+    var new_scoped_events = new Keen.Query("select_unique", {
+      eventCollection: "user_action",
+      targetProperty: "keen.location.coordinates",
+      timeframe: "previous_72_hours",
+      filters: newgeoFilter
+    });
+    geoProject.run(new_scoped_events, function(res){
+      console.log("events", res);
 
 
+      Keen.utils.each(res.result, function(coord, index){
+        var em = L.marker(new L.LatLng(coord[1], coord[0]), {
+          icon: L.mapbox.marker.icon()
+        }).addTo(activeMapData);
+      });
+      activeMapData.eachLayer(function(l) {
+          heat.addLatLng(l.getLatLng());
+      });
+      activeMapData.clearLayers();
+    });
+  };
+
+initialize();
 });
+
+
+
+
