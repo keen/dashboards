@@ -24,7 +24,7 @@ Keen.ready(function(){
     chartType: "areachart",
     title: "Monthly Visits",
     height: 300,
-    width: "auto",
+    width: 490,
     chartOptions: {
       legend: { position: "none" },
       chartArea: {
@@ -193,7 +193,7 @@ Keen.ready(function(){
   // ----------------------------------------
   // Mapbox - Active Users
   // ----------------------------------------
-
+  var tframe = "previous_7_days";
 
   var DEFAULTS = {
     coordinates: {
@@ -207,7 +207,8 @@ Keen.ready(function(){
       map,
       markerStart = DEFAULTS.coordinates;
 
-  var activeMapData;
+  var activeMapData,
+      heat;
 
   var initialize = function() {
     L.mapbox.accessToken = "pk.eyJ1Ijoicml0Y2hpZWxlZWFubiIsImEiOiJsd3VLdFl3In0.lwvdUU2VGB9VGDw7ulA4jA";
@@ -217,13 +218,11 @@ Keen.ready(function(){
       zoom: DEFAULTS.zoom
     });
 
-    heat = L.heatLayer([], { maxZoom: 13 }).addTo(map);
-
+    heat = L.heatLayer([], { maxZoom: 14 });
 
     activeMapData = L.layerGroup().addTo(map);
 
     map.attributionControl.addAttribution('<a href="https://keen.io/">Custom Analytics by Keen IO</a>');
-
 
     var geoFilter = [];
     geoFilter.push({
@@ -235,18 +234,10 @@ Keen.ready(function(){
       }
     });
 
-    // var tframe;
-    // if (document.getElementById('48').onclick) {
-    //   tframe = "previous_48_hours"
-    // } else if (document.getElementById('72').onclick) {
-    //   tframe = "previous_72_hours"
-    // } else {
-    //   tframe = "previous_24_hours"
-    // };
     var scoped_events = new Keen.Query("select_unique", {
       eventCollection: "user_action",
       targetProperty: "keen.location.coordinates",
-      timeframe: "previous_72_hours",
+      timeframe: tframe,
       filters: geoFilter
     });
     geoProject.run(scoped_events, function(res){
@@ -255,42 +246,52 @@ Keen.ready(function(){
 
       Keen.utils.each(res.result, function(coord, index){
         var em = L.marker(new L.LatLng(coord[1], coord[0]), {
-          icon: L.mapbox.marker.icon({
-            "marker-color": Keen.Visualization.defaults.colors[0]
-          })
+          icon: L.mapbox.marker.icon()
         }).addTo(activeMapData);
       });
+      
       activeMapData.eachLayer(function(l) {
-          heat.addLatLng(l.getLatLng());
+          heat.addTo(map).addLatLng(l.getLatLng());
       });
       activeMapData.clearLayers();
     });
 
-
-
     map.on('zoomend', function(e) {
       resize();
     });
-    map.on('dragend', function(e) {
+    map.on('dragend', function(e) {;
       resize();
     });
 
   };
 
+  document.getElementById("14days").addEventListener("click", function() {
+    resize(tframe = "previous_14_days");
+  });
+
+  document.getElementById("28days").addEventListener("click", function() {
+    resize(tframe = "previous_28_days");
+  });
+
+  document.getElementById("7days").addEventListener("click", function() {
+    resize(tframe = "previous_7_days");
+  });
+
 
 
   var resize = function(){
+
+    heat.setLatLngs([]);
 
     var center = map.getCenter();
     var zoom = map.getZoom();
 
     z = zoom-1;
-
     if (zoom = 0){
       radius = false;
     }
     else {
-      radius = 8192/Math.pow(2,z);
+      radius = 10000/Math.pow(2,z);
     }
     console.log(center, radius);
 
@@ -304,19 +305,10 @@ Keen.ready(function(){
       }
     });
 
-    // var tframe;
-    // if (document.getElementById('48').onclick) {
-    //   tframe = "previous_48_hours"
-    // } else if (document.getElementById('72').onclick) {
-    //   tframe = "previous_72_hours"
-    // } else {
-    //   tframe = "previous_24_hours"
-    // };
-
     var new_scoped_events = new Keen.Query("select_unique", {
       eventCollection: "user_action",
       targetProperty: "keen.location.coordinates",
-      timeframe: "previous_72_hours",
+      timeframe: tframe,
       filters: newgeoFilter
     });
     geoProject.run(new_scoped_events, function(res){
@@ -334,6 +326,7 @@ Keen.ready(function(){
       activeMapData.clearLayers();
     });
   };
+
 
 initialize();
 });
