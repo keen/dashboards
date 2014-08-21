@@ -21,6 +21,20 @@
     zoom: 12
   };
 
+  var find = function(hash, selector) {
+    var hashes = location.hash.substr(1).split("&");
+    return buildParamsMap(hashes)[selector];
+  };
+
+  var buildParamsMap = function(hashes) {
+    var map = {};
+    for(var i = 0; i < hashes.length; i++) {
+      var hash = hashes[i].split("=");
+      map[hash[0]] = hash[1];
+    } 
+    return map;
+  };
+
   Keen.ready(function() {
     var initialize,
         circle,
@@ -51,6 +65,7 @@
     var activeMapData;
 
     var initialize = function() {
+      var hasQuery = window.location.hash.length !== 0
       L.mapbox.accessToken = "pk.eyJ1IjoiZG9ra28xMjMwIiwiYSI6IlM3TUN5RW8ifQ.wNT0Pp0zCtMR7phIRHg6Ug";
       map = L.mapbox.map("app-maparea", "dokko1230.j7ch6d77", {
         attributionControl: true,
@@ -60,6 +75,8 @@
 
       // For query result markers
       activeMapData = L.layerGroup().addTo(map);
+      markerStart.lat = hasQuery ? find(location.hash, 'latitude') : markerStart.lat;
+      markerStart.lng = hasQuery ? find(location.hash, 'longitude') : markerStart.lng;
 
       marker = L.marker(new L.LatLng(markerStart.lat, markerStart.lng), {
         icon: L.mapbox.marker.icon({
@@ -90,12 +107,33 @@
         circle.setLatLng({ lat: newLat, lng: newLng });
         latNode.value = newLat;
         lngNode.value = newLng;
+
+        var rangeInMeters, rangeInMiles,
+            config,
+            radiusValue = radiusValueNode.value || 10,
+            radiusUnits = radiusUnitsNode.value || "km";
+
+        rangeInMeters = radiusValue * ((radiusUnits === "mi") ? 1609.34 : 1000);
+
+        // CONVERT TO MILES (API v3)
+        rangeInMiles = rangeInMeters / 1609.34;
+
+        var config = {
+          start: timeframeStartNode.value,
+          end: timeframeEndNode.value,
+          latitude: latNode.value,
+          longitude: lngNode.value,
+          radius: rangeInMiles
+        };
+
+        updateQuery(config);
+        redraw(config);
       });
 
       document.getElementById('refresh').onclick = refresh;
 
       // Get query string
-      if(window.location.hash.length !== 0) { //query exists
+      if(hasQuery) { //query exists
         rebuild(window.location.hash.substr(1).split('&'));
       } else {
         refresh();
@@ -103,17 +141,13 @@
     };
 
     var rebuild = function(params) {
-      var config = {};
-      for(var item in params) {
-        config[item] = params[item];
-      }
-      redraw(config);
+      redraw(buildParamsMap(params));
     };
 
     var updateQuery = function(params) {
       var queryString = "";
       for(var key in params) {
-        queryString += key + '=' + params[key];
+        queryString += key + '=' + params[key] + "&";
       }
       window.location.hash = queryString;
     };
@@ -124,9 +158,15 @@
           radiusValue = radiusValueNode.value || 10,
           radiusUnits = radiusUnitsNode.value || "km";
 
-      // Behold, the one-liner :)
+      // Behold, the one-liner :) 
+      // 
+      // 
+      // 
+      // 
+      // 
+      // 
+      // GASPS :O
       rangeInMeters = radiusValue * ((radiusUnits === "mi") ? 1609.34 : 1000);
-      //circle.setRadius(rangeInMeters);
 
       // CONVERT TO MILES (API v3)
       rangeInMiles = rangeInMeters / 1609.34;
@@ -261,4 +301,6 @@
 
   initialize();
   })
+
+  
 })();
