@@ -3,6 +3,7 @@ function HTMLActuator() {
   this.scoreContainer   = document.querySelector(".score-container");
   this.bestContainer    = document.querySelector(".best-container");
   this.messageContainer = document.querySelector(".game-message");
+  this.moves = 0;
 
   this.score = 0;
 }
@@ -134,6 +135,9 @@ HTMLActuator.prototype.message = function (won) {
 
   window.client.addEvent("new_high_score2", {
     "best_score": this.score
+  });
+  window.client.addEvent("moves", {
+    "moves": this.moves
   });
 };
 

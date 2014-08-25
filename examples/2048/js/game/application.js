@@ -12,22 +12,47 @@ window.requestAnimationFrame(function () {
       eventCollection: "new_high_score2",
       groupBy: "best_score"
     });
+
+    var movesQuery = new Keen.Query("count", {
+      eventCollection: "moves",
+      groupBy: "moves"
+    });
+
     var el = document.getElementById("stats-container");
+    var movesContainer = document.getElementById("moves-container");
+
+    // Because otherwise yuck
+    var google_options = {
+      bar: { groupWidth: "95%" },
+      chartArea: { width: "90%" },
+      hAxis: {title: "Percentile" },
+      legend: { position: "none" }
+    };
+
+    var moves = window.client.run(movesQuery, function(res) {
+      new Keen.Visualization(res, movesContainer, {
+        title: "Total number of moves",
+        width: 400,
+        chartType: "table",
+        chartOptions: google_options
+      });
+    });
 
     var scores = window.client.run(query, function(res) {
       new Keen.Visualization(res, el, {
         title: "Best Scores",
         width: 400,
-        chartType: "piechart",
+        chartType: "table",
         chartOptions: {
-          pieHole: .5
+          sortColumn: 1,
+          sortAscending: false
         }
       });
     });
 
-    setInterval(function(){
-      scores.refresh();
-    }, 3000);
+    // setInterval(function(){
+    // scores.refresh();
+    // }, 3000);
 
   });
 
