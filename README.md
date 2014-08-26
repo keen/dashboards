@@ -8,6 +8,19 @@ Our goal for these assets is to be as helpful and familiar as possible, without 
 * [Examples](http://keenlabs.github.io/dashboards/) for specific domains, data models and popular integrations
 * [Layouts](http://keenlabs.github.io/dashboards/layouts) for pre-baked responsive dashboard views
 
+## How to use these dashboards (non-developers)
+
+Simply want to use one of these layouts? Here are a simple set of instructionals for downloading and getting started with making your own Keen dashboard!
+
+1. Download the source. In the sidebar, is a Download Zip link. Click it to grab a copy of the repository.
+
+2. Choose which layout you want to start with. Navigate to [layouts](http://keenlabs.github.io/dashboards/layouts/) and select which template might best suit your needs. Once you have selected a template, navigate to your downloaded zip, unzip it using an decompression tool like [7-zip](http://7-zip.en.softonic.com/) and navigate to the folder/layouts/(name of your chosen template).
+
+3. Start editing! In the destination folder will exist an .html file in which you can edit with your favorite text editor. There are three things you need to do to edit your dashboard:
+  1. Setup: If you're a registered Keen.io user, navigate to [your keen project](http://keen.io/home) or if you don't have a user at first, you can simply use some demo data that we've prepared for you. You can access those by going to the repository and navigating to demo-data. There, you will see some javascript files with some code in them. We will simply paste those in the .html file.
+  2. Some copypasta. When you navigate to the bottom of the .html file, you can see that there are a bunch of script tags. Just before the end of the body tag, we're going to add in the code from sample.html. Simply copy and paste the code just before you see ```</body>```
+  3. Once you've done that we need to hook up the specific items within the template to the code that we've just pasted in to our file. 
+
 
 ## How to Contribute
 
