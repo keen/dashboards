@@ -33,7 +33,6 @@ Simply want to use one of these layouts? Here are a simple set of instructionals
   ```
   You're finished! Congratulations on setting up your first Keen chart! Repeat step three with the rest of the items in the template to complete your dashboard!
 
-
 ## How to Contribute
 
 Contributions are 11,000,000% welcome! That's a lot!
