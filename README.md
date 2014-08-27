@@ -19,7 +19,19 @@ Simply want to use one of these layouts? Here are a simple set of instructionals
 3. Start editing! In the destination folder will exist an .html file in which you can edit with your favorite text editor. There are three things you need to do to edit your dashboard:
   1. Setup: If you're a registered Keen.io user, navigate to [your keen project](http://keen.io/home) or if you don't have a user at first, you can simply use some demo data that we've prepared for you. You can access those by going to the repository and navigating to demo-data. There, you will see some javascript files with some code in them. We will simply paste those in the .html file.
   2. Some copypasta. When you navigate to the bottom of the .html file, you can see that there are a bunch of script tags. Just before the end of the body tag, we're going to add in the code from sample.html. Simply copy and paste the code just before you see ```</body>```
-  3. Once you've done that we need to hook up the specific items within the template to the code that we've just pasted in to our file. 
+  3. Once you've done that we need to hook up the specific items within the template to the code that we've just pasted in to our file. In line 21 of sample.html, you will see a line of code: ```document.getElementById('chart-01')```. That means that this *query* will try to find inside the html file a node with an id of 'chart-01'. In these templates, you will see lines of that resemble something like:
+  ```html
+  <div class="chart-stage"> <!-- This is where you need to put the id property in! -->
+    <img data-src="holder.js/100%x650/white">
+  </div>
+  ```
+  Now we're going to change those lines so that it looks like this:
+  ```html
+  <div class="chart-stage" id="chart-01"> <!-- This is where you need to put the id property in! -->
+    <!-- Get rid of that img tag! -->
+  </div>
+  ```
+  You're finished! Congratulations on setting up your first Keen chart! Repeat step three with the rest of the items in the template to complete your dashboard!
 
 
 ## How to Contribute
