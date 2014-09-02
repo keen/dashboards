@@ -210,7 +210,7 @@ Keen.ready(function(){
   var activeMapData,
       heat;
 
-  var initialize = function() {
+  initialize = function() {
     L.mapbox.accessToken = "pk.eyJ1Ijoicml0Y2hpZWxlZWFubiIsImEiOiJsd3VLdFl3In0.lwvdUU2VGB9VGDw7ulA4jA";
     map = L.mapbox.map('map', 'ritchieleeann.j7bc1dpl', {
       attributionControl: true,
@@ -240,7 +240,7 @@ Keen.ready(function(){
       timeframe: tframe,
       filters: geoFilter
     });
-    geoProject.run(scoped_events, function(res){
+    var result = geoProject.run(scoped_events, function(res){
       console.log("events", res);
       activeMapData.clearLayers();
 
@@ -256,76 +256,78 @@ Keen.ready(function(){
       activeMapData.clearLayers();
     });
 
-    map.on('zoomend', function(e) {
-      resize();
-    });
-    map.on('dragend', function(e) {;
-      resize();
-    });
-
-  };
-
-  document.getElementById("14days").addEventListener("click", function() {
-    resize(tframe = "previous_14_days");
-  });
-
-  document.getElementById("28days").addEventListener("click", function() {
-    resize(tframe = "previous_28_days");
-  });
-
-  document.getElementById("7days").addEventListener("click", function() {
-    resize(tframe = "previous_7_days");
-  });
-
-
-
-  var resize = function(){
-
-    heat.setLatLngs([]);
-
-    var center = map.getCenter();
-    var zoom = map.getZoom();
-
-    z = zoom-1;
-    if (zoom = 0){
-      radius = false;
-    }
-    else {
-      radius = 10000/Math.pow(2,z);
-    }
-    console.log(center, radius);
 
     var newgeoFilter = [];
-    newgeoFilter.push({
-      property_name : "keen.location.coordinates",
-      operator : "within",
-      property_value: {
-        coordinates: [ center.lng, center.lat ],
-        max_distance_miles: radius
+    function resize(geo){
+
+      geo = [];
+
+      heat.setLatLngs([]);
+
+      var center = map.getCenter();
+      var zoom = map.getZoom();
+
+      z = zoom-1;
+      if (zoom === 0){
+        radius = false;
       }
-    });
-
-    var new_scoped_events = new Keen.Query("select_unique", {
-      eventCollection: "user_action",
-      targetProperty: "keen.location.coordinates",
-      timeframe: tframe,
-      filters: newgeoFilter
-    });
-    geoProject.run(new_scoped_events, function(res){
-      console.log("events", res);
+      else {
+        radius = 10000/Math.pow(2,z);
+      }
+      console.log(center, radius);
 
 
-      Keen.utils.each(res.result, function(coord, index){
-        var em = L.marker(new L.LatLng(coord[1], coord[0]), {
-          icon: L.mapbox.marker.icon()
-        }).addTo(activeMapData);
+
+      geo.push({
+        property_name : "keen.location.coordinates",
+        operator : "within",
+        property_value: {
+          coordinates: [ center.lng, center.lat ],
+          max_distance_miles: radius
+        }
+
       });
-      activeMapData.eachLayer(function(l) {
-          heat.addLatLng(l.getLatLng());
-      });
-      activeMapData.clearLayers();
+      return geo;
+    }
+
+
+    map.on('zoomend', function(e) {
+      newgeoFilter = resize(newgeoFilter);
+      scoped_events.set({ filters: newgeoFilter });
+      result.refresh();
     });
+    map.on('dragend', function(e) {
+      newgeoFilter = resize(newgeoFilter);
+      scoped_events.set({ filters: newgeoFilter });
+      result.refresh();
+    });
+
+
+
+    document.getElementById("14days").addEventListener("click", function() {
+      newgeoFilter = resize(newgeoFilter);
+      scoped_events.set({ filters: newgeoFilter,
+                          timeframe: "previous_14_days" });
+      result.refresh();
+    });
+
+    document.getElementById("28days").addEventListener("click", function() {
+      newgeoFilter = resize(newgeoFilter);
+      scoped_events.set({ filters: newgeoFilter,
+                          timeframe: "previous_28_days" });
+      result.refresh();
+    });
+
+    document.getElementById("7days").addEventListener("click", function() {
+      newgeoFilter = resize(newgeoFilter);
+      scoped_events.set({ filters: newgeoFilter,
+                          timeframe: "previous_7_days" });
+      result.refresh();
+    });
+
   };
+
+
 
 
 initialize();
