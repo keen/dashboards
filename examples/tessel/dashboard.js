@@ -1,8 +1,8 @@
 // var Keen = require('keen.io');
  
 var client = new Keen({
-    projectId: "53fd0676e861701e17000001",
-    readKey: "e59871426c869471154eeebdf6e7feb02309f6d0d12574cd655fa8187d0dec5c16922b8a72364c3f192a5459e4debace4b70594fa8cd69e2af1f3b1c9d17d689677d20c806e7a690213122e8f022f496ee10c918013a07e246b3ae5247b66dc27167ee479f1d209c9f2aec115a5830a6"
+    projectId: "542b084ce8759666375da5e5",
+    readKey: "f7069f777acb01ea3883696c1cbaca038f37a5615edbaf1535b1a5d28563afafa1d1c85a0807650dc8c2a971f4f28d5b54139277c41c31d700715ff92cb6caad00af478d2426286620d82af20ea055a2673678b571858fcb03f3f836d95995255f48968266508dc1963bfd4c484698fa"
 });
 
 
@@ -46,7 +46,7 @@ Keen.ready(function(){
   // temp
   // ----------------------------------------
 
-  var temperature = new Keen.Query("median", {
+  var temperature = new Keen.Query("average", {
     eventCollection: "climate",
     targetProperty: "temp",
     timeframe: "today"
@@ -57,20 +57,21 @@ Keen.ready(function(){
     'angleOffset':-125,
     'readOnly':true,
     'min':0,
-    'max':500,
+    'max':120,
     'fgColor': Keen.Visualization.defaults.colors[1]
     // height: 250,
     // width: '95%'
   });
   client.run(temperature, function(res){
     $("#chart-01").val(res.result).trigger('change');
+    console.log('temp '+res.result);
   });
 
   // ----------------------------------------
   // humidity
   // ----------------------------------------
 
-  var humidity = new Keen.Query("median", {
+  var humidity = new Keen.Query("average", {
     eventCollection: "climate",
     targetProperty: "humidity",
     timeframe: "today"
@@ -81,21 +82,22 @@ Keen.ready(function(){
     'angleOffset':-125,
     'readOnly':true,
     'min':0,
-    'max':500,
+    'max':100,
     'fgColor': Keen.Visualization.defaults.colors[0]
     // height: 250,
     // width: '95%'
   });
   client.run(humidity, function(res){
     $("#chart-02").val(res.result).trigger('change');
+    console.log('humidity '+res.result);
   });
 
   // ----------------------------------------
   // Light
   // ----------------------------------------
 
-  var light = new Keen.Query("median", {
-    eventCollection: "ambient",
+  var light = new Keen.Query("average", {
+    eventCollection: "climate",
     targetProperty: "light",
     timeframe: "today"
   });
@@ -104,22 +106,24 @@ Keen.ready(function(){
     'angleArc':250,
     'angleOffset':-125,
     'readOnly':true,
+    'step':0.01,
     'min':0,
-    'max':500,
+    'max':1,
     'fgColor': Keen.Visualization.defaults.colors[2]
     // height: 250,
     // width: '95%'
   });
   client.run(light, function(res){
     $("#chart-03").val(res.result).trigger('change');
+    console.log('light '+res.result);
   });
 
   // ----------------------------------------
   // Sound
   // ----------------------------------------
 
-  var sound = new Keen.Query("median", {
-    eventCollection: "ambient",
+  var sound = new Keen.Query("average", {
+    eventCollection: "climate",
     targetProperty: "sound",
     timeframe: "today"
   });
@@ -128,14 +132,16 @@ Keen.ready(function(){
     'angleArc':250,
     'angleOffset':-125,
     'readOnly':true,
+    'step':0.01,
     'min':0,
-    'max':500,
+    'max':1,
     'fgColor': Keen.Visualization.defaults.colors[3]
     // height: 250,
     // width: '95%'
   });
-  client.run(light, function(res){
+  client.run(sound, function(res){
     $("#chart-04").val(res.result).trigger('change');
+    console.log('sound '+res.result);
   });
 
 
