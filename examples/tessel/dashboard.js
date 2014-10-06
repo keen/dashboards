@@ -1,4 +1,4 @@
-// var Keen = require('keen.io');
+
  
 var client = new Keen({
     projectId: "542b084ce8759666375da5e5",
@@ -13,33 +13,35 @@ Keen.ready(function(){
   // ----------------------------------------
   // Light Trigger Timeline
   // ----------------------------------------
-  var light_timeline = new Keen.Query("count", {
-    eventCollection: "light-trigger",
-    interval: "daily",
-    timeframe: "this_month"
+  var light_timeline = new Keen.Query("count_unique", {
+    eventCollection: "climate",
+    targetProperty: "light-trigger",
+    interval: "hourly",
+    timeframe: "today"
   });
+
   client.draw(light_timeline, document.getElementById("chart-05"), {
     chartType: "linechart",
     title: false,
     height: 250,
     width: "auto"
-
   });
 
   // ----------------------------------------
-  // Light Trigger Timeline
+  // Sound Trigger Timeline
   // ----------------------------------------
-  var sound_timeline = new Keen.Query("count", {
-    eventCollection: "sound-trigger",
-    interval: "daily",
-    timeframe: "this_month"
+  var sound_timeline = new Keen.Query("count_unique", {
+    eventCollection: "climate",
+    targetProperty: "sound-trigger",
+    interval: "hourly",
+    timeframe: "today"
   });
+
   client.draw(sound_timeline, document.getElementById("chart-06"), {
     chartType: "linechart",
     title: false,
     height: 250,
     width: "auto"
-
   });
 
   // ----------------------------------------
@@ -59,12 +61,10 @@ Keen.ready(function(){
     'min':0,
     'max':120,
     'fgColor': Keen.Visualization.defaults.colors[1]
-    // height: 250,
-    // width: '95%'
   });
+
   client.run(temperature, function(res){
     $("#chart-01").val(res.result).trigger('change');
-    console.log('temp '+res.result);
   });
 
   // ----------------------------------------
@@ -84,12 +84,10 @@ Keen.ready(function(){
     'min':0,
     'max':100,
     'fgColor': Keen.Visualization.defaults.colors[0]
-    // height: 250,
-    // width: '95%'
   });
+
   client.run(humidity, function(res){
     $("#chart-02").val(res.result).trigger('change');
-    console.log('humidity '+res.result);
   });
 
   // ----------------------------------------
@@ -110,12 +108,10 @@ Keen.ready(function(){
     'min':0,
     'max':1,
     'fgColor': Keen.Visualization.defaults.colors[2]
-    // height: 250,
-    // width: '95%'
   });
+
   client.run(light, function(res){
     $("#chart-03").val(res.result).trigger('change');
-    console.log('light '+res.result);
   });
 
   // ----------------------------------------
@@ -136,12 +132,10 @@ Keen.ready(function(){
     'min':0,
     'max':1,
     'fgColor': Keen.Visualization.defaults.colors[3]
-    // height: 250,
-    // width: '95%'
   });
+
   client.run(sound, function(res){
     $("#chart-04").val(res.result).trigger('change');
-    console.log('sound '+res.result);
   });
 
 
