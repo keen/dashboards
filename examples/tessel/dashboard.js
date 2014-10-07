@@ -17,12 +17,16 @@ Keen.ready(function(){
     eventCollection: "climate",
     targetProperty: "light-trigger",
     interval: "hourly",
-    timeframe: "today"
+    timeframe: {
+      start: "2014-10-06T00:00:00.000",
+      end: "2014-10-07T00:00:00.000"
+    }
+    // timeframe: "today"
   });
 
   client.draw(light_timeline, document.getElementById("chart-05"), {
     chartType: "linechart",
-    title: false,
+    title: " ",
     height: 250,
     width: "auto"
   });
@@ -34,12 +38,16 @@ Keen.ready(function(){
     eventCollection: "climate",
     targetProperty: "sound-trigger",
     interval: "hourly",
-    timeframe: "today"
+    timeframe: {
+      start: "2014-10-06T00:00:00.000",
+      end: "2014-10-07T00:00:00.000"
+    }
+    // timeframe: "today"
   });
 
   client.draw(sound_timeline, document.getElementById("chart-06"), {
     chartType: "linechart",
-    title: false,
+    title: " ",
     height: 250,
     width: "auto"
   });
@@ -51,7 +59,11 @@ Keen.ready(function(){
   var temperature = new Keen.Query("average", {
     eventCollection: "climate",
     targetProperty: "temp",
-    timeframe: "today"
+    timeframe: {
+      start: "2014-10-06T00:00:00.000",
+      end: "2014-10-07T00:00:00.000"
+    }
+    // timeframe: "today"
   });
 
   $("#chart-01").knob({
@@ -74,7 +86,11 @@ Keen.ready(function(){
   var humidity = new Keen.Query("average", {
     eventCollection: "climate",
     targetProperty: "humidity",
-    timeframe: "today"
+    timeframe: {
+      start: "2014-10-06T00:00:00.000",
+      end: "2014-10-07T00:00:00.000"
+    }
+    // timeframe: "today"
   });
 
   $("#chart-02").knob({
@@ -82,7 +98,7 @@ Keen.ready(function(){
     'angleOffset':-125,
     'readOnly':true,
     'min':0,
-    'max':100,
+    'max':50,
     'fgColor': Keen.Visualization.defaults.colors[0]
   });
 
@@ -97,7 +113,11 @@ Keen.ready(function(){
   var light = new Keen.Query("average", {
     eventCollection: "climate",
     targetProperty: "light",
-    timeframe: "today"
+    timeframe: {
+      start: "2014-10-06T00:00:00.000",
+      end: "2014-10-07T00:00:00.000"
+    }
+    // timeframe: "today"
   });
 
   $("#chart-03").knob({
@@ -106,12 +126,12 @@ Keen.ready(function(){
     'readOnly':true,
     'step':0.01,
     'min':0,
-    'max':1,
+    'max':50,
     'fgColor': Keen.Visualization.defaults.colors[2]
   });
 
   client.run(light, function(res){
-    $("#chart-03").val(res.result).trigger('change');
+    $("#chart-03").val(res.result*100).trigger('change');
   });
 
   // ----------------------------------------
@@ -121,7 +141,11 @@ Keen.ready(function(){
   var sound = new Keen.Query("average", {
     eventCollection: "climate",
     targetProperty: "sound",
-    timeframe: "today"
+    timeframe: {
+      start: "2014-10-06T00:00:00.000",
+      end: "2014-10-07T00:00:00.000"
+    }
+    // timeframe: "today"
   });
 
   $("#chart-04").knob({
@@ -130,12 +154,12 @@ Keen.ready(function(){
     'readOnly':true,
     'step':0.01,
     'min':0,
-    'max':1,
+    'max':100,
     'fgColor': Keen.Visualization.defaults.colors[3]
   });
 
   client.run(sound, function(res){
-    $("#chart-04").val(res.result).trigger('change');
+    $("#chart-04").val(res.result*100).trigger('change');
   });
 
 
