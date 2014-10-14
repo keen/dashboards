@@ -1,10 +1,8 @@
-
  
 var client = new Keen({
     projectId: "542b084ce8759666375da5e5",
     readKey: "f7069f777acb01ea3883696c1cbaca038f37a5615edbaf1535b1a5d28563afafa1d1c85a0807650dc8c2a971f4f28d5b54139277c41c31d700715ff92cb6caad00af478d2426286620d82af20ea055a2673678b571858fcb03f3f836d95995255f48968266508dc1963bfd4c484698fa"
 });
-
 
 
 Keen.ready(function(){
@@ -18,8 +16,8 @@ Keen.ready(function(){
     targetProperty: "light-trigger",
     interval: "hourly",
     timeframe: {
-      start: "2014-10-06T00:00:00.000",
-      end: "2014-10-07T00:00:00.000"
+      start: "2014-10-06T07:00:00.000",
+      end: "2014-10-06T19:00:00.000"
     }
     // timeframe: "today"
   });
@@ -39,8 +37,8 @@ Keen.ready(function(){
     targetProperty: "sound-trigger",
     interval: "hourly",
     timeframe: {
-      start: "2014-10-06T00:00:00.000",
-      end: "2014-10-07T00:00:00.000"
+      start: "2014-10-06T07:00:00.000",
+      end: "2014-10-06T19:00:00.000"
     }
     // timeframe: "today"
   });

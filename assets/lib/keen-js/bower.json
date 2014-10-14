@@ -36,15 +36,5 @@
     "sinon": "http://sinonjs.org/releases/sinon-1.9.0.js",
     "sinon-ie": "http://sinonjs.org/releases/sinon-ie-1.9.0.js",
     "requirejs-bower": "2.1.14"
-  },
-  "_release": "3.0.9",
-  "_resolution": {
-    "type": "version",
-    "tag": "v3.0.9",
-    "commit": "6a008b5bd247a55e01aeb1b02396af81a505faa8"
-  },
-  "_source": "git://github.com/keenlabs/keen-js.git",
-  "_target": "~3.0.9",
-  "_originalSource": "keen-js",
-  "_direct": true
+  }
 }
