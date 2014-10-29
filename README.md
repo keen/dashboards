@@ -5,8 +5,8 @@ Sample projects to get you started!
 
 Our goal for these assets is to be as helpful and familiar as possible, without getting in your way. To that end, these layouts are composed of a minimal set of custom styles on top of [Bootstrap v3.2](http://getbootstrap.com/), covering the most common use cases and layout configurations we've encountered so far.
 
-* [Examples](http://keenlabs.github.io/dashboards/) for specific domains, data models and popular integrations
-* [Layouts](http://keenlabs.github.io/dashboards/layouts) for pre-baked responsive dashboard views
+* [Examples](http://keen.github.io/dashboards/examples/) for specific domains, data models and popular integrations
+* [Layouts](http://keen.github.io/dashboards/layouts/) for pre-baked responsive dashboard views
 
 ## How to use these dashboards (non-developers)
 
