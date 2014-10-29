@@ -3,6 +3,14 @@ Dashboards by Keen IO
 
 Sample projects to get you started!
 
+Go from this:
+
+![Hero Thirds Example](http://cl.ly/image/3B1n2k1j1O1t/Screen%20Shot%202014-10-29%20at%203.10.30%20AM.png)
+
+To this:
+
+![Sample Dashboard](http://cl.ly/image/1T3a0X402r0W/Screen%20Shot%202014-10-29%20at%203.35.04%20AM.png)
+
 Our goal for these assets is to be as helpful and familiar as possible, without getting in your way. To that end, these layouts are composed of a minimal set of custom styles on top of [Bootstrap v3.2](http://getbootstrap.com/), covering the most common use cases and layout configurations we've encountered so far.
 
 * [Examples](http://keen.github.io/dashboards/examples/) for specific domains, data models and popular integrations
