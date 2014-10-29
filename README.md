@@ -5,7 +5,7 @@ Sample projects to get you started!
 
 Go from this:
 
-![Hero Thirds Example](http://cl.ly/image/3B1n2k1j1O1t/Screen%20Shot%202014-10-29%20at%203.10.30%20AM.png)
+![Hero Thirds Example](http://cl.ly/image/3v2H180U0k0Q/Screen%20Shot%202014-10-29%20at%203.12.24%20AM.png)
 
 To this:
 
