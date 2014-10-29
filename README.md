@@ -10,7 +10,7 @@ Our goal for these assets is to be as helpful and familiar as possible, without 
 
 ## How to use these dashboards (non-developers)
 
-Simply want to use one of these layouts? Here are a simple set of instructionals for downloading and getting started with making your own Keen dashboard!
+Want to use one of these awesome layouts? Here is a simple set of instructions for downloading and getting started with making your own Keen dashboard!
 
 1. Download the source. In the sidebar, is a Download Zip link. Click it to grab a copy of the repository.
 
@@ -74,4 +74,4 @@ That's it! No fancy build processes yet, just keep things clean and simple :)
 
 ## Support
 
-Need a hand with something? Join us in [HipChat](http://users.keen.io/), [IRC](http://webchat.freenode.net/?channels=keen-io), or shoot us an email at [contact@keen.io](mailto:contact@keen.io)
+Need a hand with something? Join us in [IRC](http://webchat.freenode.net/?channels=keen-io) or shoot us an email at [contact@keen.io](mailto:contact@keen.io)
