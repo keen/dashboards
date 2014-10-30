@@ -52,7 +52,7 @@ Fork this repo, clone your fork, and add this repo as a remote:
 ```
 $ git clone https://github.com/username/dashboards.git
 $ cd dashboards
-$ git remote add upstream https://github.com/keenlabs/dashboards.git
+$ git remote add upstream https://github.com/keen/dashboards.git
 ```
 
 Pull frequently to keep your local copy up to date with the latest contributions:
