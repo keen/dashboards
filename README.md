@@ -22,7 +22,7 @@ Want to use one of these awesome layouts? Here is a simple set of instructions f
 
 1. Download the source. In the sidebar, is a Download Zip link. Click it to grab a copy of the repository.
 
-2. Choose which layout you want to start with. Navigate to [layouts](http://keenlabs.github.io/dashboards/layouts/) and select which template might best suit your needs. Once you have selected a template, navigate to your downloaded zip, unzip it using an decompression tool like [7-zip](http://7-zip.en.softonic.com/) and navigate to the folder/layouts/(name of your chosen template).
+2. Choose which layout you want to start with. Navigate to [layouts](http://keen.github.io/dashboards/layouts/) and select which template might best suit your needs. Once you have selected a template, navigate to your downloaded zip, unzip it using an decompression tool like [7-zip](http://7-zip.en.softonic.com/) and navigate to the folder/layouts/(name of your chosen template).
 
 3. Start editing! In the destination folder will exist an .html file in which you can edit with your favorite text editor. There are three things you need to do to edit your dashboard:
   1. Setup: If you're a registered Keen.io user, navigate to [your keen project](http://keen.io/home) or if you don't have a user at first, you can simply use some demo data that we've prepared for you. You can access those by going to the repository and navigating to demo-data. There, you will see some javascript files with some code in them. We will simply paste those in the .html file.
