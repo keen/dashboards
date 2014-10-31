@@ -16,6 +16,8 @@ Our goal for these assets is to be as helpful and familiar as possible, without 
 * [Examples](http://keen.github.io/dashboards/examples/) for specific domains, data models and popular integrations
 * [Layouts](http://keen.github.io/dashboards/layouts/) for pre-baked responsive dashboard views
 
+Create a [free project ID](http://keen.io/signup) to start sending events or check out our [demo data](https://github.com/keen/dashboards/tree/gh-pages/demo-data). 
+
 ## How to use these dashboards (non-developers)
 
 Want to use one of these awesome layouts? Here is a simple set of instructions for downloading and getting started with making your own Keen dashboard!
@@ -25,7 +27,7 @@ Want to use one of these awesome layouts? Here is a simple set of instructions f
 2. Choose which layout you want to start with. Navigate to [layouts](http://keen.github.io/dashboards/layouts/) and select which template might best suit your needs. Once you have selected a template, navigate to your downloaded zip, unzip it using an decompression tool like [7-zip](http://7-zip.en.softonic.com/) and navigate to the folder/layouts/(name of your chosen template).
 
 3. Start editing! In the destination folder will exist an .html file in which you can edit with your favorite text editor. There are three things you need to do to edit your dashboard:
-  1. Setup: If you're a registered Keen.io user, navigate to [your keen project](http://keen.io/home) or if you don't have a user at first, you can simply use some demo data that we've prepared for you. You can access those by going to the repository and navigating to demo-data. There, you will see some javascript files with some code in them. We will simply paste those in the .html file.
+  1. Setup: If you're a registered Keen IO user, navigate to [your keen project](http://keen.io/home) or if you don't have a user at first, you can simply use some demo data that we've prepared for you. You can access those by going to the repository and navigating to demo-data. There, you will see some javascript files with some code in them. We will simply paste those in the .html file.
   2. Some copypasta. When you navigate to the bottom of the .html file, you can see that there are a bunch of script tags. Just before the end of the body tag, we're going to add in the code from sample.html. Simply copy and paste the code just before you see ```</body>```
   3. Once you've done that we need to hook up the specific items within the template to the code that we've just pasted in to our file. In line 21 of sample.html, you will see a line of code: ```document.getElementById('chart-01')```. That means that this *query* will try to find inside the html file a node with an id of 'chart-01'. In these templates, you will see lines of that resemble something like:
   ```html
