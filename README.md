@@ -1,26 +1,33 @@
-Dashboards by Keen IO
-=====================
+# Dashboards by Keen IO
 
-Sample projects to get you started!
+Building an analytics dashboard? Don’t start from scratch. Grab one of our Bootstrap-based templates and admire your data in minutes.
 
-Go from this:
+Just pick a template:
 
 ![Hero Thirds Example](http://cl.ly/image/3v2H180U0k0Q/Screen%20Shot%202014-10-29%20at%203.12.24%20AM.png)
 
-To this:
+Plug in some data, and voilà:
 
 ![Sample Dashboard](http://cl.ly/image/1T3a0X402r0W/Screen%20Shot%202014-10-29%20at%203.35.04%20AM.png)
+
+It's easy. Show your metrics how you want, without the hours spent tweaking CSS or testing for responsiveness on twelve different mobile devices.
+
+## Templates
 
 Our goal for these assets is to be as helpful and familiar as possible, without getting in your way. To that end, these layouts are composed of a minimal set of custom styles on top of [Bootstrap v3.2](http://getbootstrap.com/), covering the most common use cases and layout configurations we've encountered so far.
 
 * [Examples](http://keen.github.io/dashboards/examples/) for specific domains, data models and popular integrations
 * [Layouts](http://keen.github.io/dashboards/layouts/) for pre-baked responsive dashboard views
 
-Create a [free project ID](http://keen.io/signup) to start sending events or check out our [demo data](https://github.com/keen/dashboards/tree/gh-pages/demo-data). 
+## Integrations
 
-## How to use these dashboards (non-developers)
+These templates can work with any data source or charting library, but they're particularly streamlined to work with Keen IO's [visualization toolkit](https://github.com/keenlabs/keen-js). To see the Keen integration in action, create a [free project](http://keen.io/signup) on Keen and send some data to it. Then come back to your dashboard and add some charts with just a few lines of code.
 
-Want to use one of these awesome layouts? Here is a simple set of instructions for downloading and getting started with making your own Keen dashboard!
+You can also use this pre-populated set of [demo data](https://github.com/keen/dashboards/tree/gh-pages/demo-data). 
+
+## Usage
+
+Ready to use one of these awesome layouts? Here's how to get started.
 
 1. Download the source. In the sidebar, is a Download Zip link. Click it to grab a copy of the repository.
 
@@ -43,13 +50,22 @@ Want to use one of these awesome layouts? Here is a simple set of instructions f
   ```
   You're finished! Congratulations on setting up your first Keen chart! Repeat step three with the rest of the items in the template to complete your dashboard!
 
-## How to Contribute
+## Contributing
 
 Contributions are 11,000,000% welcome! That's a lot!
 
-We work directly out of the **gh-pages** branch so contributions go live immediately, once your pull request is reviewed and approved.
+Please file issues for any bugs you find or features you'd like to see. And if you're up for it, send in a pull request.
 
-Fork this repo, clone your fork, and add this repo as a remote:
+To develop, you'll need to first install dependencies using [Bower](http://bower.io/):
+
+```
+$ npm install -g bower
+$ bower install
+```
+
+Note: Updates to the site backed by the **gh-pages** branch go live immediately once pull requests are reviewed and approved.
+
+Note #2: This project is moving fast, so make sure and stay up to date. Here's what we suggest. Fork this repo, clone the fork, and add the original repo as a remote called `upstream`:
 
 ```
 $ git clone https://github.com/username/dashboards.git
@@ -57,31 +73,12 @@ $ cd dashboards
 $ git remote add upstream https://github.com/keen/dashboards.git
 ```
 
-Pull frequently to keep your local copy up to date with the latest contributions:
+Pull from `upstream` frequently to keep your local copy up to date:
 
 ```
 $ git pull upstream gh-pages
 ```
 
-Install dev dependencies with [Bower](http://bower.io/)
-
-```
-$ npm install -g bower
-$ bower install
-```
-
-That's it! No fancy build processes yet, just keep things clean and simple :)
-
-
-## Additional Resources
-
-[Data Modeling Guide](https://github.com/keenlabs/data-modeling-guide/)
-
-[API Technical Reference](https://keen.io/docs/api/reference/)
-
-[API Status](http://status.keen.io/)
-
-
 ## Support
 
-Need a hand with something? Join us in [IRC](http://webchat.freenode.net/?channels=keen-io) or shoot us an email at [contact@keen.io](mailto:contact@keen.io)
+Need a hand with something? Send us an email to [contact@keen.io](mailto:contact@keen.io) and we'll get back to you right away!
