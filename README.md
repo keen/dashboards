@@ -36,8 +36,8 @@ An attractive, custom analytics dashboard that's ready to show your team or your
 
 These layout templates are composed of a minimal set of [Bootstrap v3.2](http://getbootstrap.com/) custom styles. They cover the most common use cases and layout configurations we've encountered so far.
 
-* [Layouts](http://keen.github.io/dashboards/layouts/) for pre-built, responsive dashboard views
-* [Examples](http://keen.github.io/dashboards/examples/) for specific domains, data models and popular integrations
+* [Layouts](http://keen.github.io/dashboards/layouts/index.html) for pre-built, responsive dashboard views
+* [Examples](http://keen.github.io/dashboards/examples/index.html) for specific domains, data models and popular integrations
 
 ## Integrations
 
@@ -51,7 +51,7 @@ Ready to use one of these awesome layouts? Here's how to get started.
 
 1. In the sidebar, is a *Download Zip* link. Click it to download a copy of the code.
 
-2. Check out the various [layouts](http://keen.github.io/dashboards/layouts/) and pick the one that best suits your needs. Find the template in the repository you downloaded at `folder/layouts/(name-of-template)`.
+2. Check out the various [layouts](http://keen.github.io/dashboards/layouts/index.html) and pick the one that best suits your needs. Find the template in the repository you downloaded at `folder/layouts/(name-of-template)`.
 
 3. Start editing! In the destination folder will exist an `.html` file. Open it in your favorite text editor. There are three things you need to do to edit your dashboard:
   1. Setup: If you're a registered Keen IO user, navigate to [your keen project](http://keen.io/home) or if you don't have a user at first, you can simply use some demo data that we've prepared for you. You can access those by going to the repository and navigating to demo-data. There, you will see some javascript files with some code in them. We will simply paste those in the .html file.
