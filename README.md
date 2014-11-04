@@ -1,27 +1,47 @@
 # Dashboards by Keen IO
 
-Building an analytics dashboard? Don’t start from scratch. Grab one of our Bootstrap-based templates and admire your data in minutes.
+Building an analytics dashboard? Don’t start from scratch. Grab one of our Bootstrap-based templates and start admiring your data in minutes.
 
-Just pick a template:
+Begin with a layout:
 
 ![Hero Thirds Example](http://cl.ly/image/3v2H180U0k0Q/Screen%20Shot%202014-10-29%20at%203.12.24%20AM.png)
 
-Plug in some data, and voilà:
+Add charts to the HTML:
+
+``` html
+<div class="col-sm-6 col-md-3">
+  <div class="chart-wrapper">
+    <div class="chart-title">
+      Chart Title
+    </div>
+    <div class="chart-stage">
+      <div id="grid-1-1">
+        <!-- chart goes here! -->
+      </div>
+    </div>
+    <div class="chart-notes">
+      Notes about this chart (optional)
+    </div>
+  </div>
+</div>
+```
+
+And voilà!
 
 ![Sample Dashboard](http://cl.ly/image/1T3a0X402r0W/Screen%20Shot%202014-10-29%20at%203.35.04%20AM.png)
 
-It's easy. Show your metrics how you want, without the hours spent tweaking CSS or testing for responsiveness on twelve different mobile devices.
+An attractive, custom analytics dashboard that's ready to show your team or your customers. And no hours lost tweaking CSS or testing responsiveness on eight different mobile devices.
 
-## Templates
+## The Templates
 
-Our goal for these assets is to be as helpful and familiar as possible, without getting in your way. To that end, these layouts are composed of a minimal set of custom styles on top of [Bootstrap v3.2](http://getbootstrap.com/), covering the most common use cases and layout configurations we've encountered so far.
+These layout templates are composed of a minimal set of [Bootstrap v3.2](http://getbootstrap.com/) custom styles. They cover the most common use cases and layout configurations we've encountered so far.
 
+* [Layouts](http://keen.github.io/dashboards/layouts/) for pre-built, responsive dashboard views
 * [Examples](http://keen.github.io/dashboards/examples/) for specific domains, data models and popular integrations
-* [Layouts](http://keen.github.io/dashboards/layouts/) for pre-baked responsive dashboard views
 
 ## Integrations
 
-These templates can work with any data source or charting library, but they're particularly streamlined to work with Keen IO's [visualization toolkit](https://github.com/keenlabs/keen-js). To see the Keen integration in action, create a [free project](http://keen.io/signup) on Keen and send some data to it. Then come back to your dashboard and add some charts with just a few lines of code.
+These templates can work with any data source or charting library, but they're particularly streamlined to work with Keen IO's [visualization toolkit](https://github.com/keenlabs/keen-js). To see the Keen integration in action, create a [free project](http://keen.io/signup) and send some data to it. Then add some charts to your dashboard with just a few lines of code.
 
 You can also use this pre-populated set of [demo data](https://github.com/keen/dashboards/tree/gh-pages/demo-data). 
 
@@ -29,13 +49,13 @@ You can also use this pre-populated set of [demo data](https://github.com/keen/d
 
 Ready to use one of these awesome layouts? Here's how to get started.
 
-1. Download the source. In the sidebar, is a Download Zip link. Click it to grab a copy of the repository.
+1. In the sidebar, is a *Download Zip* link. Click it to download a copy of the code.
 
-2. Choose which layout you want to start with. Navigate to [layouts](http://keen.github.io/dashboards/layouts/) and select which template might best suit your needs. Once you have selected a template, navigate to your downloaded zip, unzip it using an decompression tool like [7-zip](http://7-zip.en.softonic.com/) and navigate to the folder/layouts/(name of your chosen template).
+2. Check out the various [layouts](http://keen.github.io/dashboards/layouts/) and pick the one that best suits your needs. Find the template in the repository you downloaded at `folder/layouts/(name-of-template)`.
 
-3. Start editing! In the destination folder will exist an .html file in which you can edit with your favorite text editor. There are three things you need to do to edit your dashboard:
+3. Start editing! In the destination folder will exist an `.html` file. Open it in your favorite text editor. There are three things you need to do to edit your dashboard:
   1. Setup: If you're a registered Keen IO user, navigate to [your keen project](http://keen.io/home) or if you don't have a user at first, you can simply use some demo data that we've prepared for you. You can access those by going to the repository and navigating to demo-data. There, you will see some javascript files with some code in them. We will simply paste those in the .html file.
-  2. Some copypasta. When you navigate to the bottom of the .html file, you can see that there are a bunch of script tags. Just before the end of the body tag, we're going to add in the code from sample.html. Simply copy and paste the code just before you see ```</body>```
+  2. Some copypasta. When you navigate to the bottom of the .html file, you can see that there are a bunch of script tags. Just before the end of the body tag, we're going to add in the code from sample.html. Simply copy and paste the code just before you see ```</body>```.
   3. Once you've done that we need to hook up the specific items within the template to the code that we've just pasted in to our file. In line 21 of sample.html, you will see a line of code: ```document.getElementById('chart-01')```. That means that this *query* will try to find inside the html file a node with an id of 'chart-01'. In these templates, you will see lines of that resemble something like:
   ```html
   <div class="chart-stage"> <!-- This is where you need to put the id property in! -->
@@ -48,7 +68,8 @@ Ready to use one of these awesome layouts? Here's how to get started.
     <!-- Get rid of that img tag! -->
   </div>
   ```
-  You're finished! Congratulations on setting up your first Keen chart! Repeat step three with the rest of the items in the template to complete your dashboard!
+
+You're finished! Congratulations on setting up your first chart! Repeat step three with the rest of the items in the template to complete your dashboard!
 
 ## Contributing
 
