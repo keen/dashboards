@@ -125,3 +125,16 @@ body.application hr {
   font-size: 12px;
   padding: 8px 10px 5px;
 }
+
+.btn {
+  background: transparent;
+  border: 1px solid white;
+}
+
+.signup {
+  float: left;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -6px;
+  margin-right: 10px;
+}
