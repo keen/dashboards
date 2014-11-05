@@ -132,3 +132,23 @@ h3 {
 .sample-item {
   margin-bottom: 24px;
 }
+
+.signup {
+  float: left;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -6px;
+  margin-right: 10px;
+}
+
+.love {
+  border-top: 1px solid #d7d7d7;
+  color: #546678;
+  margin: 24px 0 0;
+  padding: 15px 0;
+  text-align: center;
+}
+
+.love p {
+  margin-bottom: 0px;
+}

@@ -1,7 +1,4 @@
 
-
-
-
 /*
  * Full-page application style
  */
@@ -67,12 +64,4 @@ body.application hr {
   color: #808080;
   font-size: 12px;
   padding: 8px 10px 5px;
-}
-
-.signup {
-  float: left;
-  display: inline-block;
-  vertical-align: middle;
-  margin-top: -6px;
-  margin-right: 10px;
 }
