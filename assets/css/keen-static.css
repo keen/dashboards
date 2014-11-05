@@ -33,7 +33,8 @@ h3 {
 
 .keen-logo {
   height: 38px;
-  width: 172px;
+  margin: 0 15px 0 0;
+  width: 150px;
 }
 
 .navbar-toggle {
