@@ -138,3 +138,13 @@ body.application hr {
   margin-top: -6px;
   margin-right: 10px;
 }
+
+.love {
+  text-align: center;
+  color: #546678;
+  padding-bottom: 10px;
+}
+
+.love p {
+  margin-bottom: 0px;
+}
