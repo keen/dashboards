@@ -279,7 +279,7 @@
       .library("google")
       .chartType("areachart")
       .chartOptions({
-        chartArea: { top: "5%", height: "80%", left: "5%", width: "90%" },
+        chartArea: { top: "5%", height: "80%", left: "10%", width: "85%" },
         hAxis: { format: 'MMM dd', maxTextLines: 1 },
         legend: { position: "none" },
         tooltip: { trigger: 'none' }
@@ -307,7 +307,7 @@
       .library("google")
       .chartType("areachart")
       .chartOptions({
-        chartArea: { top: "5%", height: "80%", left: "5%", width: "90%" },
+        chartArea: { top: "5%", height: "80%", left: "10%", width: "85%" },
         hAxis: { format: 'MMM dd', maxTextLines: 1 },
         legend: { position: "none" },
         tooltip: { trigger: 'none' }
@@ -336,7 +336,7 @@
       .library("google")
       .chartType("areachart")
       .chartOptions({
-        chartArea: { top: "5%", height: "80%", left: "5%", width: "90%" },
+        chartArea: { top: "5%", height: "80%", left: "10%", width: "85%" },
         hAxis: { format: 'MMM dd', maxTextLines: 1 },
         legend: { position: "none" },
         tooltip: { trigger: 'none' }
