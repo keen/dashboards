@@ -65,6 +65,8 @@ body.application {
   color: #e7e7e7;
   float: left;
   margin: 0 1%;
+}
+.radius input, .radius select {
   width: 48%;
 }
 .tool input,
