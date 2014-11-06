@@ -100,8 +100,8 @@
     timeframeEndNode.value   = DEFAULTS.timeframe["end"];
 
     // Create map instance
-    L.mapbox.accessToken = "pk.eyJ1IjoiZG9ra28xMjMwIiwiYSI6IlM3TUN5RW8ifQ.wNT0Pp0zCtMR7phIRHg6Ug";
-    map = L.mapbox.map("app-maparea", "dokko1230.j7ch6d77", {
+    L.mapbox.accessToken = "pk.eyJ1IjoibGFyaW1lciIsImEiOiI3RWlTRTM0In0.H71Yatzqo1rYly9PNpgcKg";
+    map = L.mapbox.map("app-maparea", "larimer.j7d0p3k7", {
       attributionControl: true,
       center: GEO.center,
       zoom: GEO.zoom
@@ -200,7 +200,7 @@
 
   function adjust(){
     appWrapperNode.style.height = window.innerHeight + "px";
-    appMapAreaNode.style.height = (window.innerHeight-75) + "px";
+    appMapAreaNode.style.height = window.innerHeight + "px";
   }
 
   function draw(){
