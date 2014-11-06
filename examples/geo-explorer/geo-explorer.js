@@ -100,8 +100,8 @@
     timeframeEndNode.value   = DEFAULTS.timeframe["end"];
 
     // Create map instance
-    L.mapbox.accessToken = "pk.eyJ1IjoiZG9ra28xMjMwIiwiYSI6IlM3TUN5RW8ifQ.wNT0Pp0zCtMR7phIRHg6Ug";
-    map = L.mapbox.map("app-maparea", "dokko1230.j7ch6d77", {
+    L.mapbox.accessToken = "pk.eyJ1IjoibGFyaW1lciIsImEiOiI3RWlTRTM0In0.H71Yatzqo1rYly9PNpgcKg";
+    map = L.mapbox.map("app-maparea", "larimer.j7d0p3k7", {
       attributionControl: true,
       center: GEO.center,
       zoom: GEO.zoom
@@ -200,8 +200,10 @@
 
   function adjust(){
     appWrapperNode.style.height = window.innerHeight + "px";
-    appMapAreaNode.style.height = (window.innerHeight-75) + "px";
+    appMapAreaNode.style.height = window.innerHeight + "px";
   }
+
+  // Keen.utils.each(queries, function(q){});
 
   function draw(){
     var options = {
@@ -249,7 +251,6 @@
     });
     client.run(scoped_events, function(res){
       activeMapData.clearLayers();
-
       Keen.utils.each(res.result, function(coord, index){
         var em = L.marker(new L.LatLng(coord[1], coord[0]), {
           icon: L.mapbox.marker.icon({
@@ -259,8 +260,11 @@
       });
     });
 
+
+
     // Sample queries
     // groupBy not supported for Geo Filters
+
     var hearts = new Keen.Query("median", {
       eventCollection: "user_action",
       interval: "daily",
@@ -268,19 +272,27 @@
       timeframe: baseParams.timeframe,
       filters: baseParams.filters
     });
-    client.draw(hearts, document.getElementById("chart-01"), {
-      chartType: "areachart",
-      colors: [Keen.Visualization.defaults.colors[1]],
-      title: " ",
-      height: 175,
-      width: "auto",
-      chartOptions: {
-        chartArea: { height: "80%", top: "5%", width: "80%" },
+    var daily_median_heartrate = new Keen.Dataviz()
+      .el(document.getElementById("chart-01"))
+      .height(300)
+      .colors([Keen.Dataviz.defaults.colors[1]])
+      .library("google")
+      .chartType("areachart")
+      .chartOptions({
+        chartArea: { top: "5%", height: "80%", left: "5%", width: "90%" },
         hAxis: { format: 'MMM dd', maxTextLines: 1 },
         legend: { position: "none" },
         tooltip: { trigger: 'none' }
-      }
+      })
+      .prepare();
+    client.run(hearts, function(){
+      daily_median_heartrate
+        .parseRequest(this)
+        .title(null)
+        .render();
     });
+
+
 
     var activations = new Keen.Query("count", {
       eventCollection: "activations",
@@ -288,20 +300,27 @@
       timeframe: baseParams.timeframe,
       filters: baseParams.filters
     });
-    client.draw(activations, document.getElementById("chart-02"), {
-      chartType: "areachart",
-      colors: [Keen.Visualization.defaults.colors[2]],
-      title: " ",
-      height: 175,
-      width: "auto",
-      chartOptions: {
-        bar: { groupWidth: "85%" },
-        chartArea: { height: "80%", top: "5%", width: "80%" },
-        hAxis: { format: 'MMM dd' },
+    var daily_activations = new Keen.Dataviz()
+      .el(document.getElementById("chart-02"))
+      .height(300)
+      .colors([Keen.Dataviz.defaults.colors[6]])
+      .library("google")
+      .chartType("areachart")
+      .chartOptions({
+        chartArea: { top: "5%", height: "80%", left: "5%", width: "90%" },
+        hAxis: { format: 'MMM dd', maxTextLines: 1 },
         legend: { position: "none" },
         tooltip: { trigger: 'none' }
-      }
+      })
+      .prepare();
+    client.run(activations, function(){
+      daily_activations
+        .parseRequest(this)
+        .title(null)
+        .render();
     });
+
+
 
     var purchases = new Keen.Query("sum", {
       eventCollection: "purchases",
@@ -310,19 +329,26 @@
       timeframe: baseParams.timeframe,
       filters: baseParams.filters
     });
-    client.draw(purchases, document.getElementById("chart-03"), {
-      chartType: "columnchart",
-      title: false,
-      height: 175,
-      width: "auto",
-      chartOptions: {
-        bar: { groupWidth: "85%" },
-        chartArea: { height: "80%", top: "5%", width: "80%" },
-        hAxis: { format: 'MMM dd' },
+    var daily_purchases = new Keen.Dataviz()
+      .el(document.getElementById("chart-03"))
+      .height(300)
+      .colors([Keen.Dataviz.defaults.colors[2]])
+      .library("google")
+      .chartType("areachart")
+      .chartOptions({
+        chartArea: { top: "5%", height: "80%", left: "5%", width: "90%" },
+        hAxis: { format: 'MMM dd', maxTextLines: 1 },
         legend: { position: "none" },
         tooltip: { trigger: 'none' }
-      }
+      })
+      .prepare();
+    client.run(purchases, function(){
+      daily_purchases
+        .parseRequest(this)
+        .title(null)
+        .render();
     });
+
   }
 
 })();
