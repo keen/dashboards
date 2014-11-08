@@ -1,12 +1,12 @@
 # Dashboards by Keen IO
 
-Building an analytics dashboard? Don’t start from scratch. Grab one of our Bootstrap-based templates and start admiring your data in minutes.
+Building an analytics dashboard? Don’t start from scratch. Grab one of our Bootstrap-based templates and admire your data in minutes.
 
 Begin with a layout:
 
 ![Hero Thirds Example](http://cl.ly/image/3v2H180U0k0Q/Screen%20Shot%202014-10-29%20at%203.12.24%20AM.png)
 
-Add charts to the HTML:
+Add charts to each `chart-stage` HTML element:
 
 ``` html
 <div class="col-sm-6 col-md-3">
@@ -30,7 +30,7 @@ And voilà!
 
 ![Sample Dashboard](http://cl.ly/image/1T3a0X402r0W/Screen%20Shot%202014-10-29%20at%203.35.04%20AM.png)
 
-An attractive, custom analytics dashboard that's ready to show your team or your customers. And no hours lost tweaking CSS or testing responsiveness on eight different mobile devices.
+An attractive, custom analytics dashboard that's ready to show to your team or your customers. And no hours lost tweaking CSS or testing responsiveness on eight different mobile devices.
 
 ## The Templates
 
