@@ -41,7 +41,7 @@ These layout templates are composed of a minimal set of [Bootstrap v3.2](http://
 
 ## Integrations
 
-These templates can work with any data source or charting library, but they're particularly streamlined to work with Keen IO's [visualization toolkit](https://github.com/keenlabs/keen-js). To see the Keen integration in action, create a [free project](http://keen.io/signup?s=gh_dashboards) and send some data to it. Then add some charts to your dashboard with just a few lines of code.
+These templates can work with any data source or charting library, but they're particularly streamlined to work with Keen IO's [visualization toolkit](https://github.com/keenlabs/keen-js). To see the Keen integration in action, create a [free project](http://keen.io/signup?s=gh-dashboards) and send some data to it. Then add some charts to your dashboard with just a few lines of code.
 
 You can also use this pre-populated set of [demo data](https://github.com/keen/dashboards/tree/gh-pages/demo-data). 
 
@@ -54,7 +54,7 @@ Ready to use one of these awesome layouts? Here's how to get started.
 2. Check out the various [layouts](http://keen.github.io/dashboards/layouts/) and pick the one that best suits your needs. Find the template in the repository you downloaded at `folder/layouts/(name-of-template)`.
 
 3. Start editing! In the destination folder will exist an `.html` file. Open it in your favorite text editor. There are three things you need to do to edit your dashboard:
-  1. Setup: If you're a registered Keen IO user, navigate to [your keen project](http://keen.io/login?s=gh_dashboards) or if you don't have a user at first, you can simply use some demo data that we've prepared for you. You can access those by going to the repository and navigating to demo-data. There, you will see some javascript files with some code in them. We will simply paste those in the .html file.
+  1. Setup: If you're a registered Keen IO user, navigate to [your keen project](http://keen.io/login?s=gh-dashboards) or if you don't have a user at first, you can simply use some demo data that we've prepared for you. You can access those by going to the repository and navigating to demo-data. There, you will see some javascript files with some code in them. We will simply paste those in the .html file.
   2. Some copypasta. When you navigate to the bottom of the .html file, you can see that there are a bunch of script tags. Just before the end of the body tag, we're going to add in the code from sample.html. Simply copy and paste the code just before you see ```</body>```.
   3. Once you've done that we need to hook up the specific items within the template to the code that we've just pasted in to our file. In line 21 of sample.html, you will see a line of code: ```document.getElementById('chart-01')```. That means that this *query* will try to find inside the html file a node with an id of 'chart-01'. In these templates, you will see lines of that resemble something like:
   ```html
