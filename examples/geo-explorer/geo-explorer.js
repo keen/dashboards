@@ -100,8 +100,8 @@
     timeframeEndNode.value   = DEFAULTS.timeframe["end"];
 
     // Create map instance
-    L.mapbox.accessToken = "pk.eyJ1IjoibGFyaW1lciIsImEiOiI3RWlTRTM0In0.H71Yatzqo1rYly9PNpgcKg";
-    map = L.mapbox.map("app-maparea", "larimer.j7d0p3k7", {
+    L.mapbox.accessToken = "pk.eyJ1Ijoia2Vlbi1pbyIsImEiOiIza0xnNXBZIn0.PgzKlxBmYkOq6jBGErpqOg";
+    map = L.mapbox.map("app-maparea", "keen-io.kae20cg0", {
       attributionControl: true,
       center: GEO.center,
       zoom: GEO.zoom

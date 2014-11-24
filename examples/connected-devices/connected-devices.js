@@ -62,7 +62,7 @@ Keen.ready(function(){
   });
 
   // ----------------------------------------
-  // Visitors by State 
+  // Visitors by State
   // ----------------------------------------
   var state = new Keen.Query("count", {
     eventCollection: "visit",
@@ -211,8 +211,9 @@ Keen.ready(function(){
       heat;
 
   initialize = function() {
-    L.mapbox.accessToken = "pk.eyJ1Ijoicml0Y2hpZWxlZWFubiIsImEiOiJsd3VLdFl3In0.lwvdUU2VGB9VGDw7ulA4jA";
-    map = L.mapbox.map('map', 'ritchieleeann.j7bc1dpl', {
+
+    L.mapbox.accessToken = "pk.eyJ1Ijoia2Vlbi1pbyIsImEiOiIza0xnNXBZIn0.PgzKlxBmYkOq6jBGErpqOg";
+    map = L.mapbox.map("map", "keen-io.kae20cg0", {
       attributionControl: true,
       center: [markerStart.lat, markerStart.lng],
       zoom: DEFAULTS.zoom
@@ -249,7 +250,7 @@ Keen.ready(function(){
           icon: L.mapbox.marker.icon()
         }).addTo(activeMapData);
       });
-      
+
       activeMapData.eachLayer(function(l) {
           heat.addTo(map).addLatLng(l.getLatLng());
       });
@@ -332,7 +333,3 @@ Keen.ready(function(){
 
 initialize();
 });
-
-
-
-

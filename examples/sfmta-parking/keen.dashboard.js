@@ -26,7 +26,8 @@ Keen.ready(function(){
       activeMapData;
 
 
-    map = L.mapbox.map('map', 'ritchieleeann.j7bc1dpl', {
+    L.mapbox.accessToken = "pk.eyJ1Ijoia2Vlbi1pbyIsImEiOiIza0xnNXBZIn0.PgzKlxBmYkOq6jBGErpqOg";
+    map = L.mapbox.map("map", "keen-io.kae20cg0", {
       attributionControl: true,
       center: [markerStart.lat, markerStart.lng],
       zoom: DEFAULTS.zoom
