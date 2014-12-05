@@ -8,8 +8,8 @@ body.application {
   padding: 60px 20px 0;
 }
 body.application > .container-fluid {
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 0;
+  padding-right: 0;
 }
 body.application div[class^="col-"] {
   padding-left: 5px;
@@ -26,7 +26,6 @@ body.application hr {
 }
 
 
-
 .navbar-inverse {
   background-color: #3d4a57;
   border-color: #333;
@@ -34,6 +33,18 @@ body.application hr {
 .navbar-inverse .navbar-nav > li > a,
 .navbar a.navbar-brand {
   color: #fbfbfb;
+  text-decoration: none;
+}
+
+.main-nav > li > a:hover {
+  border-bottom: 2px solid transparent;
+  -webkit-transition: border 300ms ease;
+  -o-transition: border 300ms ease;
+  transition: border 300ms ease;
+  border-bottom-color: white;
+}
+
+.return-link, .return-link:focus, .return-link:hover {
   text-decoration: none;
 }
 
