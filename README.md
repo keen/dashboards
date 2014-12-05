@@ -30,7 +30,7 @@ And voilà!
 
 ![Sample Dashboard](http://cl.ly/image/1T3a0X402r0W/Screen%20Shot%202014-10-29%20at%203.35.04%20AM.png)
 
-An attractive, custom analytics dashboard that's ready to show to your team or your customers. And no hours lost tweaking CSS or testing responsiveness on eight different mobile devices.
+An attractive, custom analytics dashboard that's ready to be shown to your team or your customers. No hours lost tweaking CSS or testing responsiveness on eight different mobile devices.
 
 ## The Templates
 
