@@ -3,7 +3,7 @@ var client = new Keen({
   readKey: "df6ff0ff414bc286b91e2661db4c691c45b6aea8d2c8cf2393169e9b9ef36a3d77e59c57b540febc8f328bf1f605782d9035c4a7072dc86c4f96ddbcce7dfe0b088ae51dd2ea36ad022290d1f3580e2d1ea202845ae7f79e7db6634ee627a26197dadf7eb2e5a46b16f04a4cae55955e"
 });
 
-Keen.ready(function(){
+var drawCharts = function (){
   var q1 = new Keen.Query("count", {
     eventCollection: "purchases",
     //groupBy: "State",
@@ -63,7 +63,12 @@ Keen.ready(function(){
       chartArea: { top: "3%", height: "90%", left: "10%", width: "80%" }
     }
   });
+};
 
+Keen.ready(
+  drawCharts()
+);
 
-
+window.addEventListener('resize', function(event){
+  drawCharts();
 });
