@@ -8,8 +8,8 @@ body.application {
   padding: 60px 20px 0;
 }
 body.application > .container-fluid {
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 0;
+  padding-right: 0;
 }
 body.application div[class^="col-"] {
   padding-left: 5px;
@@ -32,7 +32,7 @@ body.application hr {
   border-color: #333;
 }
 .navbar-inverse .navbar-nav > li > a,
-.navbar a.navbar-brand {
+.navbar .navbar-brand {
   color: #fbfbfb;
   text-decoration: none;
 }
