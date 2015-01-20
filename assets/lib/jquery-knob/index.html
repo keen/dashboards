@@ -4,7 +4,7 @@
         <title>jQuery Knob demo</title>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <!--[if IE]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
-        <script src="js/jquery.knob.js"></script>
+        <script src="dist/jquery.knob.min.js"></script>
         <script>
             $(function($) {
 
@@ -156,14 +156,15 @@ data-rotation=anticlockwise
             <input class="knob" data-angleOffset=-125 data-angleArc=250 data-fgColor="#66EE66" data-rotation="anticlockwise" value="35">
         </div>
         <div class="demo" >
-            <p>&#215; 5-digit values, step 1000</p>
+            <p>&#215; 4-digit, step 0.1</p>
             <pre>
-data-step="1000"
-data-min="-15000"
-data-max="15000"
+data-step=".1"
+data-min="-10000"
+data-max="10000"
+value="0"
 data-displayPrevious=true
             </pre>
-            <input class="knob" data-min="-15000" data-displayPrevious=true data-max="15000" data-step="1000" value="-11000">
+            <input class="knob" data-min="-10000" data-displayPrevious=true data-max="10000" data-step=".1" value="0">
         </div>
         <div style="clear:both"></div>
         <div style="text-align: center">
