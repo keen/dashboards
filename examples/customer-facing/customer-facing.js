@@ -65,11 +65,11 @@ Keen.ready(function(){
     'readOnly':true,
     'min':50,
     'max':80,
-    'fgColor': Keen.Visualization.defaults.colors[0],
+    'fgColor': Keen.Dataviz.defaults.colors[0],
     'width': '100%'
   });
 
-  geoProject.run(heart_rate, function(res){
+  geoProject.run(heart_rate, function(err, res){
     $(".heart").val(res.result).trigger('change');
   });
 
@@ -94,11 +94,11 @@ Keen.ready(function(){
     'readOnly':true,
     'min':90,
     'max':105,
-    'fgColor': Keen.Visualization.defaults.colors[2],
+    'fgColor': Keen.Dataviz.defaults.colors[2],
     'width': '100%'
   });
   /* Demo sample */
-  geoProject.run(temperature, function(res){
+  geoProject.run(temperature, function(err, res){
     $(".temp").val(98).trigger('change');
   });
 
@@ -122,11 +122,11 @@ Keen.ready(function(){
     'angleArc':250,
     'angleOffset':-125,
     'readOnly':true,
-    'fgColor': Keen.Visualization.defaults.colors[1],
+    'fgColor': Keen.Dataviz.defaults.colors[1],
     'width': '100%'
   });
 
-  geoProject.run(battery, function(res){
+  geoProject.run(battery, function(err, res){
     $(".battery").val((res.result)*100).trigger('change');
   });
 
