@@ -1,4 +1,4 @@
- 
+
 var client = new Keen({
     projectId: "542b084ce8759666375da5e5",
     readKey: "f7069f777acb01ea3883696c1cbaca038f37a5615edbaf1535b1a5d28563afafa1d1c85a0807650dc8c2a971f4f28d5b54139277c41c31d700715ff92cb6caad00af478d2426286620d82af20ea055a2673678b571858fcb03f3f836d95995255f48968266508dc1963bfd4c484698fa"
@@ -70,10 +70,10 @@ Keen.ready(function(){
     'readOnly':true,
     'min':0,
     'max':120,
-    'fgColor': Keen.Visualization.defaults.colors[1]
+    'fgColor': Keen.Dataviz.defaults.colors[1]
   });
 
-  client.run(temperature, function(res){
+  client.run(temperature, function(err, res){
     $("#chart-01").val(res.result).trigger('change');
   });
 
@@ -97,10 +97,10 @@ Keen.ready(function(){
     'readOnly':true,
     'min':0,
     'max':50,
-    'fgColor': Keen.Visualization.defaults.colors[0]
+    'fgColor': Keen.Dataviz.defaults.colors[0]
   });
 
-  client.run(humidity, function(res){
+  client.run(humidity, function(err, res){
     $("#chart-02").val(res.result).trigger('change');
   });
 
@@ -125,10 +125,10 @@ Keen.ready(function(){
     'step':0.01,
     'min':0,
     'max':50,
-    'fgColor': Keen.Visualization.defaults.colors[2]
+    'fgColor': Keen.Dataviz.defaults.colors[2]
   });
 
-  client.run(light, function(res){
+  client.run(light, function(err, res){
     $("#chart-03").val(res.result*100).trigger('change');
   });
 
@@ -153,10 +153,10 @@ Keen.ready(function(){
     'step':0.01,
     'min':0,
     'max':100,
-    'fgColor': Keen.Visualization.defaults.colors[3]
+    'fgColor': Keen.Dataviz.defaults.colors[3]
   });
 
-  client.run(sound, function(res){
+  client.run(sound, function(err, res){
     $("#chart-04").val(res.result*100).trigger('change');
   });
 
