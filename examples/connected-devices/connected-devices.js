@@ -10,8 +10,6 @@ var geoProject = new Keen({
 
 Keen.ready(function(){
 
-
-
   // ----------------------------------------
   // Visitors Timeline
   // ----------------------------------------
@@ -109,11 +107,11 @@ Keen.ready(function(){
     'readOnly':true,
     'min':0,
     'max':500,
-    'fgColor': Keen.Visualization.defaults.colors[0],
+    'fgColor': Keen.Dataviz.defaults.colors[0],
     height: 290,
     width: '95%'
   });
-  geoProject.run(users, function(res){
+  var geoUsers = geoProject.run(users, function(err, res){
     $(".users").val(res.result).trigger('change');
   });
 
@@ -134,11 +132,11 @@ Keen.ready(function(){
     'readOnly':true,
     'min':0,
     'max':100,
-    'fgColor': Keen.Visualization.defaults.colors[1],
+    'fgColor': Keen.Dataviz.defaults.colors[1],
     height: 290,
     width: '95%'
   });
-  geoProject.run(errors, function(res){
+  geoProject.run(errors, function(err, res){
     $(".errors").val(res.result).trigger('change');
   });
 
@@ -175,20 +173,20 @@ Keen.ready(function(){
 
   /*  This funnel is built from mock data */
   var sampleFunnel = { result: [ 3250, 3000, 2432, 1504, 321 ], steps: funnel.params.steps };
-  new Keen.Visualization(sampleFunnel, document.getElementById("chart-05"), {
-    library: "google",
-    chartType: "barchart",
-    height: 340,
-    title: null,
-    colors: [Keen.Visualization.defaults.colors[5]],
-    // Hidden feature: Pass in a list of new labels :)
-    labelMapping: [ "Purchased Device", "Activated Device", "First Session", "Second Session", "Invited Friend" ],
-    chartOptions: {
+
+  new Keen.Dataviz()
+    .el(document.getElementById("chart-05"))
+    .parseRawData(sampleFunnel)
+    .chartType('barchart')
+    .chartOptions({
       chartArea: { height: "85%", left: "20%", top: "5%" },
       legend: { position: "none" }
-    }
-  });
-
+    })
+    .colors([Keen.Dataviz.defaults.colors[5]])
+    .height(340)
+    .labels(["Purchased Device", "Activated Device", "First Session", "Second Session", "Invited Friend"])
+    .title(null)
+    .render();
 
   // ----------------------------------------
   // Mapbox - Active Users
@@ -241,7 +239,7 @@ Keen.ready(function(){
       timeframe: tframe,
       filters: geoFilter
     });
-    var result = geoProject.run(scoped_events, function(res){
+    var result = geoProject.run(scoped_events, function(err, res){
       console.log("events", res);
       activeMapData.clearLayers();
 

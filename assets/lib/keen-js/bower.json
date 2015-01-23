@@ -1,11 +1,20 @@
 {
   "name": "keen-js",
-  "version": "3.0.9",
-  "homepage": "https://github.com/keenlabs/keen-js",
+  "description": "Keen IO JavaScript SDK",
+  "main": "./dist/keen.min.js",
+  "license": "MIT",
   "authors": [
-    "Dustin Larimer <dustin@keen.io>"
+    "Dustin Larimer <dustin@keen.io>",
+    "Sean Dokko <sean@keen.io>",
+    "Jordan Klassen <forivall@gmail.com>",
+    "Josh Dzielak <josh@keen.io>",
+    "Ryan Spraetz <ryan@keen.io>",
+    "Dan Kador <dan@keen.io>",
+    "Cory Watson <github@onemogin.com>",
+    "Joshua Coats <joshua@keen.io>",
+    "Micah Wolfe <micah@keen.io>",
+    "Tim Schiller <timothy.schiller@gmail.com>"
   ],
-  "description": "JS Library for the Keen IO API",
   "keywords": [
     "analytics",
     "metrics",
@@ -17,24 +26,28 @@
     "keen.io",
     "keen-io"
   ],
-  "license": "MIT",
-  "main": "./dist/keen.min.js",
+  "homepage": "https://github.com/keen/keen-js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keen/keen-js.git"
+  },
   "ignore": [
     "**/.*",
-    "config",
     "bower_components",
     "node_modules",
+    "docs",
     "src",
     "test",
-    "Gruntfile.js",
+    "gulpfile.js",
+    "karma.conf.js",
+    ".npmignore",
     "*.json",
-    "*.md"
+    "*.md",
+    "*.yml"
   ],
   "devDependencies": {
     "mocha": "~1.18.2",
-    "chai": "~1.9.1",
-    "sinon": "http://sinonjs.org/releases/sinon-1.9.0.js",
-    "sinon-ie": "http://sinonjs.org/releases/sinon-ie-1.9.0.js",
-    "requirejs-bower": "2.1.14"
+    "requirejs-bower": "2.1.14",
+    "sinon-1.12.1": "http://sinonjs.org/releases/sinon-1.12.1.js"
   }
 }

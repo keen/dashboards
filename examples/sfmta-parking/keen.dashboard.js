@@ -82,13 +82,13 @@ Keen.ready(function(){
       targetProperty: "keen.location.coordinates",
       filters: geoFilter
     });
-    geoProject.run(scoped_events, function(res){
+    geoProject.run(scoped_events, function(err, res){
       console.log("events", res);
 
       Keen.utils.each(res.result, function(coord, index){
         var em = L.marker(new L.LatLng(coord[1], coord[0]), {
           icon: L.mapbox.marker.icon({
-              "marker-color": Keen.Visualization.defaults.colors[0]
+              "marker-color": Keen.Dataviz.defaults.colors[0]
             })
         }).addTo(activeMapData);
       });
@@ -99,13 +99,13 @@ Keen.ready(function(){
       targetProperty: "keen.location.coordinates",
       filters: geoFilter2
     });
-    geoProject.run(scoped_events_2, function(res){
+    geoProject.run(scoped_events_2, function(err, res){
       console.log("events", res);
 
       Keen.utils.each(res.result, function(coord, index){
         var em = L.marker(new L.LatLng(coord[1], coord[0]), {
           icon: L.mapbox.marker.icon({
-              "marker-color": Keen.Visualization.defaults.colors[1]
+              "marker-color": Keen.Dataviz.defaults.colors[1]
             })
         }).addTo(activeMapData);
       });
@@ -159,13 +159,13 @@ Keen.ready(function(){
       targetProperty: "keen.location.coordinates",
       filters: geoFilter
     });
-    geoProject.run(scoped_events_3, function(res){
+    geoProject.run(scoped_events_3, function(err, res){
       console.log("events", res);
 
       Keen.utils.each(res.result, function(coord, index){
         var em = L.marker(new L.LatLng(coord[1], coord[0]), {
           icon: L.mapbox.marker.icon({
-              "marker-color": Keen.Visualization.defaults.colors[0]
+              "marker-color": Keen.Dataviz.defaults.colors[0]
             })
         }).addTo(activeMapData);
       });
@@ -176,13 +176,13 @@ Keen.ready(function(){
       targetProperty: "keen.location.coordinates",
       filters: geoFilter2
     });
-    geoProject.run(scoped_events_4, function(res){
+    geoProject.run(scoped_events_4, function(err, res){
       console.log("events", res);
 
       Keen.utils.each(res.result, function(coord, index){
         var em = L.marker(new L.LatLng(coord[1], coord[0]), {
           icon: L.mapbox.marker.icon({
-              "marker-color": Keen.Visualization.defaults.colors[1]
+              "marker-color": Keen.Dataviz.defaults.colors[1]
             })
         }).addTo(activeMapData);
       });

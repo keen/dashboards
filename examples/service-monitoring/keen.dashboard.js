@@ -74,22 +74,22 @@ Keen.ready(function(){
       isStacked: true
     }
   });
-  
-  client.draw(pageviews_timeline, document.getElementById("chart-04"), {
-    chartType: "areachart",
-    title: false,
-    height: 109,
-    width: "auto",
-    chartOptions: {
-      chartArea: {
-        height: "85%",
-        left: "5%",
-        top: "5%",
-        width: "80%"
-      },
-      isStacked: true
-    }
-  });
+
+  // client.draw(pageviews_timeline, document.getElementById("chart-04"), {
+  //   chartType: "areachart",
+  //   title: false,
+  //   height: 109,
+  //   width: "auto",
+  //   chartOptions: {
+  //     chartArea: {
+  //       height: "85%",
+  //       left: "5%",
+  //       top: "5%",
+  //       width: "80%"
+  //     },
+  //     isStacked: true
+  //   }
+  // });
 
 
 

@@ -249,12 +249,12 @@
       timeframe: baseParams.timeframe,
       filters: baseParams.filters
     });
-    client.run(scoped_events, function(res){
+    client.run(scoped_events, function(err, res){
       activeMapData.clearLayers();
       Keen.utils.each(res.result, function(coord, index){
         var em = L.marker(new L.LatLng(coord[1], coord[0]), {
           icon: L.mapbox.marker.icon({
-            "marker-color": Keen.Visualization.defaults.colors[0]
+            "marker-color": Keen.Dataviz.defaults.colors[0]
           })
         }).addTo(activeMapData);;
       });
