@@ -1,2 +1,0 @@
-Dashboard Starter Kit
-=====================
