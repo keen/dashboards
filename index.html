@@ -74,64 +74,59 @@
   <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 
 
-  <script type="text/javascript"
-        src="https://www.google.com/jsapi?autoload={
-          'modules':[{
-            'name':'visualization',
-            'version':'1',
-            'packages':['corechart']
-          }]
-        }"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
   <script type="text/javascript">
+    google.load('visualization', '1.1', {packages: ['line']});
     google.setOnLoadCallback(drawChart);
 
     function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ['Year', 'Millions of USD'],
-        ['1980',   22371],
-        ['1981',   24499],
-        ['1982',   28986],
-        ['1983',   35430],
-        ['1984',   39837],
-        ['1985',   46450],
-        ['1986',   51429],
-        ['1987',   73571],
-        ['1988',   88000],
-        ['1989',   109714],
-        ['1990',   91383],
-        ['1991',   46060],
-        ['1992',   42006],
-        ['1993',   47101],
-        ['1994',   51879],
-        ['1995',   60163],
-        ['1996',   67632],
-        ['1997',   75865],
-        ['1998',   84821],
-        ['1999',   90386],
-        ['2000',   99624],
-        ['2001',   97266],
-        ['2002',   85843],
-        ['2003',   80994],
-        ['2004',   78799],
-        ['2005',   89519],
-        ['2006',   107375],
-        ['2007',   30346],
-        ['2008',   62435],
-        ['2009',   88608],
-        ['2010',   218763],
-        ['2011',   235598],
-        ['2012',   262256],
-        ['2013',   271427]
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Year');
+      data.addColumn('number', 'USD');
+
+      data.addRows([
+        ['1980',   22371000000],
+        ['1981',   24499000000],
+        ['1982',   28986000000],
+        ['1983',   35430000000],
+        ['1984',   39837000000],
+        ['1985',   46450000000],
+        ['1986',   51429000000],
+        ['1987',   73571000000],
+        ['1988',   88000000000],
+        ['1989',   109714000000],
+        ['1990',   91383000000],
+        ['1991',   46060000000],
+        ['1992',   42006000000],
+        ['1993',   47101000000],
+        ['1994',   51879000000],
+        ['1995',   60163000000],
+        ['1996',   67632000000],
+        ['1997',   75865000000],
+        ['1998',   84821000000],
+        ['1999',   90386000000],
+        ['2000',   99624000000],
+        ['2001',   97266000000],
+        ['2002',   85843000000],
+        ['2003',   80994000000],
+        ['2004',   78799000000],
+        ['2005',   89519000000],
+        ['2006',   107375000000],
+        ['2007',   30346000000],
+        ['2008',   62435000000],
+        ['2009',   88608000000],
+        ['2010',   218763000000],
+        ['2011',   235598000000],
+        ['2012',   262256000000],
+        ['2013',   271420000007]
       ]);
 
-
       var options = {
-        curveType: 'function',
         legend: { position: 'bottom' }
       };
 
-      var chart = new google.visualization.LineChart(document.getElementById('gdp_nominal'));
+      var chart = new google.charts.Line(document.getElementById('gdp_nominal'));
 
       chart.draw(data, options);
     }
