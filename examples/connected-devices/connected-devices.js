@@ -207,8 +207,33 @@ Keen.ready(function(){
 
   var activeMapData,
       heat;
+      
+  function setActiveButton(button) {
+    var classButtonNormal = "btn btn-default";
+    var classButtonSelected = "btn btn-primary";
+
+    switch (button) {
+    default:
+    case "7days":
+      document.getElementById("7days").className = classButtonSelected;
+      document.getElementById("14days").className = classButtonNormal;
+      document.getElementById("28days").className = classButtonNormal;
+      break;
+    case "14days":
+      document.getElementById("7days").className = classButtonNormal;
+      document.getElementById("14days").className = classButtonSelected;
+      document.getElementById("28days").className = classButtonNormal;
+      break;
+    case "28days":
+      document.getElementById("7days").className = classButtonNormal;
+      document.getElementById("14days").className = classButtonNormal;
+      document.getElementById("28days").className = classButtonSelected;
+      break;
+    }
+  }
 
   initialize = function() {
+    setActiveButton("7days");
 
     L.mapbox.accessToken = "pk.eyJ1Ijoia2Vlbi1pbyIsImEiOiIza0xnNXBZIn0.PgzKlxBmYkOq6jBGErpqOg";
     map = L.mapbox.map("map", "keen-io.kae20cg0", {
@@ -304,6 +329,7 @@ Keen.ready(function(){
 
 
     document.getElementById("14days").addEventListener("click", function() {
+      setActiveButton("14days");
       newgeoFilter = resize(newgeoFilter);
       scoped_events.set({ filters: newgeoFilter,
                           timeframe: "previous_14_days" });
@@ -311,6 +337,7 @@ Keen.ready(function(){
     });
 
     document.getElementById("28days").addEventListener("click", function() {
+      setActiveButton("28days");
       newgeoFilter = resize(newgeoFilter);
       scoped_events.set({ filters: newgeoFilter,
                           timeframe: "previous_28_days" });
@@ -318,6 +345,7 @@ Keen.ready(function(){
     });
 
     document.getElementById("7days").addEventListener("click", function() {
+      setActiveButton("7days");
       newgeoFilter = resize(newgeoFilter);
       scoped_events.set({ filters: newgeoFilter,
                           timeframe: "previous_7_days" });
