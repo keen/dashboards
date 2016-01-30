@@ -119,8 +119,8 @@ h3 {
   font-size: 24px;
   font-weight: 200;
   margin: 0 auto 12px;
+  max-width: 320px;
   padding: 12px 0 6px;
-  width: 320px;
 }
 .hero a.hero-btn:focus,
 .hero a.hero-btn:hover {
