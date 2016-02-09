@@ -1,0 +1,19 @@
+{
+  "name": "keen-dashboards",
+  "homepage": "https://keenlabs.github.io/dashboards/",
+  "authors": [
+    "Dustin Larimer <dustin@keen.io>",
+    "Sean Dokko <dokko1230@gmail.com>",
+    "Ritchie Benevedes <ritchieleeann@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*"
+  ],
+  "keywords": [
+    "keen io",
+    "dashboards",
+    "dataviz",
+    "visualization"
+  ]
+}

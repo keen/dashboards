@@ -1,0 +1,9 @@
+.bowerrc
+.DS_Store
+.git*
+*.log
+*.md
+
+bower.json
+CHANGELOG.md
+README.md

@@ -1,0 +1,27 @@
+{
+  "name": "keen-dashboards",
+  "version": "0.1.0",
+  "description": "Responsive dashboard templates for Bootstrap",
+  "main": "./dist/keen-dashboards.css",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keen/dashboards.git"
+  },
+  "keywords": [
+    "keen io",
+    "dashboards",
+    "dataviz",
+    "visualization"
+  ],
+  "author": "Dustin Larimer <dustin@keen.io>",
+  "contributors": [
+    "Dustin Larimer <dustin@keen.io>",
+    "Sean Dokko <dokko1230@gmail.com>",
+    "Ritchie Benevedes <ritchieleeann@gmail.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/keen/dashboards/issues"
+  },
+  "homepage": "https://github.com/keen/dashboards#readme"
+}
