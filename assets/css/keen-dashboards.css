@@ -3,40 +3,55 @@
  * Full-page application style
  */
 
-body.application {
+body.application,
+.keen-dashboard {
   background: #f2f2f2;
+  font-family: 'Gotham Rounded SSm A', 'Gotham Rounded SSm B', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   padding: 60px 20px 0;
 }
-body.application > .container-fluid {
+
+body.application > .container-fluid,
+.keen-dashboard > .container-fluid {
+  margin: 0 0 32px;
+  margin: 0 0 2rem;
   padding-left: 0;
   padding-right: 0;
 }
-body.application div[class^="col-"] {
+
+body.application div[class^="col-"],
+.keen-dashboard div[class^="col-"] {
   padding-left: 5px;
   padding-right: 5px;
 }
-body.application div[class^="col-"] div[class^="col-"] {
+
+body.application div[class^="col-"] div[class^="col-"],
+.keen-dashboard div[class^="col-"] div[class^="col-"] {
   padding-left: 15px;
   padding-right: 15px;
 }
 
-body.application hr {
+body.application hr,
+.keen-dashboard hr {
   border-color: #d7d7d7;
   margin: 10px 0;
 }
 
-
-.navbar-inverse {
+body.application .navbar-inverse,
+.keen-dashboard .navbar-inverse {
   background-color: #3d4a57;
   border-color: #333;
 }
-.navbar-inverse .navbar-nav > li > a,
-.navbar .navbar-brand {
+
+body.application .navbar-inverse .navbar-nav > li > a,
+body.application .navbar .navbar-brand,
+.keen-dashboard .navbar-inverse .navbar-nav > li > a,
+.keen-dashboard .navbar .navbar-brand {
   color: #fbfbfb;
   text-decoration: none;
 }
 
-.main-nav > li > a:hover {
+body.application .main-nav > li > a:hover,
+.keen-dashboard .main-nav > li > a:hover {
   border-bottom: 2px solid transparent;
   -webkit-transition: border 300ms ease;
   -o-transition: border 300ms ease;
@@ -44,9 +59,15 @@ body.application hr {
   border-bottom-color: white;
 }
 
-.return-link, .return-link:focus, .return-link:hover {
+body.application .return-link,
+body.application .return-link:focus,
+body.application .return-link:hover,
+.keen-dashboard .return-link,
+.keen-dashboard .return-link:focus,
+.keen-dashboard .return-link:hover {
   text-decoration: none;
 }
+
 
 .chart-wrapper {
   background: #fff;
@@ -63,7 +84,6 @@ body.application hr {
 }
 
 .chart-wrapper .chart-stage {
-  /*min-height: 240px;*/
   overflow: hidden;
   padding: 5px 10px;
   position: relative;
