@@ -49,7 +49,7 @@ You can also use this pre-populated set of [demo data](https://github.com/keen/d
 
 Ready to use one of these awesome layouts? Here's how to get started.
 
-1. In the sidebar, is a *Download Zip* link. Click it to download a copy of the code.
+1. Download a copy of this repository as a zip file, using [this link](https://github.com/keen/dashboards/archive/gh-pages.zip). You can also type `git clone keen/dashboards` in your terminal.
 
 2. Check out the various [layouts](http://keen.github.io/dashboards/layouts/) and pick the one that best suits your needs. Find the template in the repository you downloaded at `folder/layouts/(name-of-template)`.
 
