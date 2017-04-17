@@ -89,7 +89,7 @@ Note: Updates to the site backed by the **gh-pages** branch go live immediately 
 Note #2: This project is moving fast, so make sure and stay up to date. Here's what we suggest. Fork this repo, clone the fork, and add the original repo as a remote called `upstream`:
 
 ```
-$ git clone https://github.com/username/dashboards.git
+$ git clone https://github.com/keen/dashboards.git
 $ cd dashboards
 $ git remote add upstream https://github.com/keen/dashboards.git
 ```
