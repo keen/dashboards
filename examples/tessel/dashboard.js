@@ -1,4 +1,6 @@
-
+// ----------------------------------------
+// Set up KeenIO Client
+// ----------------------------------------
 var client = new Keen({
     projectId: "542b084ce8759666375da5e5",
     readKey: "f7069f777acb01ea3883696c1cbaca038f37a5615edbaf1535b1a5d28563afafa1d1c85a0807650dc8c2a971f4f28d5b54139277c41c31d700715ff92cb6caad00af478d2426286620d82af20ea055a2673678b571858fcb03f3f836d95995255f48968266508dc1963bfd4c484698fa"
@@ -7,6 +9,10 @@ var client = new Keen({
 
 Keen.ready(function(){
 
+  // ----------------------------------------
+  // Make sure each query has the correct
+  // timeframe. Set to 'today' by default
+  // ----------------------------------------
 
   // ----------------------------------------
   // Light Trigger Timeline
@@ -15,11 +21,11 @@ Keen.ready(function(){
     eventCollection: "climate",
     targetProperty: "light-trigger",
     interval: "hourly",
-    timeframe: {
-      start: "2014-10-06T07:00:00.000",
-      end: "2014-10-06T19:00:00.000"
-    }
-    // timeframe: "today"
+    //timeframe: {
+    //  start: "2014-10-06T07:00:00.000",
+    //  end: "2014-10-06T19:00:00.000"
+    //}
+    timeframe: "today"
   });
 
   client.draw(light_timeline, document.getElementById("chart-05"), {
@@ -36,11 +42,11 @@ Keen.ready(function(){
     eventCollection: "climate",
     targetProperty: "sound-trigger",
     interval: "hourly",
-    timeframe: {
-      start: "2014-10-06T07:00:00.000",
-      end: "2014-10-06T19:00:00.000"
-    }
-    // timeframe: "today"
+    //timeframe: {
+    //  start: "2014-10-06T07:00:00.000",
+    //  end: "2014-10-06T19:00:00.000"
+    //}
+    timeframe: "today"
   });
 
   client.draw(sound_timeline, document.getElementById("chart-06"), {
@@ -57,11 +63,11 @@ Keen.ready(function(){
   var temperature = new Keen.Query("average", {
     eventCollection: "climate",
     targetProperty: "temp",
-    timeframe: {
-      start: "2014-10-06T00:00:00.000",
-      end: "2014-10-07T00:00:00.000"
-    }
-    // timeframe: "today"
+    //timeframe: {
+    //  start: "2014-10-06T00:00:00.000",
+    //  end: "2014-10-07T00:00:00.000"
+    //}
+    timeframe: "today"
   });
 
   $("#chart-01").knob({
@@ -84,11 +90,11 @@ Keen.ready(function(){
   var humidity = new Keen.Query("average", {
     eventCollection: "climate",
     targetProperty: "humidity",
-    timeframe: {
-      start: "2014-10-06T00:00:00.000",
-      end: "2014-10-07T00:00:00.000"
-    }
-    // timeframe: "today"
+    //timeframe: {
+    //  start: "2014-10-06T00:00:00.000",
+    //  end: "2014-10-07T00:00:00.000"
+    //}
+    timeframe: "today"
   });
 
   $("#chart-02").knob({
@@ -111,11 +117,11 @@ Keen.ready(function(){
   var light = new Keen.Query("average", {
     eventCollection: "climate",
     targetProperty: "light",
-    timeframe: {
-      start: "2014-10-06T00:00:00.000",
-      end: "2014-10-07T00:00:00.000"
-    }
-    // timeframe: "today"
+    //timeframe: {
+    //  start: "2014-10-06T00:00:00.000",
+    //  end: "2014-10-07T00:00:00.000"
+    //}
+    timeframe: "today"
   });
 
   $("#chart-03").knob({
@@ -139,11 +145,11 @@ Keen.ready(function(){
   var sound = new Keen.Query("average", {
     eventCollection: "climate",
     targetProperty: "sound",
-    timeframe: {
-      start: "2014-10-06T00:00:00.000",
-      end: "2014-10-07T00:00:00.000"
-    }
-    // timeframe: "today"
+    //timeframe: {
+    //  start: "2014-10-06T00:00:00.000",
+    //  end: "2014-10-07T00:00:00.000"
+    //}
+    timeframe: "today"
   });
 
   $("#chart-04").knob({
