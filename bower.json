@@ -20,11 +20,6 @@
     "tests",
     "assets/img",
     "assets/js",
-    "assets/lib",
     "assets/css/keen-static.css"
-  ],
-  "dependencies": {
-    "jquery": "~2.1.1",
-    "bootstrap": "~3.2.0"
-  }
+  ]
 }
