@@ -1,81 +1,49 @@
-
-/*
- * Full-page application style
- */
-
-body.application,
 .keen-dashboard {
   background: #f2f2f2;
   font-family: 'Gotham Rounded SSm A', 'Gotham Rounded SSm B', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  padding: 60px 20px 0;
 }
 
-body.application > .container-fluid,
-.keen-dashboard > .container-fluid {
-  margin: 0 0 32px;
-  margin: 0 0 2rem;
-  padding-left: 0;
-  padding-right: 0;
+.keen-dataviz {
+  background: #fff;
+  border: 1px solid #e7e7e7;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+.keen-dataviz-title {
+  border-bottom: 1px solid #e7e7e7;
+  border-radius: 2px 2px 0 0;
+  font-size: 13px;
+  padding: 2px 10px 0;
+  text-transform: uppercase;
+}
+.keen-dataviz-stage {
+  padding: 10px;
 }
 
-body.application div[class^="col-"],
-.keen-dashboard div[class^="col-"] {
-  padding-left: 5px;
-  padding-right: 5px;
+.keen-dataviz-notes {
+  background: #fbfbfb;
+  border-radius: 0 0 2px 2px;
+  border-top: 1px solid #e7e7e7;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 11px;
+  padding: 0 10px;
 }
 
-body.application div[class^="col-"] div[class^="col-"],
-.keen-dashboard div[class^="col-"] div[class^="col-"] {
-  padding-left: 15px;
-  padding-right: 15px;
+.keen-dataviz .keen-dataviz-metric {
+  border-radius: 2px;
 }
 
-body.application hr,
-.keen-dashboard hr {
-  border-color: #d7d7d7;
-  margin: 10px 0;
+.keen-dataviz .keen-spinner-indicator {
+  border-top-color: rgba(0, 187, 222, .4);
 }
 
-body.application .navbar-inverse,
-.keen-dashboard .navbar-inverse {
-  background-color: #3d4a57;
-  border-color: #333;
-}
-
-body.application .navbar-inverse .navbar-nav > li > a,
-body.application .navbar .navbar-brand,
-.keen-dashboard .navbar-inverse .navbar-nav > li > a,
-.keen-dashboard .navbar .navbar-brand {
-  color: #fbfbfb;
-  text-decoration: none;
-}
-
-body.application .main-nav > li > a:hover,
-.keen-dashboard .main-nav > li > a:hover {
-  border-bottom: 2px solid transparent;
-  -webkit-transition: border 300ms ease;
-  -o-transition: border 300ms ease;
-  transition: border 300ms ease;
-  border-bottom-color: white;
-}
-
-body.application .return-link,
-body.application .return-link:focus,
-body.application .return-link:hover,
-.keen-dashboard .return-link,
-.keen-dashboard .return-link:focus,
-.keen-dashboard .return-link:hover {
-  text-decoration: none;
-}
-
-
-.chart-wrapper {
+.keen-dashboard .chart-wrapper {
   background: #fff;
   border: 1px solid #e2e2e2;
   border-radius: 3px;
   margin-bottom: 10px;
 }
-.chart-wrapper .chart-title {
+.keen-dashboard .chart-wrapper .chart-title {
   border-bottom: 1px solid #d7d7d7;
   color: #666;
   font-size: 14px;
@@ -83,16 +51,22 @@ body.application .return-link:hover,
   padding: 7px 10px 4px;
 }
 
-.chart-wrapper .chart-stage {
+.keen-dashboard .chart-wrapper .chart-stage {
   overflow: hidden;
   padding: 5px 10px;
   position: relative;
 }
 
-.chart-wrapper .chart-notes {
+.keen-dashboard .chart-wrapper .chart-notes {
   background: #fbfbfb;
   border-top: 1px solid #e2e2e2;
   color: #808080;
   font-size: 12px;
   padding: 8px 10px 5px;
+}
+
+.keen-dashboard .chart-wrapper .keen-dataviz,
+.keen-dashboard .chart-wrapper .keen-dataviz-title,
+.keen-dashboard .chart-stage .chart-title {
+  border: medium none;
 }

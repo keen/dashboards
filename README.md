@@ -41,9 +41,7 @@ These layout templates are composed of a minimal set of [Bootstrap v3.2](http://
 
 ## Integrations
 
-These templates can work with any data source or charting library, but they're particularly streamlined to work with Keen IO's [visualization toolkit](https://github.com/keenlabs/keen-js). To see the Keen integration in action, create a [free project](http://keen.io/signup?s=gh-dashboards) and send some data to it. Then add some charts to your dashboard with just a few lines of code.
-
-You can also use this pre-populated set of [demo data](https://github.com/keen/dashboards/tree/gh-pages/demo-data). 
+These templates can work with any data source or charting library, but they're particularly streamlined to work with Keen IO's [Dataviz SDK](https://github.com/keen/keen-dataviz.js). To see the Keen integration in action, create a [free project](http://keen.io/signup?s=gh-dashboards) and send some data to it. Then add some charts to your dashboard with just a few lines of code.
 
 ## Usage
 

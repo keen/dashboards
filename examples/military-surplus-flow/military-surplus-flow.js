@@ -1,69 +1,115 @@
 var client = new Keen({
-  projectId: "53f3eca97d8cb91b75000000",
-  readKey: "df6ff0ff414bc286b91e2661db4c691c45b6aea8d2c8cf2393169e9b9ef36a3d77e59c57b540febc8f328bf1f605782d9035c4a7072dc86c4f96ddbcce7dfe0b088ae51dd2ea36ad022290d1f3580e2d1ea202845ae7f79e7db6634ee627a26197dadf7eb2e5a46b16f04a4cae55955e"
+  projectId: '53f3eca97d8cb91b75000000',
+  readKey: 'df6ff0ff414bc286b91e2661db4c691c45b6aea8d2c8cf2393169e9b9ef36a3d77e59c57b540febc8f328bf1f605782d9035c4a7072dc86c4f96ddbcce7dfe0b088ae51dd2ea36ad022290d1f3580e2d1ea202845ae7f79e7db6634ee627a26197dadf7eb2e5a46b16f04a4cae55955e'
 });
 
 Keen.ready(function(){
-  var q1 = new Keen.Query("count", {
-    eventCollection: "purchases",
-    //groupBy: "State",
-    timeframe: "this_5_years",
-    interval: "monthly"
-  });
-  client.draw(q1, document.getElementById("grid-1"), {
-    title: " ",
-    chartType: "areachart",
-    height: 200,
-    width: "auto",
-    chartOptions: {
-      isStacked: true
-    }
-  });
+  var chart01 = new Keen.Dataviz()
+    .el('#grid-1')
+    .type('area')
+    .height(240)
+    .stacked(true)
+    .title('Total Acquisitions, by State')
+    .notes('Notes about this chart')
+    .prepare();
 
-  var q2 = new Keen.Query("sum", {
-    eventCollection: "purchases",
-    targetProperty: "Acquisition Cost",
-    timeframe: "this_5_years",
-    interval: "monthly"
-  });
-  client.draw(q2, document.getElementById("grid-2"), {
-    title: " ",
-    chartType: "areachart",
-    height: 200,
-    width: "auto"
-  });
+  var chart02 = new Keen.Dataviz()
+    .el('#grid-2')
+    .type('area')
+    .height(240)
+    .stacked(true)
+    .title('Total Acquisition Cost and by State')
+    .notes('Notes about this chart')
+    .prepare();
 
-  var q3 = new Keen.Query("sum", {
-    eventCollection: "purchases",
-    targetProperty: "Acquisition Cost",
-    filters: [{"property_name":"State","operator":"eq","property_value":"MO"}],
-    timeframe: "this_5_years",
-    interval: "monthly"
-  });
-  client.draw(q3, document.getElementById("grid-3"), {
-    title: " ",
-    chartType: "areachart",
-    height: 200,
-    width: "auto"
-  });
+  var chart03 = new Keen.Dataviz()
+    .el('#grid-3')
+    .type('area')
+    .height(240)
+    .stacked(true)
+    .title('Total Acquisition Cost in Missouri')
+    .notes('Notes about this chart')
+    .prepare();
 
+  var chart04 = new Keen.Dataviz()
+    .el('#grid-4')
+    .type('horizontal-bar')
+    .height(800)
+    .title('Quantity Purchased by State')
+    .prepare();
 
-  var q4 = new Keen.Query("sum", {
-    eventCollection: "purchases",
-    timeframe: "this_5_years",
-    targetProperty: "Quantity",
-    groupBy: "State"
-  });
-  client.draw(q4, document.getElementById("grid-4"), {
-    chartType: "barchart",
-    title: " ",
-    height: 800,
-    width: "auto",
-    chartOptions: {
-      chartArea: { top: "3%", height: "90%", left: "10%", width: "80%" }
-    }
-  });
+  client
+    .query('count', {
+      event_collection: 'purchases',
+      timeframe: {
+        start: '2012-01-01',
+        end: '2014-05-01'
+      },
+      interval: 'monthly'
+    })
+    .then(function(res) {
+      chart01.data(res).render();
+    })
+    .catch(function(err) {
+      chart01.message(err.message);
+    });
 
+  client
+    .query('sum', {
+      event_collection: 'purchases',
+      target_property: 'Acquisition Cost',
+      timeframe: {
+        start: '2012-01-01',
+        end: '2014-05-01'
+      },
+      interval: 'monthly'
+    })
+    .then(function(res) {
+      chart02.data(res).render();
+    })
+    .catch(function(err) {
+      chart02.message(err.message);
+    });
 
+  client
+    .query('sum', {
+      event_collection: 'purchases',
+      target_property: 'Acquisition Cost',
+      filters: [
+        {
+          property_name:'State',
+          operator:'eq',
+          property_value:'MO'
+        }
+      ],
+      timeframe: {
+        start: '2012-01-01',
+        end: '2014-05-01'
+      },
+      interval: 'monthly'
+    })
+    .then(function(res) {
+      chart03.data(res).render();
+    })
+    .catch(function(err) {
+      chart03.message(err.message);
+    });
+
+  client
+    .query('sum', {
+      event_collection: 'purchases',
+      timeframe: {
+        start: '2012-01-01',
+        end: '2014-05-01'
+      },
+      target_property: 'Quantity',
+      group_by: 'State'
+    })
+    .then(function(res) {
+      chart04.data(res).render();
+    })
+    .catch(function(err) {
+      chart04.message(err.message);
+    });
 
 });

@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <title>Dashboard Starter UI, by Keen IO</title>
   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+
+  <!-- Demo Dependencies -->
+  <script type="text/javascript" src="../../assets/lib/jquery/dist/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../../assets/lib/bootstrap/dist/css/bootstrap.min.css" />
+  <script type="text/javascript" src="../../assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../assets/lib/holderjs/holder.js"></script>
+  <script>
+    Holder.add_theme("white", { background:"#fff", foreground:"#a7a7a7", size:10 });
+  </script>
+
+  <!-- Dashboard Starter Kit -->
   <link rel="stylesheet" type="text/css" href="../../assets/css/keen-dashboards.css" />
 </head>
-<body class="application">
+<body class="keen-dashboard" style="padding-top: 80px;">
 
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
@@ -65,8 +76,6 @@
       </div>
 
     </div>
-
-
     <div class="row">
 
       <div class="col-sm-12">
@@ -85,22 +94,12 @@
 
     </div>
 
-    <hr>
-
+  </div>
+  <div class="container-fluid">
     <p class="small text-muted">Built with &#9829; by <a href="https://keen.io">Keen IO</a></p>
-
   </div>
 
-  <script type="text/javascript" src="../../assets/lib/jquery/dist/jquery.min.js"></script>
-  <script type="text/javascript" src="../../assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-
-  <script type="text/javascript" src="../../assets/lib/holderjs/holder.js"></script>
-  <script>
-    Holder.add_theme("white", { background:"#fff", foreground:"#a7a7a7", size:10 });
-  </script>
-
-  <script type="text/javascript" src="../../assets/lib/keen-js/dist/keen.min.js"></script>
-  <script type="text/javascript" src="../../assets/js/meta.js"></script>
-
+  <!-- Project Analytics -->
+  <script type="text/javascript" src="../../assets/js/keen-analytics.js"></script>
 </body>
 </html>
