@@ -2,6 +2,8 @@
 
 Building an analytics dashboard? Don’t start from scratch. Grab one of our Bootstrap-based templates and admire your data in minutes.
 
+**UPDATE: All examples in this repo have been updated to use [keen-dataviz.js](https://github.com/keen/keen-dataviz.js) and [keen-analysis.js](https://github.com/keen/keen-analysis.js), as well as CDN versions of all dependencies.** When producing charts with [keen-dataviz.js](https://github.com/keen/keen-dataviz.js), the HTML wrapper for each chart (`.chart-wrapper`, described below) is rendered automatically.
+
 Begin with a layout:
 
 ![Hero Thirds Example](http://cl.ly/image/3v2H180U0k0Q/Screen%20Shot%202014-10-29%20at%203.12.24%20AM.png)
