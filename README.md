@@ -2,6 +2,8 @@
 
 Building an analytics dashboard? Don’t start from scratch. Grab one of our Bootstrap-based templates and admire your data in minutes.
 
+**UPDATE: All examples in this repo have been updated to use [keen-dataviz.js](https://github.com/keen/keen-dataviz.js) and [keen-analysis.js](https://github.com/keen/keen-analysis.js), as well as CDN versions of all dependencies.** When producing charts with [keen-dataviz.js](https://github.com/keen/keen-dataviz.js), the HTML wrapper for each chart (`.chart-wrapper`, described below) is rendered automatically.
+
 Begin with a layout:
 
 ![Hero Thirds Example](http://cl.ly/image/3v2H180U0k0Q/Screen%20Shot%202014-10-29%20at%203.12.24%20AM.png)
@@ -41,9 +43,7 @@ These layout templates are composed of a minimal set of [Bootstrap v3.2](http://
 
 ## Integrations
 
-These templates can work with any data source or charting library, but they're particularly streamlined to work with Keen IO's [visualization toolkit](https://github.com/keenlabs/keen-js). To see the Keen integration in action, create a [free project](http://keen.io/signup?s=gh-dashboards) and send some data to it. Then add some charts to your dashboard with just a few lines of code.
-
-You can also use this pre-populated set of [demo data](https://github.com/keen/dashboards/tree/gh-pages/demo-data). 
+These templates can work with any data source or charting library, but they're particularly streamlined to work with Keen IO's [Dataviz SDK](https://github.com/keen/keen-dataviz.js). To see the Keen integration in action, create a [free project](http://keen.io/signup?s=gh-dashboards) and send some data to it. Then add some charts to your dashboard with just a few lines of code.
 
 ## Usage
 

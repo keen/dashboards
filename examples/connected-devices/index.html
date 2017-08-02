@@ -5,11 +5,30 @@
   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
   <title>Connected Devices</title>
 
-  <link rel="stylesheet" type="text/css" href="../../assets/lib/bootstrap/dist/css/bootstrap.min.css" />
+  <!-- Mapbox Dependencies -->
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v2.0.0/mapbox.css' rel='stylesheet' />
+  <script type="text/javascript" src='https://api.tiles.mapbox.com/mapbox.js/v2.0.0/mapbox.js'></script>
+  <script type="text/javascript" src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-heat/v0.1.0/leaflet-heat.js'></script>
+
+  <!-- Demo Dependencies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+  <!-- keen-analysis@1.2.2 -->
+  <script src="https://d26b395fwzu5fz.cloudfront.net/keen-analysis-1.2.2.js" type="text/javascript"></script>
+
+  <!-- keen-dataviz@1.1.3 -->
+  <link href="https://d26b395fwzu5fz.cloudfront.net/keen-dataviz-1.1.3.css" rel="stylesheet" />
+  <script src="https://d26b395fwzu5fz.cloudfront.net/keen-dataviz-1.1.3.js" type="text/javascript"></script>
+
+  <!-- Dashboard -->
   <link rel="stylesheet" type="text/css" href="../../assets/css/keen-dashboards.css" />
   <link rel="stylesheet" type="text/css" href="connected-devices.css" />
+  <script src="connected-devices.js" type="text/javascript"></script>
 </head>
-<body class="application">
+<body class="keen-dashboard" style="padding-top: 80px;">
 
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
@@ -52,9 +71,12 @@
               <div class="col-xs-3">
                 <div class="tabbable tabs-left">
                   <ul class="nav nav-tabs">
-                    <li class="active"><a href="#visitors" data-toggle="tab">Visitors</a></li>
-                    <li><a href="#browser" data-toggle="tab">Browser</a></li>
-                    <li><a href="#geography" data-toggle="tab">Geography</a></li>
+                    <li class="active">
+                      <a href="#visitors" id="tab-visitors" data-toggle="tab">Visitors</a></li>
+                    <li>
+                      <a href="#browser" id="tab-browsers" data-toggle="tab">Browser</a></li>
+                    <li>
+                      <a href="#geography" id="tab-geography" data-toggle="tab">Geography</a></li>
                   </ul>
                 </div>
               </div>
@@ -133,19 +155,7 @@
       </div>
     </div>
 
-  <!-- Mapbox.js Assets -->
-  <script type="text/javascript" src='https://api.tiles.mapbox.com/mapbox.js/v2.0.0/mapbox.js'></script>
-  <link href='https://api.tiles.mapbox.com/mapbox.js/v2.0.0/mapbox.css' rel='stylesheet' />
-  <script type="text/javascript" src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-heat/v0.1.0/leaflet-heat.js'></script>
-
-  <script type="text/javascript" src="../../assets/lib/jquery/dist/jquery.min.js"></script>
-  <script type="text/javascript" src="../../assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="../../assets/lib/jquery-knob/dist/jquery.knob.min.js"></script>
-
-  <script type="text/javascript" src="../../assets/lib/keen-js/dist/keen.min.js"></script>
-  <script type="text/javascript" src="../../assets/js/meta.js"></script>
-
-  <script type="text/javascript" src="connected-devices.js"></script>
-
+  <!-- Project Analytics -->
+  <script type="text/javascript" src="../../assets/js/keen-analytics.js"></script>
 </body>
 </html>

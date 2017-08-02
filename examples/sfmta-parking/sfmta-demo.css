@@ -1,0 +1,19 @@
+#mapbox-panel {
+  left: 50%;
+  position: fixed;
+}
+#mapbox-panel .chart-title {
+  border: medium none;
+}
+#mapbox-panel .chart-stage {
+  height: 600px;
+}
+#map {
+  bottom: 0;
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+  top: -20px;
+  width: 100%;
+}
