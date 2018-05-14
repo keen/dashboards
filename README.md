@@ -71,6 +71,21 @@ Ready to use one of these awesome layouts? Here's how to get started.
 
 You're finished! Congratulations on setting up your first chart! Repeat step three with the rest of the items in the template to complete your dashboard!
 
+## Docker
+Clone the repository.
+```
+$ git clone https://github.com/keen/dashboards.git
+```
+Access the repository and build your Docker image.
+```
+$ cd dashboards
+$ docker build -t keen/dashboards .
+```
+Run the Docker container. 
+```
+$ docker run -d -p 80:80 keen/dashboards
+```
+
 ## Contributing
 
 Contributions are 11,000,000% welcome! That's a lot!
