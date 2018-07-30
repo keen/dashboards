@@ -2,6 +2,8 @@
 
 Building an analytics dashboard? Don’t start from scratch. Grab one of our Bootstrap-based templates and admire your data in minutes.
 
+**UPDATE: All examples in this repo have been updated to use [keen-dataviz.js](https://github.com/keen/keen-dataviz.js) and [keen-analysis.js](https://github.com/keen/keen-analysis.js), as well as CDN versions of all dependencies.** When producing charts with [keen-dataviz.js](https://github.com/keen/keen-dataviz.js), the HTML wrapper for each chart (`.chart-wrapper`, described below) is rendered automatically.
+
 Begin with a layout:
 
 ![Hero Thirds Example](http://cl.ly/image/3v2H180U0k0Q/Screen%20Shot%202014-10-29%20at%203.12.24%20AM.png)
@@ -41,15 +43,13 @@ These layout templates are composed of a minimal set of [Bootstrap v3.2](http://
 
 ## Integrations
 
-These templates can work with any data source or charting library, but they're particularly streamlined to work with Keen IO's [visualization toolkit](https://github.com/keenlabs/keen-js). To see the Keen integration in action, create a [free project](http://keen.io/signup?s=gh-dashboards) and send some data to it. Then add some charts to your dashboard with just a few lines of code.
-
-You can also use this pre-populated set of [demo data](https://github.com/keen/dashboards/tree/gh-pages/demo-data).
+These templates can work with any data source or charting library, but they're particularly streamlined to work with Keen IO's [Dataviz SDK](https://github.com/keen/keen-dataviz.js). To see the Keen integration in action, create a [free project](http://keen.io/signup?s=gh-dashboards) and send some data to it. Then add some charts to your dashboard with just a few lines of code.
 
 ## Usage
 
 Ready to use one of these awesome layouts? Here's how to get started.
 
-1. In the sidebar, is a *Download Zip* link. Click it to download a copy of the code.
+1. Download a copy of this repository as a zip file, using [this link](https://github.com/keen/dashboards/archive/gh-pages.zip). You can also type `git clone keen/dashboards` in your terminal.
 
 2. Check out the various [layouts](http://keen.github.io/dashboards/layouts/) and pick the one that best suits your needs. Find the template in the repository you downloaded at `folder/layouts/(name-of-template)`.
 
@@ -71,6 +71,22 @@ Ready to use one of these awesome layouts? Here's how to get started.
 
 You're finished! Congratulations on setting up your first chart! Repeat step three with the rest of the items in the template to complete your dashboard!
 
+
+## Docker
+Clone the repository.
+```
+$ git clone https://github.com/keen/dashboards.git
+```
+Access the repository and build your Docker image.
+```
+$ cd dashboards
+$ docker build -t keen/dashboards .
+```
+Run the Docker container. 
+```
+$ docker run -d -p 80:80 keen/dashboards
+```
+
 ## Contributing
 
 Contributions are 11,000,000% welcome! That's a lot!
@@ -89,7 +105,7 @@ Note: Updates to the site backed by the **gh-pages** branch go live immediately 
 Note #2: This project is moving fast, so make sure and stay up to date. Here's what we suggest. Fork this repo, clone the fork, and add the original repo as a remote called `upstream`:
 
 ```
-$ git clone https://github.com/username/dashboards.git
+$ git clone https://github.com/keen/dashboards.git
 $ cd dashboards
 $ git remote add upstream https://github.com/keen/dashboards.git
 ```

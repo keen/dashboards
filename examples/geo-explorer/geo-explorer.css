@@ -1,0 +1,76 @@
+body.application {
+  padding: 0;
+  margin: 0;
+}
+
+.row {
+  margin: 0;
+}
+
+#app-wrapper {
+  height: 100%;
+  position: aboslute;
+  width: 100%;
+}
+
+#app-toolbar {
+  background: rgba(0,0,0,.75);
+  box-shadow: 0 1px 5px rgba(0,0,0,.1);
+  color: #fff;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+}
+
+#app-toolbar .btn-primary {
+  background-color: #00afd7;
+  border: medium none;
+}
+#app-toolbar .btn-primary:focus,
+#app-toolbar .btn-primary:hover {
+  background-color: #0098BB;
+}
+
+#app-maparea {
+  border-right: 1px solid #d7d7d7;
+  position: fixed;
+  top: 0px;
+  width: 67%;
+  z-index: 0;
+}
+
+#app-sidebar {
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  top: 75px;
+  width: 33%;
+}
+
+#app-sidebar .chart-wrapper {
+  border: medium none;
+  box-shadow: 0 1px 3px rgba(0,0,0,.1);
+}
+
+.tools {
+  min-height: 75px;
+  padding: 0 5px 0 0;
+}
+
+.tool input, .tool select {
+  background: rgba(0,0,0,.5);
+  border: medium none;
+  box-shadow: none;
+  color: #e7e7e7;
+  float: left;
+  margin: 0 1%;
+}
+.radius input, .radius select {
+  width: 48%;
+}
+.tool input,
+.tool label,
+.tool h5 {
+  text-shadow: 0 0 1px #000;
+}
