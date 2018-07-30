@@ -71,6 +71,7 @@ Ready to use one of these awesome layouts? Here's how to get started.
 
 You're finished! Congratulations on setting up your first chart! Repeat step three with the rest of the items in the template to complete your dashboard!
 
+
 ## Docker
 Clone the repository.
 ```

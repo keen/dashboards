@@ -1,6 +1,13 @@
 {
   "name": "keen-dashboards",
   "homepage": "https://keenlabs.github.io/dashboards/",
+  "main": "./dist/keen-dashboards.css",
+  "authors": [
+    "Dustin Larimer <dustin@keen.io>",
+    "Sean Dokko <dokko1230@gmail.com>",
+    "Ritchie Benevedes <ritchieleeann@gmail.com>"
+  ],
+  "license": "MIT",
   "authors": [
     "Dustin Larimer <dustin@keen.io>",
     "Taylor Barnett <taylor@keen.io>"
