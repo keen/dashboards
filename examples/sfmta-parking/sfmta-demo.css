@@ -1,19 +1,33 @@
 #mapbox-panel {
-  left: 50%;
-  position: fixed;
+  position: relative;
 }
+
 #mapbox-panel .chart-title {
   border: medium none;
 }
+
 #mapbox-panel .chart-stage {
   height: 600px;
 }
+
 #map {
   bottom: 0;
   height: 100%;
-  left: 0px;
+  left: 0;
   position: absolute;
   right: 0px;
-  top: -20px;
+  top: 0;
   width: 100%;
+}
+
+.sfmta-charts .chart {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .sfmta-map {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 50px;
+  }
 }

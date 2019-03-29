@@ -14,8 +14,8 @@ body.application {
 }
 
 #app-toolbar {
-  background: rgba(0,0,0,.75);
-  box-shadow: 0 1px 5px rgba(0,0,0,.1);
+  background: rgba(0, 0, 0, .75);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, .1);
   color: #fff;
   position: fixed;
   top: 0px;
@@ -27,6 +27,7 @@ body.application {
   background-color: #00afd7;
   border: medium none;
 }
+
 #app-toolbar .btn-primary:focus,
 #app-toolbar .btn-primary:hover {
   background-color: #0098BB;
@@ -50,25 +51,34 @@ body.application {
 
 #app-sidebar .chart-wrapper {
   border: medium none;
-  box-shadow: 0 1px 3px rgba(0,0,0,.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
 }
 
 .tools {
   min-height: 75px;
-  padding: 0 5px 0 0;
+  padding: 10px 15px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  grid-column-gap: 15px;
+
 }
 
-.tool input, .tool select {
-  background: rgba(0,0,0,.5);
+.tool input,
+.tool select {
+  background: rgba(0, 0, 0, .5);
   border: medium none;
   box-shadow: none;
   color: #e7e7e7;
   float: left;
   margin: 0 1%;
 }
-.radius input, .radius select {
+
+.radius input,
+.radius select {
   width: 48%;
 }
+
 .tool input,
 .tool label,
 .tool h5 {

@@ -10,6 +10,7 @@ var geoProject = new Keen({
 
 Keen.ready(function(){
 
+  var navTabs = document.querySelector('.nav-tabs');
   var tabVisitors = document.getElementById('tab-visitors');
   var tabBrowsers = document.getElementById('tab-browsers');
   var tabGeography = document.getElementById('tab-geography');
@@ -31,10 +32,27 @@ Keen.ready(function(){
     .type('horizontal-bar')
     .height(300);
 
+  navTabs.onclick = setActivePane;
   tabVisitors.onclick = selectVisitorTab;
   tabBrowsers.onclick = selectBrowserTab;
   tabGeography.onclick = selectGeographyTab;
   selectVisitorTab();
+
+  function setActivePane(e) {
+    var tabs = this.querySelectorAll('li');
+    var tabContent = document.querySelector('.tab-content');
+    var activePane = document.querySelector( e.target.hash );
+    
+    tabs.forEach(function(tab) {
+      tab.classList.remove('active')
+    });
+    tabContent.querySelectorAll('.tab-pane').forEach(function(pane) {
+      pane.classList.remove('active');
+    });
+
+    e.target.parentNode.classList.add('active');
+    activePane.classList.add('active');
+  }
 
   function selectVisitorTab(e) {
     if (e && e.preventDefault) {
