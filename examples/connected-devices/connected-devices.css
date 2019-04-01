@@ -24,6 +24,10 @@
   text-align: center;
 }
 
+#chart-05 {
+  height: 340px;
+}
+
 
 /* custom inclusion of right, left and below tabs */
 
@@ -35,6 +39,10 @@
 
 .tab-content {
   min-width: 0;
+}
+
+.tab-content .tab-pane {
+  height: 300px;
 }
 
 .tabs-below>.nav-tabs,

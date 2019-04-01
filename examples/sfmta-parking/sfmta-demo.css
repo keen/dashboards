@@ -24,6 +24,14 @@
   margin-bottom: 1rem;
 }
 
+.sfmta-charts .c3-chart {
+  height: 250px;
+}
+
+.sfmta-charts .keen-dataviz-rendering {
+  padding: 10px;
+}
+
 @media (min-width: 768px) {
   .sfmta-map {
     position: -webkit-sticky;

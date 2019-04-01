@@ -54,6 +54,10 @@ body.application {
   box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
 }
 
+.app-sidebar-chart {
+  height: 300px;
+}
+
 .tools {
   min-height: 75px;
   padding: 10px 15px;
