@@ -7,14 +7,14 @@
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 :before,
 :after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 body {
@@ -40,7 +40,7 @@ h1,
 h2,
 h3 {
   margin-top: 20px;
-  margin-bottom: 10px
+  margin-bottom: 10px;
 }
 
 h4,
@@ -51,27 +51,27 @@ h6 {
 }
 
 h1 {
-  font-size: 36px
+  font-size: 36px;
 }
 
 h2 {
-  font-size: 30px
+  font-size: 30px;
 }
 
 h3 {
-  font-size: 24px
+  font-size: 24px;
 }
 
 h4 {
-  font-size: 18px
+  font-size: 18px;
 }
 
 h5 {
-  font-size: 14px
+  font-size: 14px;
 }
 
 h6 {
-  font-size: 12px
+  font-size: 12px;
 }
 
 .text-muted {
@@ -87,7 +87,7 @@ small,
   margin-bottom: 20px;
   font-size: 16px;
   font-weight: 300;
-  line-height: 1.4
+  line-height: 1.4;
 }
 
 @media (min-width: 768px) {
@@ -650,6 +650,7 @@ button {
 /* KEEN */
 
 .keen-dashboard {
+  padding-top: 80px;
   background: #f2f2f2;
   font-family: 'Gotham Rounded SSm A', 'Gotham Rounded SSm B', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -736,20 +737,7 @@ button {
   min-width: 0;
 }
 
-.starter-chart {
-  min-width: 0;
-  margin-bottom: 1rem;
-}
-
 @media (min-width: 768px) {
-  .starter-chart {
-    margin-bottom: 0;
-  }
-
-  .hero.starter-chart {
-    grid-column: 1 / span 2;
-  }
-
   .keen-dashboard .chart-wrapper {
     margin-bottom: 0;
   }
