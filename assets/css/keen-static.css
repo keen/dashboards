@@ -1,11 +1,17 @@
-a, a:focus, a:hover, a:active {
+a,
+a:focus,
+a:hover,
+a:active {
   color: #00afd7;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: "Gotham Rounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 12px 0;
 }
+
 h1 {
   font-size: 32px;
   font-weight: 100;
@@ -13,11 +19,13 @@ h1 {
   line-height: 48px;
   margin: 12px 0;
 }
+
 h2 {
   color: #2a333c;
   font-weight: 200;
   font-size: 21px;
 }
+
 h3 {
   color: rgb(84, 102, 120);
   font-size: 21px;
@@ -38,8 +46,9 @@ h3 {
 }
 
 .navbar-toggle {
-  background-color: rgba(255,255,255,.25);
+  background-color: rgba(255, 255, 255, .25);
 }
+
 .navbar-toggle .icon-bar {
   background: #fff;
 }
@@ -48,27 +57,31 @@ h3 {
 .navbar-nav {
   margin: 5px 0 0;
 }
-.navbar-nav > li > a {
+
+.navbar-nav>li>a {
   font-size: 15px;
   font-weight: 200;
   letter-spacing: 0.03em;
   padding-top: 19px;
-  text-shadow: 0 0 2px rgba(0,0,0,.1);
+  text-shadow: 0 0 2px rgba(0, 0, 0, .1);
 }
-.navbar-nav > li > a:focus,
-.navbar-nav > li > a:hover {
+
+.navbar-nav>li>a:focus,
+.navbar-nav>li>a:hover {
   background: transparent none;
 }
 
-.navbar-nav > li > a.navbar-btn {
-  background-color: rgba(255,255,255,.25);
+.navbar-nav>li>a.navbar-btn {
+  background-color: rgba(255, 255, 255, .25);
   border: medium none;
   padding: 10px 15px;
 }
-.navbar-nav > li > a.navbar-btn:focus,
-.navbar-nav > li > a.navbar-btn:hover {
-  background-color: rgba(255,255,255,.35);
+
+.navbar-nav>li>a.navbar-btn:focus,
+.navbar-nav>li>a.navbar-btn:hover {
+  background-color: rgba(255, 255, 255, .35);
 }
+
 .navbar-collapse {
   box-shadow: none;
 }
@@ -82,9 +95,11 @@ h3 {
   margin: 0 0 24px;
   padding: 20px 0;
 }
+
 .masthead h1 {
   margin: 0;
 }
+
 .masthead small,
 .masthead a,
 .masthead a:focus,
@@ -92,6 +107,7 @@ h3 {
 .masthead a:active {
   color: #fff;
 }
+
 .masthead p {
   color: #b3e7f3;
   font-weight: 100;
@@ -105,13 +121,17 @@ h3 {
   min-height: 450px;
   text-align: center;
 }
+
 .hero h1 {
   font-size: 48px;
   margin: 120px 0 0;
 }
+
 .hero .lead {
+  margin-top: 0;
   margin-bottom: 32px;
 }
+
 .hero a.hero-btn {
   border: 2px solid #fff;
   display: block;
@@ -122,6 +142,7 @@ h3 {
   max-width: 320px;
   padding: 12px 0 6px;
 }
+
 .hero a.hero-btn:focus,
 .hero a.hero-btn:hover {
   border-color: transparent;
@@ -152,4 +173,5 @@ h3 {
 
 .love p {
   margin-bottom: 0;
+  margin-top: 0;
 }
