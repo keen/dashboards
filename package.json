@@ -1,6 +1,6 @@
 {
   "name": "keen-dashboards",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Responsive dashboard templates",
   "main": "./dist/keen-dashboards.css",
   "repository": {
