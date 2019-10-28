@@ -43,7 +43,7 @@ These layout templates are composed of a minimal set of custom styles. They cove
 
 ## Integrations
 
-These templates can work with any data source or charting library, but they're particularly streamlined to work with Keen IO's [Dataviz SDK](https://github.com/keen/keen-dataviz.js). To see the Keen integration in action, create a [free project](http://keen.io/signup?s=gh-dashboards) and send some data to it. Then add some charts to your dashboard with just a few lines of code.
+These templates can work with any data source or charting library, but they're particularly streamlined to work with Keen IO's [Dataviz SDK](https://github.com/keen/keen-dataviz.js). You can add some charts to your dashboard with just a few lines of code. [Talk to our team](https://try.keen.io/contact) to get started today.
 
 ## Usage
 
