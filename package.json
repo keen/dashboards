@@ -1,7 +1,7 @@
 {
   "name": "keen-dashboards",
-  "version": "2.0.0",
-  "description": "Responsive dashboard templates for Bootstrap",
+  "version": "3.0.1",
+  "description": "Responsive dashboard templates",
   "main": "./dist/keen-dashboards.css",
   "repository": {
     "type": "git",
@@ -16,7 +16,8 @@
   "author": "Dustin Larimer <dustin@keen.io>",
   "contributors": [
     "Dustin Larimer <dustin@keen.io>",
-    "Taylor Barnett <taylor@keen.io>"
+    "Taylor Barnett <taylor@keen.io>",
+    "Artur Pryka <artur.pryka@keen.io> (https://github.com/apryka)"
   ],
   "license": "MIT",
   "bugs": {

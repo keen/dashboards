@@ -1,6 +1,6 @@
 # Dashboards by Keen IO
 
-Building an analytics dashboard? Don’t start from scratch. Grab one of our Bootstrap-based templates and admire your data in minutes.
+Building an analytics dashboard? Don’t start from scratch. Grab one of our CSS Grid-based templates and admire your data in minutes.
 
 **UPDATE: All examples in this repo have been updated to use [keen-dataviz.js](https://github.com/keen/keen-dataviz.js) and [keen-analysis.js](https://github.com/keen/keen-analysis.js), as well as CDN versions of all dependencies.** When producing charts with [keen-dataviz.js](https://github.com/keen/keen-dataviz.js), the HTML wrapper for each chart (`.chart-wrapper`, described below) is rendered automatically.
 
@@ -10,9 +10,9 @@ Begin with a layout:
 
 Add charts to each `chart-stage` HTML element:
 
-``` html
-<div class="col-sm-6 col-md-3">
-  <div class="chart-wrapper">
+```html
+<div class="grid-hero">
+  <div class="hero chart-wrapper">
     <div class="chart-title">
       Chart Title
     </div>
@@ -36,7 +36,7 @@ An attractive, custom analytics dashboard that's ready to be shown to your team 
 
 ## The Templates
 
-These layout templates are composed of a minimal set of [Bootstrap v3.2](http://getbootstrap.com/) custom styles. They cover the most common use cases and layout configurations we've encountered so far.
+These layout templates are composed of a minimal set of custom styles. They cover the most common use cases and layout configurations we've encountered so far.
 
 * [Layouts](http://keen.github.io/dashboards/layouts/) for pre-built, responsive dashboard views
 * [Examples](http://keen.github.io/dashboards/examples/) for specific domains, data models and popular integrations
@@ -56,7 +56,7 @@ Ready to use one of these awesome layouts? Here's how to get started.
 3. Start editing! In the destination folder will exist an `.html` file. Open it in your favorite text editor. There are three things you need to do to edit your dashboard:
   1. Setup: If you're a registered Keen IO user, navigate to [your keen project](http://keen.io/login?s=gh-dashboards) or if you don't have a user at first, you can simply use some demo data that we've prepared for you. You can access those by going to the repository and navigating to demo-data. There, you will see some javascript files with some code in them. We will simply paste those in the .html file.
   2. Some copypasta. When you navigate to the bottom of the .html file, you can see that there are a bunch of script tags. Just before the end of the body tag, we're going to add in the code from sample.html. Simply copy and paste the code just before you see ```</body>```.
-  3. Once you've done that we need to hook up the specific items within the template to the code that we've just pasted in to our file. In line 21 of sample.html, you will see a line of code: ```document.getElementById('chart-01')```. That means that this *query* will try to find inside the html file a node with an id of 'chart-01'. In these templates, you will see lines of that resemble something like:
+  3. Once you've done that we need to hook up the specific items within the template to the code that we've just pasted in to our file. Each KeenDataviz instance has `container` property, which is a node selector required by *query*. That means that this *query* will try to find inside the html file a specified node. Please bear in mind that you have to set a height of this node in your stylesheet or using inline CSS. In these templates, you will see lines of that resemble something like:
   ```html
   <div class="chart-stage"> <!-- This is where you need to put the id property in! -->
     <img data-src="holder.js/100%x650/white">
