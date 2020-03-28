@@ -49,7 +49,7 @@ These templates can work with any data source or charting library, but they're p
 
 Ready to use one of these awesome layouts? Here's how to get started.
 
-1. Download a copy of this repository as a zip file, using [this link](https://github.com/keen/dashboards/archive/gh-pages.zip). You can also type `git clone keen/dashboards` in your terminal.
+1. Download a copy of this repository as a zip file, using [this link](https://github.com/keen/dashboards/archive/gh-pages.zip). You can also type `git clone https://github.com/keen/dashboards` in your terminal.
 
 2. Check out the various [layouts](http://keen.github.io/dashboards/layouts/) and pick the one that best suits your needs. Find the template in the repository you downloaded at `folder/layouts/(name-of-template)`.
 
